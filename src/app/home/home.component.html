@@ -1,0 +1,17 @@
+<p>
+  home works!
+</p>
+
+<div>
+  <form [formGroup]="articleForm">
+    <mat-form-field>
+      <input matInput placeholder="Favorite food" value="Sushi" formControlName="title">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <textarea matInput placeholder="Leave a comment" formControlName="description"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="submitForm()">SAVE</button>
+  </form>
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-
+import { UserService } from '../core';
 
 @Component({
     selector: 'app-home',
@@ -14,7 +14,10 @@ export class HomeComponent implements OnInit {
         description: ''
     });
 
-    constructor(private fb: FormBuilder) { }
+    constructor(
+        private fb: FormBuilder,
+        private user: UserService
+    ) { }
 
     ngOnInit() {
     }

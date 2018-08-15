@@ -163,12 +163,4 @@ export class UserService {
 		return this.currentUserSubject.value;
 	}
 
-	public test(): void {
-		this.apiService.get(`user/sfsfs`)
-            .subscribe(
-                data => console.log('asdf'),
-                err => console.log('err')
-            );
-	}
-
 }

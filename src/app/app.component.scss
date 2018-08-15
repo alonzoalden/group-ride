@@ -1,0 +1,28 @@
+/*Global style variables*/
+@import './style-variables.scss';
+
+/*Component styles*/
+@import "./header/header.component.scss";
+@import "./lead/lead.component.scss";
+@import "./discover/discover.component.scss";
+@import "./discover/ride/ride.component.scss";
+@import "./map/map-box.component.scss";
+
+/*Global styles*/
+body {
+    font-family: 'Arvo';
+    background-color: #f9f9f9;
+}
+
+.material-icons.mat-48.head-icon { 
+    font-size: 48px; 
+    margin-right: 12px;
+}
+
+.material-icons.mat-48 { 
+    font-size: 48px; 
+}
+
+.material-icons.mat-36 { 
+    font-size: 36px; 
+}

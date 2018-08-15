@@ -8,7 +8,7 @@ export class RouteItem {
         profile_medium: String;
     }
     created_at: String;
-    description: string;
+    description: String;
     distance: Number;
     elevation_gain: Number;
     estimated_moving_time: Number;

@@ -1,0 +1,56 @@
+<div class="header">
+  <mat-toolbar class="nav">
+      <i class="material-icons mat-48 head-icon">directions_bike</i>
+
+      <button 
+          mat-button
+          routerLink="/">
+          Discover Rides
+      </button>
+
+      <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+          <button mat-button routerLink="/network">Network</button>
+          <button mat-button routerLink="/lead">Lead Ride</button>
+      </div>
+      <button mat-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
+          <i class="material-icons">menu</i>
+      </button>
+      
+      <mat-menu x-position="before" #menu="matMenu">
+              <button mat-menu-item routerLink="/network">Network</button>
+              <button mat-menu-item routerLink="/lead">Lead Ride</button>
+      </mat-menu>
+
+      <!-- This fills the remaining space of the current row -->
+      <span class="fill-remaining-space"></span>
+      <div [hidden]="!user.isAuthenticated()">
+          <mat-menu #userMenu="matMenu">
+              <button mat-menu-item (click)="user.logout()">Log Out</button>
+          </mat-menu>
+          
+          <button
+      mat-button
+      [matMenuTriggerFor]="userMenu">
+
+      <span [hidden]="!this.currentUser">
+        {{ this.currentUser ? this.currentUser.firstname : 'hi' }}
+      </span>
+      <span [hidden]="this.currentUser">
+        Retreiving user...
+      </span>
+      <img [hidden]="!this.currentUser.profile_medium" [src]="this.currentUser.profile_medium" class="circle">
+      <i class="material-icons">menu</i>
+          </button>
+          
+      </div>
+      <div [hidden]="user.isAuthenticated()">
+          <button 
+              mat-button
+              routerLink="/"
+              (click)="user.login()">
+              <i class="material-icons mat-36">face</i>
+              SIGN IN
+          </button>
+      </div>
+  </mat-toolbar>
+</div>

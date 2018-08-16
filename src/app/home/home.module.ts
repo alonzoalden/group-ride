@@ -13,11 +13,11 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
-// import { RideComponent } from './ride/ride.component';
+ import { RideComponent } from './ride/ride.component';
 import { MapboxModule } from '../map-box/map-box.module';
 import {
 	
-} from '@angular/material'
+} from '@angular/material';
 
 @NgModule({
 	imports: [
@@ -34,6 +34,6 @@ import {
 		MatListModule,
 		MatInputModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, RideComponent]
 })
 export class HomeModule { }

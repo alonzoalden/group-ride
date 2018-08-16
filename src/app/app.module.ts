@@ -6,7 +6,6 @@ import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderModule } from './header/header.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +15,7 @@ import { MatMenuModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+declare var require: any;
 
 @NgModule({
 	declarations: [ AppComponent, HeaderComponent],

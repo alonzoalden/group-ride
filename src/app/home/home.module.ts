@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 // import { RideComponent } from './ride/ride.component';
-// import { MapboxModule } from '../map/map-box.module';
+import { MapboxModule } from '../map-box/map-box.module';
 import {
 	
 } from '@angular/material'
@@ -22,6 +22,7 @@ import {
 @NgModule({
 	imports: [
 		CommonModule,
+		MapboxModule,
 		MatFormFieldModule,
 		MatToolbarModule,
 		MatButtonModule,

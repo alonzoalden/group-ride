@@ -23,27 +23,27 @@
 
       <!-- This fills the remaining space of the current row -->
       <span class="fill-remaining-space"></span>
-      <div [hidden]="!user.isAuthenticated()">
+      <div>
           <mat-menu #userMenu="matMenu">
               <button mat-menu-item (click)="user.logout()">Log Out</button>
           </mat-menu>
           
           <button
-      mat-button
-      [matMenuTriggerFor]="userMenu">
+            mat-button
+            [matMenuTriggerFor]="userMenu">
 
-      <span [hidden]="!this.currentUser">
-        {{ this.currentUser ? this.currentUser.firstname : 'hi' }}
-      </span>
-      <span [hidden]="this.currentUser">
-        Retreiving user...
-      </span>
-      <img [hidden]="!this.currentUser.profile_medium" [src]="this.currentUser.profile_medium" class="circle">
-      <i class="material-icons">menu</i>
+            <!-- <span [hidden]="!this.currentUser"> -->
+              {{ this.currentUser ? this.currentUser.firstname : 'hi' }}
+            <!-- </span> -->
+            <!-- <span [hidden]="this.currentUser"> -->
+              Retreiving user...
+            <!-- </span> -->
+            <!-- <img [hidden]="!this.currentUser.profile_medium" [src]="this.currentUser.profile_medium" class="circle"> -->
+            <i class="material-icons">menu</i>
           </button>
           
       </div>
-      <div [hidden]="user.isAuthenticated()">
+      <div >
           <button 
               mat-button
               routerLink="/"

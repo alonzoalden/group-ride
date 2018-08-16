@@ -37,7 +37,7 @@ export class UserService {
 		private apiService: ApiService,
 		private jwtService: JwtService,
 		private activatedRoute: ActivatedRoute,
-		private dialog: MatDialog
+		//private dialog: MatDialog
 	) {}
 
 	public login(): void {

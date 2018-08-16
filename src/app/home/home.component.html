@@ -1,17 +1,17 @@
-<p>
-  home works!
-</p>
+<mat-sidenav-container class="discover-container">
+  <mat-sidenav class="ride-list" opened="true" mode="side">
+    <!-- sidenav content -->
+    <div [hidden]="false">
+        BLAHBALH
+    </div>
+    <div [hidden]="true">
+        <mat-progress-spinner
+            class="example-margin center"
+            color="primary"
+            mode="indeterminate">
+        </mat-progress-spinner>
+    </div>
+  </mat-sidenav>
 
-<div>
-  <form [formGroup]="articleForm">
-    <mat-form-field>
-      <input matInput placeholder="Favorite food" value="Sushi" formControlName="title">
-    </mat-form-field>
-  
-    <mat-form-field>
-      <textarea matInput placeholder="Leave a comment" formControlName="description"></textarea>
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" (click)="submitForm()">SAVE</button>
-  </form>
-</div>
+  <!-- <map class="test"></map> -->
+</mat-sidenav-container>

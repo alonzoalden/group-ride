@@ -15,7 +15,6 @@ import { MatMenuModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
-declare var require: any;
 
 @NgModule({
 	declarations: [ AppComponent, HeaderComponent],

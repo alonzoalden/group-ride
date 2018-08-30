@@ -1,10 +1,48 @@
 <div class="ride-container">
-  <mat-list>
-    <mat-list-item class="font" style="height: 100px; box-shadow: 1px 2px 2px lightgrey">
-      <h3 style="font-weight: bold" mat-line>Chill Ride thru apple valley</h3>
-      <p mat-line><span class="color"> Leader:</span> Alonzo Alden</p>
-      <p mat-line><span class="color">Time:</span></p>
+  <mat-toolbar class="ride-toolbar" color="primary">
+    <span>Select Ride</span>
+  
+    <!-- This fills the remaining space of the current row -->
+    <!-- <span class="example-fill-remaining-space"></span> -->
+  
+    <!-- <span>Right Aligned Text</span> -->
+  </mat-toolbar>
+  <mat-list class="left" role="list">
+    <mat-list-item style="height: 100px; box-shadow: 1px 2px 2px lightgrey; margin-top: -8px;" role="list-item">
+
+      <i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
+      <h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+      
+      <span mat-line class="color">8:00am</span>
+      <span mat-line class="color">Thursday, August 5 2018</span>
+      <!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
+
       <img class="font" [src]="this.smallMap">
+      
     </mat-list-item>
+    <mat-list-item style="height: 100px; box-shadow: 1px 2px 2px lightgrey" role="list-item">
+
+        <i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
+        <h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+        
+        <span mat-line class="color">8:00am</span>
+        <span mat-line class="color">Thursday, August 5 2018</span>
+        <!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
+  
+        <img class="font" [src]="this.smallMap">
+        
+      </mat-list-item>
+      <mat-list-item style="height: 100px; box-shadow: 1px 2px 2px lightgrey" role="list-item">
+
+          <i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
+          <h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+          
+          <span mat-line class="color">8:00am</span>
+          <span mat-line class="color">Thursday, August 5 2018</span>
+          <!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
+    
+          <img class="font" [src]="this.smallMap">
+          
+        </mat-list-item>
   </mat-list>
 </div>

@@ -3,7 +3,8 @@ import { keys as AUTH_CONFIG } from '../../../../env-config';
 
 @Component({
 	selector: 'ride',
-	templateUrl: './ride.component.html'
+	templateUrl: './ride.component.html',
+	styleUrls: ['./ride.component.scss']
 })
 
 export class RideComponent implements OnInit {

@@ -5,3 +5,18 @@
 .color {
     color: lightslategray;
 }
+.space {
+    display: flex;
+    justify-content: flex-start;
+    font-weight: 200;
+}
+
+.left {
+    :hover {
+        background-color: lightblue;
+        transition: 400ms;
+    }
+}
+.ride-toolbar {
+    margin-top: 10px;
+}

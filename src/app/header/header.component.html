@@ -1,23 +1,23 @@
 <div class="header">
   <mat-toolbar class="nav">
-      <i class="material-icons mat-48 head-icon">directions_bike</i>
+      <i class="material-icons mat-48 head-icon m-r-sm">directions_bike</i>
 
       <button 
           mat-button
           routerLink="/">
-          Discover Rides
+          Discover
       </button>
 
       <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-          <button mat-button routerLink="/network">Network</button>
-          <button mat-button routerLink="/lead">Lead Ride</button>
+          <!-- <button mat-button routerLink="/network">Network</button> -->
+          <button mat-button routerLink="/lead">Lead</button>
       </div>
       <button mat-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
           <i class="material-icons">menu</i>
       </button>
       
       <mat-menu x-position="before" #menu="matMenu">
-              <button mat-menu-item routerLink="/network">Network</button>
+              <!-- <button mat-menu-item routerLink="/network">Network</button> -->
               <button mat-menu-item routerLink="/lead">Lead Ride</button>
       </mat-menu>
 

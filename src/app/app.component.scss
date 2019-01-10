@@ -26,3 +26,7 @@ body {
 .material-icons.mat-36 { 
     font-size: 36px; 
 }
+.mat-toolbar-row, .mat-toolbar-single-row,
+.mat-toolbar.mat-primary {
+    background: #094380 !important;
+}

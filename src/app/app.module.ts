@@ -3,10 +3,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
+import { LeadModule } from './lead/lead.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material';
@@ -20,7 +21,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 	declarations: [ AppComponent, HeaderComponent],
 	imports: [
 		HomeModule,
+		LeadModule,
 		CoreModule,
+		FormsModule,
 		ReactiveFormsModule,
 		BrowserModule,
 		AppRoutingModule,

@@ -1,0 +1,21 @@
+<div class="leader-container">
+	
+	<div class="top-banner">
+		<h2>Select a Route</h2>
+	</div>
+
+	<div [hidden]="!user.isLoading">
+		<mat-progress-spinner
+			class="spinner"
+			color="primary"
+			mode="indeterminate">
+	    </mat-progress-spinner>
+	</div>
+	<route></route>
+	<!--<route [hidden]="this.routes.getSelectedRoute().id"></route>-->
+	
+	<!--<div [hidden]="!this.routes.getSelectedRoute().id" class="route-form">
+		<map class="t"></map><br><br><br><br><br><br><br>
+		<span (click)="this.routeListView()">BACK</span>
+	</div>-->
+</div>

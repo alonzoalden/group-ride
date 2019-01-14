@@ -1,58 +1,130 @@
 <div class="ride-container">
-	<mat-toolbar class="ride-toolbar">
-		<form class="example-form">
-			<mat-form-field class="searchbar">
-				<input matInput placeholder="Search">
+	<div class="ride-toolbar">
+			
+		<form>
+			<!-- <h6 style="font-size: 12px; margin-bottom: 0px;">Looking in <b>Los Angeles, CA</b></h6> -->
+			<div style="display: flex;">
+			<mat-form-field class="searchbar" appearance="outline">
+				<mat-label>Search</mat-label>
+				<input matInput [placeholder]="searchBy === 'ZipCode' ? 'Enter Zip Code or City, State' : 'Enter City/State' ">
 			</mat-form-field>
-			<mat-form-field class="searchoptions">
+			
+			<!-- <mat-form-field class="searchoptions" appearance="outline">
+				<mat-label>Search</mat-label>
 				<mat-select [(ngModel)]="searchBy" [ngModelOptions]="{standalone: true}">
 					<mat-option *ngFor="let option of searchOptions" [value]="option.value">
 						{{option.name}}
 					</mat-option>
 					
 				</mat-select>
-			</mat-form-field>
+			</mat-form-field> -->
 			
+			<button style="height: 80%; margin-left: 20px; margin-right: 10px; align-self: center" mat-mini-fab color="primary"><i class="material-icons mat-24">search</i></button>
+			
+			<!-- <button style="margin-left: 20px" mat-mini-fab color="primary"><i class="material-icons mat-24">search</i></button> -->
+			<br>
+			<!-- <mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox>
+			<mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox> -->
+			</div>
 		</form>
 		
 
-	</mat-toolbar>
-	<mat-list class="left" role="list">
-		<mat-list-item class="item" role="list-item">
+	</div>
+	<mat-tab-group style="background-color: #eeeeee;">
+			<mat-tab>
+				<ng-template mat-tab-label>
+					ALL
+				</ng-template>
+			</mat-tab>
+			<mat-tab>
+				<ng-template mat-tab-label>
+					<i matListIcon class="material-icons mat-36 head-icon" style="margin-right: 7px;">directions_bike</i> 
+						
+				</ng-template>
+				<mat-list class="left" role="list">
+					<mat-list-item class="item" role="list-item">
 
-			<i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
-			<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
-			
-			<span mat-line class="color">8:00am</span>
-			<span mat-line class="color">Thursday, August 5 2018</span>
-			<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
+						<i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
+						<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+						
+						<span mat-line class="color">8:00am</span>
+						<span mat-line class="color">Thursday, August 5 2018</span>
+						<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
 
-			<img class="font" [src]="this.smallMap">
-			
-		</mat-list-item>
-		<mat-list-item class="item" role="list-item">
+						<img class="font" [src]="this.smallMap">
+						
+					</mat-list-item>
+					<mat-list-item class="item" role="list-item">
 
-				<i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
-				<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+							<i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
+							<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+							
+							<span mat-line class="color">8:00am</span>
+							<span mat-line class="color">Thursday, August 5 2018</span>
+							<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
 				
-				<span mat-line class="color">8:00am</span>
-				<span mat-line class="color">Thursday, August 5 2018</span>
-				<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
+							<img class="font" [src]="this.smallMap">
+							
+						</mat-list-item>
+						<mat-list-item class="item" role="list-item">
+
+								<i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
+								<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+								
+								<span mat-line class="color">8:00am</span>
+								<span mat-line class="color">Thursday, August 5 2018</span>
+								<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
+					
+								<img class="font" [src]="this.smallMap">
+								
+							</mat-list-item>
+				</mat-list>
+			</mat-tab>
+			<mat-tab>
+				<ng-template mat-tab-label>
+					<i matListIcon class="material-icons mat-36 head-icon">directions_run</i>
+						
+					</ng-template>
+				<mat-list class="left" role="list">
+					<mat-list-item class="item" role="list-item">
+							
+						<i matListIcon class="material-icons mat-36 head-icon">directions_run</i>
+						<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+						
+						<span mat-line class="color">8:00am</span>
+						<span mat-line class="color">Thursday, August 5 2018</span>
+						<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
+			
+						<img class="font" [src]="this.smallMap">
+						
+					</mat-list-item>
+					<mat-list-item class="item" role="list-item">
+			
+							<i matListIcon class="material-icons mat-36 head-icon">directions_run</i>
+							<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+							
+							<span mat-line class="color">8:00am</span>
+							<span mat-line class="color">Thursday, August 5 2018</span>
+							<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
+				
+							<img class="font" [src]="this.smallMap">
+							
+						</mat-list-item>
+						<mat-list-item class="item" role="list-item">
+			
+							<i matListIcon class="material-icons mat-36 head-icon">directions_run</i>
+							<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+							
+							<span mat-line class="color">8:00am</span>
+							<span mat-line class="color">Thursday, August 5 2018</span>
+							<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
+				
+							<img class="font" [src]="this.smallMap">
+							
+						</mat-list-item>
+					</mat-list>
+			</mat-tab>
+			
+	</mat-tab-group>
 	
-				<img class="font" [src]="this.smallMap">
-				
-			</mat-list-item>
-			<mat-list-item class="item" role="list-item">
-
-					<i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
-					<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
-					
-					<span mat-line class="color">8:00am</span>
-					<span mat-line class="color">Thursday, August 5 2018</span>
-					<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
-		
-					<img class="font" [src]="this.smallMap">
-					
-				</mat-list-item>
-	</mat-list>
 </div>

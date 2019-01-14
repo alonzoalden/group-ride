@@ -15,6 +15,9 @@ import { MatInputModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 import { RideComponent } from './ride/ride.component';
 import { MapboxModule } from '../map-box/map-box.module';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
+
 import {
 	
 } from '@angular/material';
@@ -34,7 +37,10 @@ import {
 		BrowserAnimationsModule,
 		MatListModule,
 		MatInputModule,
-		MatSelectModule
+		MatSelectModule,
+		MatCheckboxModule,
+		MatTabsModule
+		
   ],
   declarations: [HomeComponent, RideComponent]
 })

@@ -10,7 +10,7 @@
     .nav {
         color: $blue;
         height: 48px;
-        background-color: $green;
+        background-color: #ffffff;
         text-transform: uppercase;
         // button:hover {
         //     text-decoration: underline;
@@ -25,9 +25,12 @@
         font-size: 15px;
     }
 }
+.mat-flat-button,
 .mat-button {
     font-weight: 600;
     text-transform: uppercase;
+    background-color: transparent;
+    color: #673ab7;
 }
 .circle {
     border-radius: 100%;

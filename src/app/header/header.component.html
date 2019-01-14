@@ -1,12 +1,14 @@
 <div class="header">
   <mat-toolbar class="nav">
-      <i class="material-icons mat-48 head-icon m-r-sm">directions_bike</i>
-
-      <button 
-          mat-button
-          routerLink="/">
-          Discover
-      </button>
+        <i class="material-icons mat-48 head-icon m-r-sm">directions_bike</i>
+            <div ngClass="cool-link">
+                <button 
+                    mat-button
+                    (click)="isActive = 'Discover'"
+                    routerLink="/">
+                    Discover
+                </button>
+            </div>
 
       <div fxLayout="row" fxShow="false" fxShow.gt-sm>
           <!-- <button mat-button routerLink="/network">Network</button> -->
@@ -49,7 +51,7 @@
               routerLink="/"
               (click)="user.login()">
               <i class="material-icons mat-36">face</i>
-              SIGN IN
+                SIGN IN
           </button>
       </div>
   </mat-toolbar>

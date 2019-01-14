@@ -1,2 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.mat-tab-label {
+    min-width: 0px !important;
+    width: 140px !important
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.mat-tab-label {
+    background-color: #ffffff !important;
+}

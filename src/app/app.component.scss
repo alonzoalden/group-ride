@@ -30,3 +30,6 @@ body {
 .mat-toolbar.mat-primary {
     background: #094380 !important;
 }
+.no-hover-effect .mat-button-focus-overlay {
+    background-color: transparent;
+  }

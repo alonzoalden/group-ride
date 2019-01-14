@@ -20,8 +20,11 @@
     }
 }
 .ride-toolbar {
-    background-color: #f9f9f9;
+    padding: 10px;
+    background-color: #eeeeee;
     border-bottom: 1px solid darkgray;
+    border-bottom: 1px solid #dddddd;
+    
 }
 .item {
     // box-shadow: 15px 15px 15px black;
@@ -37,11 +40,19 @@
 .searchbar {
     color: #333;
     font-size: 14px;
-    width: 100px;
-    margin-top: 30px;
+    width: 100%;
+    margin-bottom: -20px;   
 }
 .searchoptions {
     font-size: 14px;
     margin-left: 10px;
     width: 100px;
+}
+.mat-tab-label {
+    min-width: 80px !important;
+    width: 80px !important;
+    
+}
+.mat-list-item {
+    background-color: #ffffff;
 }

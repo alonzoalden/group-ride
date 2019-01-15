@@ -4,13 +4,13 @@
     top: 0;
     right: 0;
     left: 0;
-    color: $indigo-light;
+    
     box-shadow: 0px 2px 10px black;
     z-index: 20;
     .nav {
-        color: $blue;
+        color: #f2f2f2;
         height: 48px;
-        background-color: #ffffff;
+        background-color: #673ab7;
         text-transform: uppercase;
         // button:hover {
         //     text-decoration: underline;
@@ -30,7 +30,6 @@
     font-weight: 600;
     text-transform: uppercase;
     background-color: transparent;
-    color: #673ab7;
 }
 .circle {
     border-radius: 100%;

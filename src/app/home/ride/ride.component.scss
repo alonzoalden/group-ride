@@ -15,8 +15,9 @@
 .left {
     
     :hover {
-        background-color: lightblue;
+        background-color: #ffffff;
         transition: 400ms;
+        cursor: pointer;
     }
 }
 .ride-toolbar {
@@ -26,10 +27,14 @@
     border-bottom: 1px solid #dddddd;
     
 }
-.item {
-    // box-shadow: 15px 15px 15px black;
+
+.left .item {
+    border-bottom: 1px solid #dddddd;
     box-shadow: 1px 2px 2px lightgrey;
-    padding: 5px;
+    height: 100px;   
+}
+.left .item:first-of-type {
+    border-top: 1px solid #dddddd;
 }
 .side-header {
     font-family: Roboto,"Helvetica Neue",sans-serif;
@@ -49,10 +54,8 @@
     width: 100px;
 }
 .mat-tab-label {
-    min-width: 80px !important;
-    width: 80px !important;
-    
+    width: 33.33%;
 }
 .mat-list-item {
-    background-color: #ffffff;
+    background-color: #f3f3f4;
 }

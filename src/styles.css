@@ -4,7 +4,7 @@
 
 .mat-tab-label {
     min-width: 0px !important;
-    width: 140px !important
+    width: 33.3%;
 }
 .mat-form-field-appearance-outline .mat-form-field-outline {
     border-radius: 5px;

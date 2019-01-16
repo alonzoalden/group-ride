@@ -58,7 +58,6 @@ export class UserService {
 		});
 		this.lock.on('authorization_error', (err) => {
 			this.router.navigate(['/']);
-			console.log(err);
 			alert(`Error: ${err.error}. Check the console for further details.`);
 		});
 	}

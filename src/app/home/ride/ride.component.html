@@ -3,28 +3,28 @@
 			
 		<form>
 			<!-- <h6 style="font-size: 12px; margin-bottom: 0px;">Looking in <b>Los Angeles, CA</b></h6> -->
-			<div style="display: flex;">
-			<mat-form-field class="searchbar" appearance="outline">
-				<mat-label>Search</mat-label>
-				<input matInput [placeholder]="searchBy === 'ZipCode' ? 'Enter Zip Code or City, State' : 'Enter City/State' ">
-			</mat-form-field>
-			
-			<!-- <mat-form-field class="searchoptions" appearance="outline">
-				<mat-label>Search</mat-label>
-				<mat-select [(ngModel)]="searchBy" [ngModelOptions]="{standalone: true}">
-					<mat-option *ngFor="let option of searchOptions" [value]="option.value">
-						{{option.name}}
-					</mat-option>
-					
-				</mat-select>
-			</mat-form-field> -->
-			
-			<button style="height: 80%; margin-left: 20px; margin-right: 10px; align-self: center" mat-mini-fab color="primary"><i class="material-icons mat-24">search</i></button>
-			
-			<!-- <button style="margin-left: 20px" mat-mini-fab color="primary"><i class="material-icons mat-24">search</i></button> -->
-			<br>
-			<!-- <mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox>
-			<mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox> -->
+			<div style="display: flex; align-items: center;">
+				<mat-form-field class="searchbar" appearance="outline">
+					<mat-label>Search</mat-label>
+					<input matInput [placeholder]="searchBy === 'ZipCode' ? 'Enter Zip Code or City, State' : 'Enter City/State' ">
+				</mat-form-field>
+				
+				<!-- <mat-form-field class="searchoptions" appearance="outline">
+					<mat-label>Search</mat-label>
+					<mat-select [(ngModel)]="searchBy" [ngModelOptions]="{standalone: true}">
+						<mat-option *ngFor="let option of searchOptions" [value]="option.value">
+							{{option.name}}
+						</mat-option>
+						
+					</mat-select>
+				</mat-form-field> -->
+				
+				<button mat-mini-fab color="primary" style="margin-left: 15px; margin-right: 5px;"><i class="material-icons mat-24">search</i></button>
+				
+				<!-- <button style="margin-left: 20px" mat-mini-fab color="primary"><i class="material-icons mat-24">search</i></button> -->
+				
+				<!-- <mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox>
+				<mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox> -->
 			</div>
 		</form>
 		

@@ -22,18 +22,17 @@ export class AppComponent {
 
 	ngOnInit() {
 		
-		// this.activatedRoute.queryParams.subscribe(params => {
-		// 	let code = params['code'];
-		// 	if (code) {
-		// 		this.user.createUser(code, this.jwtService.getAccessToken());
-		// 	}
-		// 	else {
-		// 		this.user.handleAuthentication();
-
-		// 		if (this.user.isAuthenticated()) {
-		// 			this.user.populate();
-		// 		}
-		// 	}
-		// });
+		this.activatedRoute.queryParams.subscribe(params => {
+			let code = params['code'];
+			if (code) {
+				this.user.createUser(code, this.jwtService.getAccessToken());
+			}
+			else {
+				this.user.handleAuthentication();
+				if (this.user.isAuthenticated()) {
+					this.user.populate();
+				}
+			}
+		});
 	}
 }

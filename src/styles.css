@@ -2,6 +2,11 @@
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+body {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 16px;
+    color: #333;
+}
 .mat-tab-label {
     min-width: 0px !important;
     width: 33.3%;
@@ -13,4 +18,15 @@
 
 .mat-tab-label {
     background-color: #ffffff !important;
+}
+.main-container {
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-color: #f9f9f9;
+}
+.content > div {
+    padding: 15px;
 }

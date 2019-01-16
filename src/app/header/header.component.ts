@@ -6,8 +6,9 @@ import { User } from '../core/models/user.model';
 
 @Component({
     selector: 'header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+	templateUrl: './header.component.html',
+	styleUrls: ['./header.component.scss']
+
 })
 
 export class HeaderComponent implements OnInit {

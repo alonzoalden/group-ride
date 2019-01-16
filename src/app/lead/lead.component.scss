@@ -1,17 +1,24 @@
-.leader-container {
-    background-color: #f9f9f9;
-    margin-top: 6vh;
-    height: 93vh;
+.wrap {
+    background-color: #e3e3e4;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     
+    .leader-container {
+        // height: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        background-color: #fafafa;
+        padding: 50px;
+        border-radius: 2px;
+    }
+
     .top-banner {
-        //position: absolute;
-        left: 0;
-        right: 0;
-        padding-top: 30px;
-        padding-bottom: 8px;
-        padding-left: 30px;
-        color: #3F51B5;
-        //background-color: #C5CAE9;
+        margin: 0 auto;
+        width: 100%;
+        border-bottom: 1px solid #d9d9d9;
     }
     .spinner {
         top: 50%;
@@ -19,4 +26,8 @@
     }
     
 
+}
+
+.sec1 {
+    background-color: #f2f2f2;
 }

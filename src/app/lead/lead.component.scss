@@ -1,18 +1,22 @@
 .wrap {
-    background-color: #e3e3e4;
+    // background-color: #e3e3e4;
+    background-color: #eaeaea;
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
+    padding: 50px;
     
     .leader-container {
         // height: 100%;
-        max-width: 1100px;
+        max-width: 1024px;
         margin: 0 auto;
         background-color: #fafafa;
         padding: 50px;
+        border: 1px solid #eeeeee;
         border-radius: 2px;
+        box-shadow: 1px 1px 24px #dadada;
     }
 
     .top-banner {

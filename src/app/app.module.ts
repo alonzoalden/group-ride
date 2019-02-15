@@ -16,7 +16,6 @@ import { MatMenuModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
-
 @NgModule({
 	declarations: [ AppComponent, HeaderComponent],
 	imports: [
@@ -34,7 +33,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 		MatMenuModule,
 		FlexLayoutModule,
 		BrowserAnimationsModule,
-		MatProgressSpinnerModule
+		MatProgressSpinnerModule,
+		
 	],
 	providers: [],
 	bootstrap: [AppComponent]

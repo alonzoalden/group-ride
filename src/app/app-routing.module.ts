@@ -8,15 +8,17 @@ import { LeadFormComponent } from './lead/form/form.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {animation: 'HomePage'}
   },
   {
 		path: 'lead',
-		component: LeadComponent,
+    component: LeadComponent,
+    data: {animation: 'AboutPage'}
 	},
 	{
 		path: 'lead/details',
-		component: LeadFormComponent,
+    component: LeadFormComponent,
 	}
 ];
 

@@ -7,6 +7,11 @@ body {
     font-size: 16px;
     color: #333;
 }
+.mat-button {
+    font-weight: 400 !important;
+    font-size: 16px;
+    letter-spacing: .7px;
+}
 .mat-tab-label {
     min-width: 0px !important;
     width: 33.3%;
@@ -29,4 +34,8 @@ body {
 }
 .content > div {
     padding: 15px;
+}
+.active {
+    color: #ffc757 !important;
+    transition: all 200ms ease-in-out;
 }

@@ -6,6 +6,7 @@ body {
     font-family: Roboto,"Helvetica Neue",sans-serif;
     font-size: 16px;
     color: #333;
+    background-color: #e3e3e4;
 }
 .mat-button {
     font-weight: 400 !important;
@@ -31,6 +32,7 @@ body {
     left: 0;
     position: absolute;
     background-color: #f9f9f9;
+    /* height: 100vh !important; */
 }
 .content > div {
     padding: 15px;
@@ -38,4 +40,7 @@ body {
 .active {
     color: #ffc757 !important;
     transition: all 200ms ease-in-out;
+}
+.mapboxgl-canvas {
+    /* height: 100vh !important; */
 }

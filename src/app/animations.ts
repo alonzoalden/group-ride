@@ -15,13 +15,16 @@ export const slideInAnimation =
       query(':enter, :leave', [
         style({
           position: 'absolute',
-          top: 0,
+          top: -8,
           left: 0,
-          width: '100%'
+          width: '100%',
         })
       ]),
       query(':enter', [
-        style({ left: '-100%'})
+        style({
+          left: '100%',
+          background: 'black',
+        })
       ]),
       query(':leave', animateChild()),
       group([

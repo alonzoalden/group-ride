@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User, Route } from '../core/models/index';
-
+import { slideInAnimation, fadeInOut } from '../animations';
 import {
     UserService,
     RouteService
@@ -9,7 +9,10 @@ import {
 @Component({
     selector: 'lead',
     templateUrl: './lead.component.html',
-    styleUrls: ['./lead.component.scss']
+    styleUrls: ['./lead.component.scss'],
+    animations: [
+		fadeInOut
+	]
 })
 export class LeadComponent implements OnInit {
     currentUser: User;

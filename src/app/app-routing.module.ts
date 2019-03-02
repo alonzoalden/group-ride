@@ -6,29 +6,24 @@ import { LeadFormComponent } from './lead/form/form.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent,
-    data: {animation: 'HomePage'}
-  },
-  {
-		path: 'lead',
-    component: LeadComponent,
-    data: {animation: 'AboutPage'}
-	},
-	{
-		path: 'lead/details',
-    component: LeadFormComponent,
-	}
+
+    {
+        path: '',
+        loadChildren: './home/home.module#HomeModule',
+    },
+    {
+        path: 'lead',
+        loadChildren: './lead/lead.module#LeadModule',
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    // preload all modules; optionally we could
-    // implement a custom preloading strategy for just some
-    // of the modules (PRs welcome 😉)
-    preloadingStrategy: PreloadAllModules
-  })],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes, {
+        // preload all modules; optionally we could
+        // implement a custom preloading strategy for just some
+        // of the modules (PRs welcome 😉)
+        preloadingStrategy: PreloadAllModules
+    })],
+    exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

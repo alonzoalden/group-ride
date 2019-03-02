@@ -11,7 +11,7 @@ import {
 	group,
 	state
   } from '@angular/animations';
-import { slideInAnimation } from './animations'
+import { slideInAnimation, fadeInOut } from './animations'
 import {
 	UserService,
 	JwtService
@@ -22,7 +22,8 @@ import {
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
 	animations: [
-		slideInAnimation
+		slideInAnimation,
+		fadeInOut
 	]
 })
 
@@ -52,5 +53,5 @@ export class AppComponent {
 
 	prepareRoute(outlet: RouterOutlet) {
 		return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-	  }
+	}
 }

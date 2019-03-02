@@ -41,6 +41,9 @@ body {
     color: #ffc757 !important;
     transition: all 200ms ease-in-out;
 }
-.mapboxgl-canvas {
-    /* height: 100vh !important; */
+mgl-map {
+    min-height: calc(100vh - 50px);
+}
+.mapboxgl-map {
+    width: 100% !important;
 }

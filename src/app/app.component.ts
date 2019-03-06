@@ -1,6 +1,17 @@
 import { Component } from '@angular/core';
 import { keys } from '../../env-config';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterOutlet } from '@angular/router';
+import {
+	trigger,
+	query,
+	style,
+	animate,
+	transition,
+	animateChild,
+	group,
+	state
+  } from '@angular/animations';
+import { slideInAnimation } from './animations'
 import {
 	UserService,
 	JwtService
@@ -9,7 +20,10 @@ import {
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.scss']
+	styleUrls: ['./app.component.scss'],
+	animations: [
+		slideInAnimation
+	]
 })
 
 export class AppComponent {
@@ -17,7 +31,7 @@ export class AppComponent {
 	constructor(
 		private user: UserService,
 		private jwtService: JwtService,
-		private activatedRoute: ActivatedRoute,
+		private activatedRoute: ActivatedRoute
 	) {}
 
 	ngOnInit() {
@@ -38,5 +52,8 @@ export class AppComponent {
 				}
 			}
 		});
+	}
+	prepareRoute(outlet: RouterOutlet) {
+		return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
 	}
 }

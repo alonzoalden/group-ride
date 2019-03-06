@@ -16,10 +16,16 @@
     
     :hover {
         background-color: #ffffff;
-        transition: 400ms;
+        transition: 100ms;
         cursor: pointer;
+        
     }
 }
+.left .item:hover {
+    box-shadow: 1px 1px 18px #dddddd;
+    transition: 100ms;
+}
+
 .ride-toolbar {
     padding: 10px;
     background-color: #dddddd;

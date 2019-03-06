@@ -17,31 +17,40 @@ import { RideComponent } from './ride/ride.component';
 import { MapboxModule } from '../map-box/map-box.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
+import { HomeRoutingModule } from './home-routing.module';
 
 import {
-	
+
 } from '@angular/material';
+import { LeadComponent } from '../lead/lead.component';
+import { RouteComponent } from '../lead/route/route.component';
 
 @NgModule({
-	imports: [
-		FormsModule,
-		CommonModule,
-		MapboxModule,
-		MatFormFieldModule,
-		MatToolbarModule,
-		MatButtonModule,
-		MatMenuModule,
-		MatSidenavModule,
-		MatProgressSpinnerModule,
-		FlexLayoutModule,
-		BrowserAnimationsModule,
-		MatListModule,
-		MatInputModule,
-		MatSelectModule,
-		MatCheckboxModule,
-		MatTabsModule
-		
-  ],
-  declarations: [HomeComponent, RideComponent]
+    imports: [
+        HomeRoutingModule,
+        FormsModule,
+        CommonModule,
+        MapboxModule,
+        MatFormFieldModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatProgressSpinnerModule,
+        FlexLayoutModule,
+        BrowserAnimationsModule,
+        MatListModule,
+        MatInputModule,
+        MatSelectModule,
+        MatCheckboxModule,
+        MatTabsModule,
+
+    ],
+    declarations: [
+        HomeComponent,
+        RideComponent,
+        LeadComponent,
+        RouteComponent
+    ]
 })
 export class HomeModule { }

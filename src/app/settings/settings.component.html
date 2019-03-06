@@ -1,0 +1,40 @@
+
+<div class="wrap">
+        <div class="leader-container">
+            
+    
+            <div [hidden]="!user.isLoading">
+                <mat-progress-spinner
+                    class="spinner"
+                    color="primary"
+                    mode="indeterminate">
+                </mat-progress-spinner>
+            </div>
+            
+            <div class="content" 
+                fxLayout="row" 
+                fxLayout.xs="column">
+               
+                <div fxFlex="15" class="sec1" fxFlex.xs="55">
+                        <h1> SETTINGs HERE!</h1>
+
+                </div>
+                <div fxFlex="70" class="sec2" >
+                        <div class="top-banner">
+                            <h1 style="margin-top: 0">Select a Route</h1>
+                        </div>
+                     
+                </div>
+                <div fxFlex="15" class="sec3" fxFlex.xs="15">
+                    third-section
+                </div>
+            </div>
+            
+            <!--<route [hidden]="this.routes.getSelectedRoute().id"></route>-->
+            
+            <!--<div [hidden]="!this.routes.getSelectedRoute().id" class="route-form">
+                <map class="t"></map><br><br><br><br><br><br><br>
+                <span (click)="this.routeListView()">BACK</span>
+            </div>-->
+        </div>
+    </div>

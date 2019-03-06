@@ -11,7 +11,7 @@ import {
     templateUrl: './lead.component.html',
     styleUrls: ['./lead.component.scss'],
     animations: [
-		fadeInOut
+		slideInAnimation
 	]
 })
 export class LeadComponent implements OnInit {

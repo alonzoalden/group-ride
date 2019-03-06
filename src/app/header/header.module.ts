@@ -12,13 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     CommonModule,
-    MatButtonModule,
-		MatToolbarModule,
-		MatMenuModule,
-		FlexLayoutModule,
-		BrowserAnimationsModule,
-    MatProgressSpinnerModule,
-    MatSelectModule
+    
   ],
   declarations: [HeaderComponent]
 })

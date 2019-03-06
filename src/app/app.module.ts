@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
-import { LeadModule } from './lead/lead.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,12 +14,13 @@ import { MatButtonModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { SettingsModule } from './settings/settings.module';
 
 @NgModule({
 	declarations: [ AppComponent, HeaderComponent],
 	imports: [
 		HomeModule,
-		LeadModule,
+		SettingsModule,
 		CoreModule,
 		FormsModule,
 		ReactiveFormsModule,

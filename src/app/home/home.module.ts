@@ -18,11 +18,12 @@ import { MapboxModule } from '../map-box/map-box.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HomeRoutingModule } from './home-routing.module';
-import { DiscoverComponent } from './discover/discover.component';
 
 import {
 
 } from '@angular/material';
+import { LeadComponent } from '../lead/lead.component';
+import { RouteComponent } from '../lead/route/route.component';
 
 @NgModule({
     imports: [
@@ -48,7 +49,8 @@ import {
     declarations: [
         HomeComponent,
         RideComponent,
-        DiscoverComponent
+        LeadComponent,
+        RouteComponent
     ]
 })
 export class HomeModule { }

@@ -1,5 +1,5 @@
 <header></header>
 <div class="main-container"
     [@routeAnimations]="prepareRoute(outlet)">
-    <router-outlet></router-outlet>
+    <router-outlet #outlet="outlet"></router-outlet>
 </div>

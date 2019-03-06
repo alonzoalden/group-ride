@@ -12,7 +12,7 @@ import {
 export const slideInAnimation =
 	trigger('routeAnimations', [
 		transition('* <=> *', [
-			style({ background: '#e3e3e4', opacity: '0.4', transition: 'all 12600ms ease-out' }),
+			style({ background: '#e3e3e4', opacity: '0.4', transition: 'all 100ms ease-out' }),
 			query(':enter, :leave', [
 				style({
 					position: 'absolute',

@@ -1,8 +1,9 @@
 <mat-sidenav-container class="discover-container">
 
     <mat-sidenav class="ride-list" opened="true" mode="side">
-        <div [hidden]="false">
-            <ride></ride>>
+
+        <div [@routeAnimations]="prepareRoute(outlet)" [hidden]="false">
+            <router-outlet #outlet="outlet"></router-outlet>
         </div>
         <div [hidden]="true">
             <mat-progress-spinner class="example-margin center" color="primary" mode="indeterminate">

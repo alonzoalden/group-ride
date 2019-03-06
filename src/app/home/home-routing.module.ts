@@ -2,12 +2,22 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LeadComponent } from '.././lead/lead.component';
 import { HomeComponent } from './home.component';
-import { DiscoverComponent } from './discover/discover.component';
-
+import { RideComponent } from './ride/ride.component';
 const routes: Routes = [
     {
         path: '',
-        component: DiscoverComponent,
+        component: HomeComponent,
+        children: [ 
+            {
+                path: '',
+                component: RideComponent
+            },
+            {
+                path: 'lead',
+                component: LeadComponent,
+                data: { animation: 'HomePage' }
+            }
+        ]
         
     },
 ];

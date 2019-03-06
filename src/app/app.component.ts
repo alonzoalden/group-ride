@@ -11,7 +11,7 @@ import {
 	group,
 	state
   } from '@angular/animations';
-import { slideInAnimation, fadeInOut } from './animations'
+import { slideInAnimation } from './animations'
 import {
 	UserService,
 	JwtService
@@ -22,8 +22,7 @@ import {
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
 	animations: [
-		slideInAnimation,
-		fadeInOut
+		slideInAnimation
 	]
 })
 
@@ -32,7 +31,7 @@ export class AppComponent {
 	constructor(
 		private user: UserService,
 		private jwtService: JwtService,
-		private activatedRoute: ActivatedRoute,
+		private activatedRoute: ActivatedRoute
 	) {}
 
 	ngOnInit() {

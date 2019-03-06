@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LeadComponent } from './lead.component';
+import { SettingsComponent } from './settings.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'lead',
-  //   component: LeadComponent,
-  //   data: { animation: 'HomePage' }
-  // }
+  {
+    path: 'settings',
+    component: SettingsComponent,
+    data: { animation: '' }
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LeadRoutingModule {}
+export class SettingsRoutingModule {}

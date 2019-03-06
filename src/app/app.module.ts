@@ -9,15 +9,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { SettingsModule } from './settings/settings.module';
+import { UserConfirmComponent } from './user-confirm/user-confirm.component';
+
 
 @NgModule({
-	declarations: [ AppComponent, HeaderComponent],
+	declarations: [ 
+		AppComponent,
+		HeaderComponent,
+		UserConfirmComponent
+	],
 	imports: [
 		HomeModule,
 		SettingsModule,
@@ -31,12 +37,16 @@ import { SettingsModule } from './settings/settings.module';
 		MatButtonModule,
 		MatToolbarModule,
 		MatMenuModule,
+		MatDialogModule,
 		FlexLayoutModule,
 		BrowserAnimationsModule,
 		MatProgressSpinnerModule,
 		
 	],
-	providers: [],
-	bootstrap: [AppComponent]
+	providers: [
+		// {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, direction: 'ltr'}}
+	],
+	bootstrap: [AppComponent],
+	entryComponents: [UserConfirmComponent]
 })
 export class AppModule { }

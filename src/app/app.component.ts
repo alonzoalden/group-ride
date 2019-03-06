@@ -39,7 +39,7 @@ export class AppComponent {
 		this.activatedRoute.queryParamMap.subscribe(params => {
 			// let code = params['access_token'];
 			let code = params.get('access_token');
-			console.log(params);
+			
 			if (code) {
 				console.log(code + 'xxxxxxxxx');
 				this.user.createUser(code, this.jwtService.getAccessToken());

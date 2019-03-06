@@ -1,0 +1,12 @@
+<div mat-dialog-content class="confirm">
+		<div class="box" >
+			<h3> Have a Strava account? </h3>
+			<p>Authorize this app to access my Strava data</p>
+				<button color="primary" mat-button (click)="authorizeStrava()">Continue</button>
+		</div>
+		<div class="box">
+			<h3> No Strava account? </h3>
+			<p> Continue with Limited Access </p>
+				<button color="accent" mat-button (click)="onNoClick()">Continue</button>
+		</div>
+</div>

@@ -1,0 +1,13 @@
+.confirm {
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 100%;
+    .box {
+        text-align: center;
+        vertical-align: middle;   
+    }
+}

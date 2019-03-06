@@ -26,7 +26,7 @@ export class RouteComponent implements OnInit {
     ) { }
     
 	ngOnInit() {
-        this.routeData.routes.length = 10;
+        this.routeData.routes.length = 2;
         console.log(this.routeData.routes);
         this.routeService.currentRoutes.subscribe(
             data => {

@@ -9,8 +9,8 @@ import { BehaviorSubject } from 'rxjs';
 import { ReplaySubject } from 'rxjs';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { filter, map, distinctUntilChanged } from 'rxjs/operators';
+import { UserConfirmComponent } from '../../user-confirm/user-confirm.component';
 
-//import { UserConfirmComponent } from '../../user-confirm/user-confirm.component';
 @Injectable()
 export class UserService {
 	
@@ -37,7 +37,7 @@ export class UserService {
 		private apiService: ApiService,
 		private jwtService: JwtService,
 		private activatedRoute: ActivatedRoute,
-		//private dialog: MatDialog
+		private dialog: MatDialog
 	) {}
 
 	public login(): void {
@@ -95,15 +95,16 @@ export class UserService {
             );
 	}
 
-	public openDialog(): void {
-		// let dialogRef = this.dialog.open(UserConfirmComponent, {
-		// width: '100%',
-		// height: '400px'
-		// });
+public openDialog(): void {
+		let dialogRef = this.dialog.open(UserConfirmComponent, {
+			width: '100%',
+			height: '400px',
+			direction: 'ltr'
+		});
 
-		// dialogRef.afterClosed().subscribe(result => {
-		// 	this.getAuthEmail();     
-		// });
+		dialogRef.afterClosed().subscribe(result => {
+			this.getAuthEmail();     
+		});
   	}
 
 	public setUser(user: User) {

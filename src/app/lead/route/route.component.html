@@ -1,3 +1,26 @@
-<p>
-  route works!
-</p>
+<div class="leadRoutesList">
+  <mat-card *ngFor="let route of routeData.routes" class="example-card" (click)="this.selectRoute(route)">
+          <div class="list-item" *ngIf="!route">
+              <mat-progress-spinner
+                  class="spinner"
+                  color="primary"
+                  mode="indeterminate">
+              </mat-progress-spinner>
+          </div>
+
+        <div *ngIf="route">
+              <img mat-card-image (load)="isLoaded()" [src]="this.getSmallMap(route.map.summary_polyline)" alt="Map">
+              <mat-card-header>
+                  <img mat-card-avatar [src]="route.athlete.profile_medium">
+                  <mat-card-title>{{ route.name }}</mat-card-title>
+                  <mat-card-subtitle>{{ route.description || route.athlete.firstname + ' ' + route.athlete.lastname }}</mat-card-subtitle>
+                  
+              </mat-card-header>
+              
+              <mat-card-content>
+                  <p>Distance: <strong>{{ convertToMiles(route.distance) }} </strong> miles <br>
+                  Elevation: <strong>{{ convertToFeet(route.elevation_gain) }} </strong> feet</p>
+              </mat-card-content>
+          </div>
+  </mat-card>
+</div>

@@ -3,7 +3,7 @@ import { HomeComponent } from './home.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatSelectModule } from '@angular/material';
+import { MatToolbarModule, MatSelectModule, MatCardModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatListModule } from '@angular/material';
@@ -44,7 +44,7 @@ import { RouteComponent } from '../lead/route/route.component';
         MatSelectModule,
         MatCheckboxModule,
         MatTabsModule,
-
+        MatCardModule
     ],
     declarations: [
         HomeComponent,

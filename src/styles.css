@@ -52,3 +52,6 @@ mgl-map {
 .mapboxgl-map {
     width: 100% !important;
 }
+.cdk-global-overlay-wrapper {
+    justify-content: center;
+}

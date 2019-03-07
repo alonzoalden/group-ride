@@ -19,7 +19,7 @@ export class RouteComponent implements OnInit {
         routes: new Array<RouteItem>(),
     };
     routes: Array<any>;
-    
+    selectedRoute: Route;
     constructor(
         public router: Router,
         private user: UserService,

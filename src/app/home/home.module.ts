@@ -3,7 +3,7 @@ import { HomeComponent } from './home.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatSelectModule, MatCardModule } from '@angular/material';
+
 import { MatButtonModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatListModule } from '@angular/material';
@@ -18,6 +18,11 @@ import { MapboxModule } from '../map-box/map-box.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HomeRoutingModule } from './home-routing.module';
+import { 
+    MatToolbarModule,
+    MatSelectModule,
+    MatCardModule,
+} from '@angular/material';
 
 import {
 
@@ -44,7 +49,7 @@ import { RouteComponent } from '../lead/route/route.component';
         MatSelectModule,
         MatCheckboxModule,
         MatTabsModule,
-        MatCardModule
+        MatCardModule,
     ],
     declarations: [
         HomeComponent,

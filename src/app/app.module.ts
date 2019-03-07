@@ -16,13 +16,16 @@ import { MatProgressSpinnerModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { SettingsModule } from './settings/settings.module';
 import { UserConfirmComponent } from './user-confirm/user-confirm.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackBarComponent } from './shared/snackbar/snackbar.component';
 
 
 @NgModule({
 	declarations: [ 
 		AppComponent,
 		HeaderComponent,
-		UserConfirmComponent
+		UserConfirmComponent,
+		SnackBarComponent
 	],
 	imports: [
 		HomeModule,
@@ -41,12 +44,12 @@ import { UserConfirmComponent } from './user-confirm/user-confirm.component';
 		FlexLayoutModule,
 		BrowserAnimationsModule,
 		MatProgressSpinnerModule,
-		
+		MatSnackBarModule		
 	],
 	providers: [
 		// {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, direction: 'ltr'}}
 	],
 	bootstrap: [AppComponent],
-	entryComponents: [UserConfirmComponent]
+	entryComponents: [UserConfirmComponent, SnackBarComponent]
 })
 export class AppModule { }

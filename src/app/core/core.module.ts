@@ -7,7 +7,8 @@ import {
   ApiService,
   JwtService,
   UserService,
-  RouteService
+  RouteService,
+  AuthGuard
 } from './services';
 
 @NgModule({
@@ -19,7 +20,8 @@ import {
     ApiService,
     JwtService,
     UserService,
-    RouteService
+    RouteService,
+    AuthGuard
   ],
   declarations: []
 })

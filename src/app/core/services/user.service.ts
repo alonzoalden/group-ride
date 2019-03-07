@@ -31,6 +31,7 @@ export class UserService {
 	public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
 
 	private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
+	// public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
 	constructor(
 		public router: Router,

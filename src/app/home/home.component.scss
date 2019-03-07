@@ -4,7 +4,7 @@
     font-family: 'Arvo';
     .ride-list {
         width: 35%;
-        overflow: scroll;
+        overflow: visible !important;
         border-radius: 3px;
         box-shadow: 3px 3px 3px darkgray;
         .center {

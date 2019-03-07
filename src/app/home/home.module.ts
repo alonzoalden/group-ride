@@ -29,6 +29,7 @@ import {
 } from '@angular/material';
 import { LeadComponent } from '../lead/lead.component';
 import { RouteComponent } from '../lead/route/route.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
     imports: [
@@ -50,6 +51,7 @@ import { RouteComponent } from '../lead/route/route.component';
         MatCheckboxModule,
         MatTabsModule,
         MatCardModule,
+        NgSelectModule
     ],
     declarations: [
         HomeComponent,

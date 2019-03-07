@@ -18,6 +18,7 @@ export class RouteComponent implements OnInit {
     routeData = {
         routes: new Array<RouteItem>(),
     };
+    routes: Array<any>;
     
     constructor(
         public router: Router,
@@ -27,15 +28,9 @@ export class RouteComponent implements OnInit {
     
 	ngOnInit() {
         this.routeData.routes.length = 2;
-        console.log(this.routeData.routes);
         this.routeService.currentRoutes.subscribe(
             data => {
-                //this.routeData.routes = data.routes;
-                if (data.routes) {
-                    data.routes.forEach( (item, i) => {
-                        this.routeData.routes[i] = item;
-                    });
-                }
+                this.routes = data.routes;
             },
             err => console.log('error retrieving leader routes', err)
         )

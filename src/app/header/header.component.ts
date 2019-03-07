@@ -24,7 +24,6 @@ export class HeaderComponent implements OnInit {
         this.user.currentUser.subscribe(
                 (userData: User) => {
                     this.currentUser = userData;
-                    console.log(this.jwt.getToken());
                 }
             );
     }
@@ -32,9 +31,11 @@ export class HeaderComponent implements OnInit {
         return !!this.jwt.getToken();
     }
     openSnackBar() {
-        this.snackBar.openFromComponent(SnackBarComponent, {
-            duration: 4000,
-        });
+        if (!this.user.isAuthenticated()) {
+            this.snackBar.openFromComponent(SnackBarComponent, {
+                duration: 4000,
+            });
+        }
     }
 }
 

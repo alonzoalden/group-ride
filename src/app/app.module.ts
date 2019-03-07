@@ -44,7 +44,7 @@ import { SnackBarComponent } from './shared/snackbar/snackbar.component';
 		FlexLayoutModule,
 		BrowserAnimationsModule,
 		MatProgressSpinnerModule,
-		MatSnackBarModule		
+		MatSnackBarModule
 	],
 	providers: [
 		// {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, direction: 'ltr'}}

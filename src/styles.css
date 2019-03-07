@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-
+/* @import "~@ng-select/ng-select/themes/default.theme.css"; */
+@import "~@ng-select/ng-select/themes/material.theme.css";
 body {
     font-family: Roboto,"Helvetica Neue",sans-serif;
     font-size: 16px;
@@ -65,4 +66,18 @@ mgl-map {
 }
 .cdk-global-overlay-wrapper {
     justify-content: center;
+}
+.ng-dropdown-panel {
+    width: 150% !important;
+    max-height: 300px;
+}
+.ng-option {
+    height: 174px;
+}
+.circle {
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
 }

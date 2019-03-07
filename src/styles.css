@@ -44,13 +44,17 @@ body {
 }
 .mat-button {
     color: #ffc757;
+    height: 48px;
 }
 .active {
-    color: #fff !important;
-    padding-bottom: 5px !important;
-    padding-top: 7px !important;
-    border-bottom: 2px solid #fff !important;
-    transition: all 600ms ease-in-out;
+    color: #57ffc7 !important;
+    background-color: black;
+    /* padding-bottom: 2px !important;
+    padding-top: 4px !important;
+    
+    /* border-top: 2px solid #b9ff57 !important;  */
+    /* border-bottom: 1px solid #b9ff57 !important; */
+    transition: all 200ms ease-in-out;
     
 }
 mgl-map {

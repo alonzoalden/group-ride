@@ -42,9 +42,16 @@ body {
 .content > div {
     padding: 15px;
 }
+.mat-button {
+    color: #ffc757;
+}
 .active {
-    color: #ffc757 !important;
-    transition: all 200ms ease-in-out;
+    color: #fff !important;
+    padding-bottom: 5px !important;
+    padding-top: 7px !important;
+    border-bottom: 2px solid #fff !important;
+    transition: all 600ms ease-in-out;
+    
 }
 mgl-map {
     min-height: calc(100vh - 50px);

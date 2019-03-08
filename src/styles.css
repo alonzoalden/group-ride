@@ -68,7 +68,7 @@ mgl-map {
     justify-content: center;
 }
 .ng-dropdown-panel {
-    width: 150% !important;
+    width: 480px !important;
     max-height: 300px;
 }
 .ng-option {
@@ -80,4 +80,10 @@ mgl-map {
     width: 40px;
     margin-right: 10px;
     margin-left: 10px;
+}
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

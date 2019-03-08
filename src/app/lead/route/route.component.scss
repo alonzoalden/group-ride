@@ -50,11 +50,14 @@ mat-card {
     display: inline-flex;
     flex-direction: column;
     vertical-align: top;
-    padding: 20px;
+    padding: 10px 20px;
+    
     line-height: 22px;
     height: 100%;
 }
-
+.input-routes .description-section {
+    max-width: 270px;
+}
 .input-routes .description-section .label {
     font-size: 14px;
     font-weight: 300;

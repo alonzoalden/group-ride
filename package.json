@@ -33,6 +33,7 @@
     "mapbox-gl": "^0.47.0",
     "moment": "^2.24.0",
     "ngx-mapbox-gl": "^2.0.0",
+    "ngx-material-timepicker": "^2.13.0",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },

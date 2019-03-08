@@ -57,4 +57,8 @@ export class RouteComponent implements OnInit {
     private convertToFeet(meter: number) {
         return (meter * 3.28084).toFixed(0);
     }
+    private convertTomins(seconds: number) {
+        return (seconds / 60).toFixed(0);
+    }
+    
 }

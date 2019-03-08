@@ -4,7 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatDatepickerModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatListModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material';
@@ -30,7 +30,7 @@ import {
 import { LeadComponent } from '../lead/lead.component';
 import { RouteComponent } from '../lead/route/route.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 @NgModule({
     imports: [
         HomeRoutingModule,
@@ -51,6 +51,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
         MatCheckboxModule,
         MatTabsModule,
         MatCardModule,
+        MatDatepickerModule,
+        MatMomentDateModule,
         NgSelectModule
     ],
     declarations: [

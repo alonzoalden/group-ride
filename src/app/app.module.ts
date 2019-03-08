@@ -18,7 +18,7 @@ import { SettingsModule } from './settings/settings.module';
 import { UserConfirmComponent } from './user-confirm/user-confirm.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackBarComponent } from './shared/snackbar/snackbar.component';
-
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 @NgModule({
 	declarations: [ 
@@ -44,10 +44,12 @@ import { SnackBarComponent } from './shared/snackbar/snackbar.component';
 		FlexLayoutModule,
 		BrowserAnimationsModule,
 		MatProgressSpinnerModule,
-		MatSnackBarModule
+		MatSnackBarModule,
+		MatMomentDateModule
 	],
 	providers: [
 		// {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, direction: 'ltr'}}
+		{ provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } }
 	],
 	bootstrap: [AppComponent],
 	entryComponents: [UserConfirmComponent, SnackBarComponent]

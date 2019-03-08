@@ -2,7 +2,7 @@
 	<div class="leader-container">
 		
 
-		<div [hidden]="!user.isLoading">
+		<div *ngIf="user.isLoading">
 			<mat-progress-spinner
 				class="spinner"
 				color="primary"
@@ -10,23 +10,28 @@
 			</mat-progress-spinner>
 		</div>
 		
-		<div class="" 
-			fxLayout="row" 
-			fxLayout.xs="column">
-           
-			
+		<div fxLayout="row" fxLayout.xs="column">
 			<div fxFlex="100">
-					<h1 style="margin-top: 0; font-family:Verdana, Geneva, Tahoma, sans-serif">Lead Group</h1>
-					<div style="font-family: sans-serif">
-						<p style="font-weight: 700">1. Select a route. </p>
-						<p style="font-weight: 200">Need routes to choose from? Go to Strava and create or add them to your collection.</p>
-						<route></route>
-					</div>
+				<h1 style="margin-top: 0; font-family:Verdana, Geneva, Tahoma, sans-serif">Lead Group</h1>
+				<div style="font-family: sans-serif">
+					<p style="font-weight: 700">1. Select a route. </p>
+					<p style="font-weight: 200">Need routes to choose from? Go to Strava to create and add them to your collection.</p>
+					<route></route>
+				</div>
 
-					
-		
-				
-
+				<mat-form-field>
+					<input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a Date"
+						class="form-control" 
+						id="trademarkDate"
+						[(ngModel)]="date"
+						name="trademarkDate"
+						[ngModelOptions]="{standalone: true}"
+						#trademarkDate1Var="ngModel"
+						(click)='check()'
+						required/>                    
+					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					<mat-datepicker touchUi #picker></mat-datepicker>
+				</mat-form-field>
 			</div>
 		</div>
 		

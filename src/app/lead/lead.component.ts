@@ -17,6 +17,7 @@ import {
 export class LeadComponent implements OnInit {
     currentUser: User;
     currentRoute: Route;
+    date: any;
     constructor(
         private user: UserService,
         private routes: RouteService
@@ -40,4 +41,8 @@ export class LeadComponent implements OnInit {
         this.routes.selectedRouteSubject.next(new Route());
     }
 
+    check() {
+        console.log(this.date);
+    }
+ 
 }

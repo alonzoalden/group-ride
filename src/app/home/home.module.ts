@@ -32,10 +32,13 @@ import { LeadComponent } from '../lead/lead.component';
 import { RouteComponent } from '../lead/route/route.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { MatRadioModule } from '@angular/material/radio';
+
 @NgModule({
     imports: [
         HomeRoutingModule,
         FormsModule,
+        ReactiveFormsModule,
         CommonModule,
         MapboxModule,
         MatFormFieldModule,
@@ -55,6 +58,7 @@ import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/m
         MatDatepickerModule,
         MatMomentDateModule,
         NgSelectModule,
+        MatRadioModule,
         NgxMaterialTimepickerModule.forRoot()
     ],
     declarations: [

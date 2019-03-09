@@ -12,29 +12,81 @@
 		
 		<div fxLayout="row" fxLayout.xs="column">
 			<div fxFlex="100">
-				<h1 style="margin-top: 0; font-family:Verdana, Geneva, Tahoma, sans-serif">Lead Group</h1>
+				<h1 style="margin-bottom: 40px;">Lead Group</h1>
 				<div style="font-family: sans-serif">
-					<p style="font-weight: 700">1. Select a route. </p>
-					<p style="font-weight: 200">Need routes to choose from? Go to Strava to create and add them to your collection.</p>
-					<route></route>
+					<div style="margin-bottom: 20px;">
+						<div style="font-weight: 600; margin-bottom: 15px;"> </div>
+						<mat-radio-group>
+							<mat-radio-button value="1" style="margin-right: 20px;">Bike</mat-radio-button>
+							<mat-radio-button value="2">Run</mat-radio-button>
+						</mat-radio-group>
+					</div>
+					<!-- <div>
+						<mat-radio-group>
+							<mat-radio-button value="1" style="margin-right: 20px;">Race</mat-radio-button>
+							<mat-radio-button value="2">Fun</mat-radio-button>
+						</mat-radio-group>
+					</div> -->
+					<div style="margin-bottom: 0px;">
+						<div style="font-weight: 600"> </div>
+						<mat-form-field style="width: 100%;">
+							<mat-select [formControl]="paceFormControl" required [(ngModel)]="pace" id="pace" placeholder="Pace level">
+								<mat-option *ngFor="let level of levels" [value]="level.value">
+									{{level.name}}
+								</mat-option>
+							</mat-select>
+							<mat-error *ngIf="paceFormControl.hasError('required')">
+								Pace is <strong>required</strong>
+							</mat-error>
+						</mat-form-field>
+						
+					</div>
+					<div style="margin-bottom: 20px;">
+						<div style="font-weight: 600; margin-bottom: 10px;"> </div>
+						<route></route>
+						<div style="font-weight: 100; font-size: 12px; margin-bottom: 15px;">Need routes to choose from? Go to Strava to create and add them to your collection.</div>
+					
+					</div>
+					<div style="margin-bottom: 20px;">
+						<div style="font-weight: 600; margin-bottom: 10px;"></div>
+						<mat-form-field style="margin-bottom: 20px; width: 100%;">
+							<input [formControl]="dateFormControl" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a Date"
+								id="trademarkDate"
+								[(ngModel)]="date"
+								
+								name="trademarkDate"
+								
+								(click)='check()'
+								required/>
+							<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+							<mat-datepicker touchUi #picker></mat-datepicker>
+							<mat-error *ngIf="dateFormControl.hasError('required')">
+								Date is <strong>required</strong>
+							</mat-error>
+						</mat-form-field>
+					
+
+						<div class="timesection">
+							<input [formControl]="timeFormControl" class="mat-copy" placeholder="Choose a Time" [ngxTimepicker]="timepicker">
+							<ngx-material-timepicker-toggle class="timepicker"  [for]="timepicker"></ngx-material-timepicker-toggle>
+							<ngx-material-timepicker #timepicker [enableKeyboardInput]="true"></ngx-material-timepicker>
+							
+						</div>
+						<mat-error style="font-size: 75%; padding-top: 5px;" *ngIf="timeFormControl.hasError('required') && date">
+							Time is <strong>required</strong>
+						</mat-error>
+					</div>
+
+					<div style="margin-bottom: 0;">
+						<mat-form-field style="width: 100%;">
+							<textarea matInput placeholder="Anything else?"></textarea>
+							
+						</mat-form-field>
+					</div>
+					<div style="width: 100%; text-align: center">
+						<button style="color: blue;" mat-button (click)="submitEntry()">SUBMIT</button>
+					</div>
 				</div>
-
-				<mat-form-field>
-					<input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a Date"
-						class="form-control" 
-						id="trademarkDate"
-						[(ngModel)]="date"
-						name="trademarkDate"
-						[ngModelOptions]="{standalone: true}"
-						#trademarkDate1Var="ngModel"
-						(click)='check()'
-						required/>                    
-					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-					<mat-datepicker touchUi #picker></mat-datepicker>
-				</mat-form-field>
-
-				<input [ngxTimepicker]="timepicker">
-				<ngx-material-timepicker #timepicker></ngx-material-timepicker>
 			</div>
 		</div>
 		

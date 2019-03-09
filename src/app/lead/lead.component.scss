@@ -6,17 +6,19 @@
     bottom: 0;
     right: 0;
     left: 0;
-    padding: 50px;
+    padding: 0px;
+    height: 100%;
     
     .leader-container {
         // height: 100%;
         max-width: 1024px;
         margin: 0 auto;
         background-color: #fafafa;
-        padding: 50px;
+        padding: 20px 40px;
         border: 1px solid #eeeeee;
         border-radius: 2px;
         box-shadow: 1px 1px 24px #dadada;
+        height: 100%;
     }
 
     .top-banner {

@@ -6,6 +6,7 @@ import {
     RouteService
 } from '../../core/services/index';
 import { Route, RouteItem } from '../../core/models/index';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
 	selector: 'route',
@@ -20,6 +21,11 @@ export class RouteComponent implements OnInit {
     };
     routes: Array<any>;
     selectedRoute: Route;
+
+    // routeFormControl = new FormControl('', [
+    //     Validators.required,
+    // ]);
+
     constructor(
         public router: Router,
         private user: UserService,

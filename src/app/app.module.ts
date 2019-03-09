@@ -19,6 +19,7 @@ import { UserConfirmComponent } from './user-confirm/user-confirm.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackBarComponent } from './shared/snackbar/snackbar.component';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
 	declarations: [ 
@@ -45,7 +46,8 @@ import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/m
 		BrowserAnimationsModule,
 		MatProgressSpinnerModule,
 		MatSnackBarModule,
-		MatMomentDateModule
+		MatMomentDateModule,
+		NgxMaterialTimepickerModule.forRoot()
 	],
 	providers: [
 		// {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, direction: 'ltr'}}

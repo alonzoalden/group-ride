@@ -9,14 +9,15 @@
         id="routeDataId"
         name="routeDataId"
         loadingText="Loading..."
+        [loading]="!routes"
         class="input-routes"
+        dropdownPosition="left"
         >
     <ng-template ng-option-tmp let-item="item">
         <div class="image-section">
             <img (load)="isLoaded()" [src]="this.getSmallMap(item.map.summary_polyline)" alt="Map">
         </div>
         <div class="description-section">
-            
             <span class="title">{{item.name}}</span>
             <span class="label">Distance: <span class="bold">{{ convertToMiles(item.distance) }} miles </span> </span>
             <span class="label">Elevation: <span class="bold">{{ convertToFeet(item.elevation_gain) }} feet </span> </span>
@@ -28,6 +29,7 @@
         </div>
     </ng-template>
 </ng-select>
+
 <!-- 
   <mat-card *ngFor="let route of routeData.routes" class="example-card" (click)="this.selectRoute(route)">
           <div class="list-item" *ngIf="!route">

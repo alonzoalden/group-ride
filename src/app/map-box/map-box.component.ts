@@ -11,8 +11,8 @@ export class MapBoxComponent {
 	ngOnInit() {
 	}
 	ngAfterViewInit() {
-		// setTimeout(() => {
-		// this.bounds = [[-73.9876, 40.7661], [-73.9397, 40.8002]];
-		// }, 2000)
+		setTimeout(() => {
+			this.bounds = [[-73.9876, 40.7661], [-73.9397, 40.8002]];
+		}, 2000)
 	}
 }

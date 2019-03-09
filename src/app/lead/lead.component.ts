@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 import { User, Route } from '../core/models/index';
 import { slideInAnimation, fadeInOut } from '../animations';
 import {
@@ -17,7 +18,21 @@ import {
 export class LeadComponent implements OnInit {
     currentUser: User;
     currentRoute: Route;
-    date: any;
+    date: any;    
+    levels: any[];
+
+    form: {}
+    dateFormControl = new FormControl('', [
+        Validators.required,
+    ]);
+
+    timeFormControl = new FormControl('', [
+        Validators.required,
+    ]);
+    paceFormControl = new FormControl('', [
+        Validators.required,
+    ]);
+
     constructor(
         private user: UserService,
         private routes: RouteService
@@ -35,6 +50,17 @@ export class LeadComponent implements OnInit {
                 this.currentRoute = routeData;
             }
         )
+
+        this.levels = [
+            {
+                value: '1',
+                name: 'Fun'
+            },
+            {
+                value: '2',
+                name: 'Race'
+            }
+        ];
     }
 
     routeListView() {
@@ -44,5 +70,7 @@ export class LeadComponent implements OnInit {
     check() {
         console.log(this.date);
     }
- 
+    
+    
+
 }

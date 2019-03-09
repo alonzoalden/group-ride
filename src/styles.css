@@ -22,7 +22,6 @@ body {
     border-radius: 5px;
     background-color: #ffffff;
 }
-
 .mat-tab-label {
     background-color: #ffffff !important;
 }
@@ -50,13 +49,7 @@ body {
 .active {
     color: #57ffc7 !important;
     background-color: black;
-    /* padding-bottom: 2px !important;
-    padding-top: 4px !important;
-    
-    /* border-top: 2px solid #b9ff57 !important;  */
-    /* border-bottom: 1px solid #b9ff57 !important; */
     transition: all 200ms ease-in-out;
-    
 }
 mgl-map {
     min-height: calc(100vh - 50px);
@@ -68,7 +61,7 @@ mgl-map {
     justify-content: center;
 }
 .ng-dropdown-panel {
-    width: 480px !important;
+    width: 520px !important;
     max-height: 300px;
 }
 .ng-option {
@@ -86,4 +79,33 @@ mgl-map {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+input.mat-copy {
+    border: none;
+    background: none;
+    border-bottom: 1px solid #999;
+    line-height: 25px;
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
+}
+input.mat-copy:focus {
+    outline: none;
+    border-bottom: 2px solid #3f51b5;
+}
+.timepicker {
+    display: flex;
+    border-bottom: 1px solid #999;
+}
+.timesection {
+    display: flex; width: 100%;
+}
+.timesection .timepicker > button {
+    display: flex;
+    height: 26px;
+    padding: 0 4px !important;
+}
+.timesection .timepicker > button svg {
+    width: 18px;
+    opacity: 0.5;
 }

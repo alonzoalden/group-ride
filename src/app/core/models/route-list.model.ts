@@ -1,4 +1,4 @@
 import {RouteItem} from '.';
-export class Route {
+export class RouteList {
     routes: Array<RouteItem>;
 }

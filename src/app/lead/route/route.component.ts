@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { keys as AUTH_CONFIG } from '../../../../env-config';
 import {
     UserService,
-    RouteService
+    RouteService,
+    UtilsService
 } from '../../core/services/index';
-import { Route, RouteItem } from '../../core/models/index';
-import {FormControl, Validators} from '@angular/forms';
+import { RouteList, RouteItem, Listing } from '../../core/models/index';
 
 @Component({
 	selector: 'route',
@@ -15,21 +15,20 @@ import {FormControl, Validators} from '@angular/forms';
 })
 
 export class RouteComponent implements OnInit {
+    
+    @Input() model: RouteItem;
+    @Output() modelChange = new EventEmitter<RouteItem>();
 
     routeData = {
         routes: new Array<RouteItem>(),
     };
     routes: Array<any>;
-    selectedRoute: Route;
-
-    // routeFormControl = new FormControl('', [
-    //     Validators.required,
-    // ]);
-
+    selectedRoute: RouteItem;
     constructor(
         public router: Router,
         private user: UserService,
-        private routeService: RouteService
+        private routeService: RouteService,
+        private utils: UtilsService
     ) { }
     
 	ngOnInit() {
@@ -42,7 +41,7 @@ export class RouteComponent implements OnInit {
         )
 	}
 
-    private selectRoute(route: Route) {
+    private selectRoute(route: RouteList) {
         this.routeService.selectedRouteSubject.next(route);
         this.router.navigate(['/lead/details']);
     }
@@ -53,10 +52,6 @@ export class RouteComponent implements OnInit {
         + AUTH_CONFIG.MAPBOX_ACCESS_TOKEN;
     }
 
-
-    private isLoaded() {
-        console.log('BALLZ');
-    }
     private convertToMiles(meter: number) {
         return (meter * 0.000621371).toFixed(1);
     }
@@ -67,4 +62,12 @@ export class RouteComponent implements OnInit {
         return (seconds / 60).toFixed(0);
     }
     
+    // private overflow() {
+    //     let sideView = document.getElementsByTagName('ride-list')[0];
+    //     console.log(sideView);
+    //     // body.classList.remove("className");
+    //     // body.classList.add("className");
+    //     console.log(this.utils.check())
+    // }
+
 }

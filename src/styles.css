@@ -9,6 +9,10 @@ body {
     color: #333;
     background-color: #e3e3e4;
 }
+input {
+    font-size: 16px;
+}
+
 .mat-button {
     font-weight: 400 !important;
     font-size: 16px;
@@ -50,6 +54,7 @@ body {
     color: #57ffc7 !important;
     background-color: black;
     transition: all 200ms ease-in-out;
+    text-shadow: 1px 1px 10px #57ffc7;
 }
 mgl-map {
     min-height: calc(100vh - 50px);
@@ -61,8 +66,8 @@ mgl-map {
     justify-content: center;
 }
 .ng-dropdown-panel {
-    width: 520px !important;
-    max-height: 300px;
+    width: 620px !important;
+    max-height: 400px;
 }
 .ng-option {
     height: 174px;
@@ -93,10 +98,15 @@ input.mat-copy:focus {
     outline: none;
     border-bottom: 2px solid #3f51b5;
 }
+
 .timepicker {
     display: flex;
     border-bottom: 1px solid #999;
 }
+.timepicker-backdrop-overlay {
+    background: none !important;
+}
+
 .timesection {
     display: flex; width: 100%;
 }
@@ -108,4 +118,41 @@ input.mat-copy:focus {
 .timesection .timepicker > button svg {
     width: 18px;
     opacity: 0.5;
+}
+.label-copy {
+    font-size: 12px;
+    font-weight: 400;
+    color: #858585;
+    margin-top: -20px !important;
+    position: absolute;
+}
+
+.material-icons.mat-16 { 
+    font-size: 16px; 
+}
+.ng-select {
+    padding-bottom: 10px;
+}
+.overflow-visible {
+    overflow: visible !important;
+}
+
+
+.error2 .ng-placeholder,
+.error2,
+.error .ng-placeholder,
+.error {
+    color: #f44336 !important;
+}
+.error2.ng-select .ng-select-container:after {
+    border-bottom: 1px solid #f44336 !important;
+}
+.error .ng-placeholder,
+.error {
+    border-bottom: 1px solid #f44336 !important;
+}
+
+
+input.error::placeholder {
+    color: #f44336 !important;
 }

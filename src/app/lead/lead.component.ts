@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import { User, Route } from '../core/models/index';
+import { User, RouteItem, RouteList, Listing } from '../core/models/index';
 import { slideInAnimation, fadeInOut } from '../animations';
 import {
     UserService,
-    RouteService
+    RouteService,
+    UtilsService
 } from '../core/services/index';
 
 @Component({
@@ -17,11 +18,12 @@ import {
 })
 export class LeadComponent implements OnInit {
     currentUser: User;
-    currentRoute: Route;
+    currentRoute: RouteItem[];
     date: any;    
     levels: any[];
 
-    form: {}
+    listing: Listing;
+    
     dateFormControl = new FormControl('', [
         Validators.required,
     ]);
@@ -35,7 +37,8 @@ export class LeadComponent implements OnInit {
 
     constructor(
         private user: UserService,
-        private routes: RouteService
+        private routes: RouteService,
+        private utils: UtilsService
     ) { }
 
     ngOnInit() {
@@ -46,8 +49,8 @@ export class LeadComponent implements OnInit {
             }
         )
         this.routes.currentRoutes.subscribe(
-            (routeData: Route) => {
-                this.currentRoute = routeData;
+            (routeData: RouteList) => {
+                this.currentRoute = routeData.routes;
             }
         )
 
@@ -61,16 +64,15 @@ export class LeadComponent implements OnInit {
                 name: 'Race'
             }
         ];
+
+        this.listing = new Listing(0, '', '', '', '', new RouteItem());
     }
 
     routeListView() {
-        this.routes.selectedRouteSubject.next(new Route());
-    }
-
-    check() {
-        console.log(this.date);
+        this.routes.selectedRouteSubject.next(new RouteList());
     }
     
-    
-
+    submitEntry() {
+        console.log(this.listing)
+    }
 }

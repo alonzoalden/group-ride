@@ -7,17 +7,17 @@ import { ApiService } from './api.service';
 import { UserService } from './user.service';
 import {
 	User,
-	Route
+	RouteList
 } from '../models/index';
 
 @Injectable()
 
 export class RouteService {
 
-	private currentRoutesSubject = new BehaviorSubject<Route>(new Route());
+	private currentRoutesSubject = new BehaviorSubject<RouteList>(new RouteList());
 	public currentRoutes = this.currentRoutesSubject.asObservable().pipe(distinctUntilChanged());
 
-	public selectedRouteSubject = new BehaviorSubject<Route>(new Route());
+	public selectedRouteSubject = new BehaviorSubject<RouteList>(new RouteList());
 	public selectedRoute = this.selectedRouteSubject.asObservable().pipe(distinctUntilChanged());
 
 	constructor(
@@ -30,17 +30,17 @@ export class RouteService {
 	public getLeaderRoutes() {
 		if (this.user.getCurrentUser()._id) {
 			this.apiService.get(`user/routes/${this.user.getCurrentUser()._id}`)
-				.subscribe((routes: Route)=> {
+				.subscribe((routes: RouteList)=> {
 					this.currentRoutesSubject.next(routes);
 				})
 		}
     }
 
-	public getCurrentLeaderRoutes(): Route {
+	public getCurrentLeaderRoutes(): RouteList {
 		return this.currentRoutesSubject.value;
 	}
 
-	public getSelectedRoute(): Route {
+	public getSelectedRoute(): RouteList {
 		return this.selectedRouteSubject.value;
 	}
 }

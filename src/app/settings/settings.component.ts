@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User, Route } from '../core/models/index';
+import { User } from '../core/models/index';
 import { slideInAnimation, fadeInOut } from '../animations';
 import {
     UserService,

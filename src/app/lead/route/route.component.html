@@ -1,21 +1,26 @@
 
-<ng-select [items]="routes"
-        [virtualScroll]="true"
-        bindLabel="name"
-        bindValue="Id"
-        placeholder="Choose your route"
-        [(ngModel)]="selectedRoute"
-        #routeDataVar="ngModel"
-        id="routeDataId"
-        name="routeDataId"
-        loadingText="Loading..."
-        [loading]="!routes"
-        class="input-routes"
-        dropdownPosition="left"
+<ng-select  [items]="routes"
+            [virtualScroll]="true"
+            bindLabel="name"
+            bindValue="id"
+            placeholder="Choose your route *"
+            [(ngModel)]="selectedRoute"
+            #selectedRouteVar="ngModel"
+            id="routeDataId"
+            name="routeDataId"
+            loadingText="Loading..."
+            [loading]="!routes"
+            class="input-routes"
+            [ngClass]="selectedRouteVar.invalid && (selectedRouteVar.dirty || selectedRouteVar.touched) && selectedRouteVar.errors.required ? 'error2' : ''"
+            (change)="modelChange.emit(selectedRoute);"
+            (open)="utils.overflow(true)"
+            (close)="utils.overflow(false)"
+            dropdownPosition="auto"
+            required
         >
     <ng-template ng-option-tmp let-item="item">
         <div class="image-section">
-            <img (load)="isLoaded()" [src]="this.getSmallMap(item.map.summary_polyline)" alt="Map">
+            <img [src]="this.getSmallMap(item.map.summary_polyline)" alt="Map">
         </div>
         <div class="description-section">
             <span class="title">{{item.name}}</span>
@@ -29,29 +34,8 @@
         </div>
     </ng-template>
 </ng-select>
-
-<!-- 
-  <mat-card *ngFor="let route of routeData.routes" class="example-card" (click)="this.selectRoute(route)">
-          <div class="list-item" *ngIf="!route">
-              <mat-progress-spinner
-                  class="spinner"
-                  color="primary"
-                  mode="indeterminate">
-              </mat-progress-spinner>
-          </div>
-
-        <div *ngIf="route">
-              <img mat-card-image (load)="isLoaded()" [src]="this.getSmallMap(route.map.summary_polyline)" alt="Map">
-              <mat-card-header>
-                  <img mat-card-avatar [src]="route.athlete.profile_medium">
-                  <mat-card-title>{{ route.name }}</mat-card-title>
-                  <mat-card-subtitle>{{ route.description || route.athlete.firstname + ' ' + route.athlete.lastname }}</mat-card-subtitle>
-                  
-              </mat-card-header>
-              
-              <mat-card-content>
-                  <p>Distance: <strong>{{ convertToMiles(route.distance) }} </strong> miles <br>
-                  Elevation: <strong>{{ convertToFeet(route.elevation_gain) }} </strong> feet</p>
-              </mat-card-content>
-          </div>
-  </mat-card> -->
+<div style="position: absolute; color: #f44336; font-size: 75%;" *ngIf="selectedRouteVar.invalid && (selectedRouteVar.dirty || selectedRouteVar.touched)">
+    <div *ngIf="selectedRouteVar.errors.required">
+        Route is <strong>required</strong>
+    </div>
+</div>

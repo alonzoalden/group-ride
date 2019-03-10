@@ -8,6 +8,7 @@ import {
   JwtService,
   UserService,
   RouteService,
+  UtilsService,
   AuthGuard
 } from './services';
 
@@ -21,6 +22,7 @@ import {
     JwtService,
     UserService,
     RouteService,
+    UtilsService,
     AuthGuard
   ],
   declarations: []

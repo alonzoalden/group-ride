@@ -100,7 +100,6 @@ input.mat-copy:focus {
 }
 
 .timepicker {
-    display: flex;
     border-bottom: 1px solid #999;
 }
 .timepicker-backdrop-overlay {
@@ -155,4 +154,14 @@ input.mat-copy:focus {
 
 input.error::placeholder {
     color: #f44336 !important;
+}
+
+.ng-dropdown-panel.ng-select-bottom {
+    margin-top: 10px;
+}
+.ng-select .ng-select-container .ng-value-container {
+    padding-top: 13px;
+}
+.timepicker__header {
+    background-color: #0038a8 !important;
 }

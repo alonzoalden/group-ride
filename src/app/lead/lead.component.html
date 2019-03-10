@@ -13,10 +13,11 @@
 		<div fxLayout="row" fxLayout.xs="column">
 			<div fxFlex="100">
 				<h1 style="margin-bottom: 20px;">
-					<a routerLink="/"><i class="material-icons" style="position: absolute; margin-left: -30px; margin-top: 7px;">arrow_back</i></a>
+					<!-- <a routerLink="/"><i class="material-icons" style="position: absolute; margin-left: -30px; margin-top: 7px;">arrow_back</i></a> -->
+					<a routerLink="/"><i class="material-icons" style="margin-right: 5px;">arrow_back</i></a>
 					Lead Group
 				</h1>
-				<div style="margin-bottom: 20px; display: flex; padding: 10px 0;
+				<div style="margin-bottom: 30px; display: flex; padding: 10px 0;
 				background-color: #ebf6e5;
 				background-color: rgba(235, 246, 229, 0.5);
 				border: 1px solid rgba(235, 246, 229, 0.99);
@@ -27,12 +28,13 @@
 				padding: 10px;
 				box-shadow: 1px 1px 20px #ebebeb;">
 					<i class="material-icons mat-16" style="color: #ffc757 !important;">info</i>
-					<div style="padding-left: 7px; padding-right: 7px; font-weight: 100; font-family: sans-serif; font-size: 12px; color: #404040;">
+					<div style="margin-left: 3px; margin-right: 3px; padding-left: 7px; padding-right: 7px; font-weight: 100; font-family: sans-serif; font-size: 12px; color: #404040;">
 						Need routes to choose from? Go to <a href="https://www.strava.com/athlete/routes" target="_blank">Strava</a> and add routes to your collection by using Strava Route builder or by saving pre-existing routes and we'll automatically import them here.
 					</div>
 				</div>
+				<div style="font-family: 'Arvo'; margin-bottom: 10px; font-weight: 700; font-size: 18px;">Enter Details</div>
 				<div style="box-shadow: 1px 1px 20px #ebebeb; font-family: sans-serif; padding: 20px 20px; background-color: rgba(229, 235, 246, 0.5); border: 1px solid rgba(229, 235, 246, 0.99); border-top: 4px solid rgba(229, 235, 246, 0.99);" >
-					<div style="font-family: 'Arvo'; margin-bottom: 30px; font-weight: 700; font-size: 18px;">Enter Details</div>
+					
 					<div style="margin-bottom: 25px; padding-top: 20px;">
 						<label class="label-copy" style="margin-bottom: 5px;">Group Type <span style="font-size: 80%">*</span></label>
 						<mat-radio-group 
@@ -40,9 +42,9 @@
 							name="type"
 							[(ngModel)]="listing.type"
 							#type="ngModel"
-							style="padding-left: 10px;">
-							<mat-radio-button value="1" style="margin-right: 20px;">Bike</mat-radio-button>
-							<mat-radio-button value="2">Run</mat-radio-button>
+							style="display: flex; border-bottom: 1px solid #999; padding-bottom: 7px;">
+							<mat-radio-button value="1" style="flex: 1;"><i matListIcon class="material-icons mat-36 head-icon">directions_bike</i></mat-radio-button>
+							<mat-radio-button value="2" style="flex: 1;"><i matListIcon class="material-icons mat-36 head-icon">directions_run</i></mat-radio-button>
 						</mat-radio-group>
 					</div>
 					<div style="margin-bottom: 20px;">

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { User, RouteItem, RouteList, Listing } from '../core/models/index';
 import { slideInAnimation, fadeInOut } from '../animations';
+
+import * as moment from 'moment';
 import {
     UserService,
     RouteService,
@@ -18,10 +20,10 @@ import {
 })
 export class LeadComponent implements OnInit {
     currentUser: User;
-    currentRoute: RouteItem[];
+    currentRouteList: RouteItem[];
     date: any;    
     levels: any[];
-
+    isSubmitting: Boolean;
     listing: Listing;
     
     dateFormControl = new FormControl('', [
@@ -36,21 +38,21 @@ export class LeadComponent implements OnInit {
     ]);
 
     constructor(
-        private user: UserService,
-        private routes: RouteService,
+        private userService: UserService,
+        private routesService: RouteService,
         private utils: UtilsService
     ) { }
 
     ngOnInit() {
-        this.user.currentUser.subscribe(
+        this.userService.currentUser.subscribe(
             (userData: User) => {
                 this.currentUser = userData;
-                this.routes.getLeaderRoutes();
+                this.routesService.getLeaderRoutes();
             }
         )
-        this.routes.currentRoutes.subscribe(
+        this.routesService.currentRoutes.subscribe(
             (routeData: RouteList) => {
-                this.currentRoute = routeData.routes;
+                this.currentRouteList = routeData.routes;
             }
         )
 
@@ -65,14 +67,39 @@ export class LeadComponent implements OnInit {
             }
         ];
 
-        this.listing = new Listing(0, '', '', '', '', new RouteItem());
+        this.listing = new Listing(0, '', '', '', moment(), '', '', new RouteItem());
     }
 
     routeListView() {
-        this.routes.selectedRouteSubject.next(new RouteList());
+        this.routesService.selectedRouteSubject.next(new RouteList());
     }
     
     submitEntry() {
-        console.log(this.listing)
+        this.isSubmitting = true;
+
+        const route = this.currentRouteList.find((route) => route.id === this.listing.route.id);
+        this.listing.route = route;
+
+        var time24hr = moment(this.listing.time, ["h:mm A"]).format("HH:mm");
+        var time = time24hr.split(':');
+        this.listing.date = this.listing.date
+                                        .hour(Number(time[0]))
+                                        .minutes(Number(time[1]))
+        
+        console.log(this.listing.date)
+        this.routesService
+        .submitListing(this.listing)
+        .subscribe(
+            listing => {
+                console.log(listing);
+                // this.comments.unshift(comment);
+                // this.commentControl.reset('');
+                this.isSubmitting = false;
+            },
+            errors => {
+                this.isSubmitting = false;
+                // this.commentFormErrors = errors;
+            }
+        );
     }
 }

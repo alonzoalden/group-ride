@@ -1,13 +1,15 @@
 import { RouteItem } from "./route-item.model";
-
+import { Moment } from 'moment';
 export class Listing {
 
     constructor(
       public id: number,
+      public type: string,
       public title: string,
       public pace: string,
-      public date: string,
+      public date: Moment,
       public time: string,
+      public info: string,
       public route: RouteItem,
     ) {  }
   

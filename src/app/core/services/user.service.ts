@@ -50,10 +50,8 @@ export class UserService {
 	// Call this method in app.component.ts
 	// if using path-based routing
 	public handleAuthentication(): void {
-		console.log('ggg111111')
 		this.lock.on('authenticated', (authResult) => {
 			if (authResult && authResult.accessToken && authResult.idToken) {
-				console.log('heymiddle')
 				this.setSession(authResult);
 				this.router.navigate(['/']);
 				this.populate();
@@ -61,7 +59,6 @@ export class UserService {
 		});
 		this.lock.on('authorization_error', (err) => {
 			this.router.navigate(['/']);
-			console.log('er3333')
 			alert(`Error: ${err.error}. Check the console for further details.`);
 		});
 	}

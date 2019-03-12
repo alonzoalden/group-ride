@@ -107,7 +107,8 @@ input.mat-copy:focus {
 }
 
 .timesection {
-    display: flex; width: 100%;
+    display: flex;
+    width: 100%;
 }
 .timesection .timepicker > button {
     display: flex;
@@ -139,20 +140,20 @@ input.mat-copy:focus {
 
 .error2 .ng-placeholder,
 .error2,
-.error .ng-placeholder,
-.error {
+.error1 .ng-placeholder,
+.error1 {
     color: #f44336 !important;
 }
 .error2.ng-select .ng-select-container:after {
     border-bottom: 1px solid #f44336 !important;
 }
-.error .ng-placeholder,
-.error {
+.error1 .ng-placeholder,
+.error1 {
     border-bottom: 1px solid #f44336 !important;
 }
 
 
-input.error::placeholder {
+input.error1::placeholder {
     color: #f44336 !important;
 }
 
@@ -164,4 +165,36 @@ input.error::placeholder {
 }
 .timepicker__header {
     background-color: #0038a8 !important;
+}
+.spinner-loader {
+    z-index: 4;
+}
+.gray-cover-bg-full {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.gray-cover-bg {
+    margin-left: -20px;
+    margin-top: -20px;
+    width: calc(100% - 84px);
+    height: 638px;
+}
+.gray-cover-bg-full,
+.gray-cover-bg {
+    position: absolute;
+    background-color: rgba(243, 243, 244, 0.77);
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+    transition: all 1000ms ease-in-out;
+}
+.gray-cover-bg-full > div,
+.gray-cover-bg > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

@@ -27,6 +27,7 @@
     "@ng-select/ng-select": "^2.16.0",
     "@types/geojson": "^1.0.6",
     "@types/mapbox-gl": "^0.47.0",
+    "angular2-notifications": "^2.0.0",
     "auth0-js": "^9.7.3",
     "auth0-lock": "^11.8.1",
     "core-js": "^2.5.4",

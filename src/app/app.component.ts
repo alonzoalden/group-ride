@@ -28,6 +28,13 @@ import {
 
 export class AppComponent {
 
+	options = {
+        position: ['top', 'right'],
+        timeOut: 3000,
+        lastOnBottom: true,
+        animate: 'rotate'
+    };
+
 	constructor(
 		private user: UserService,
 		private jwtService: JwtService,

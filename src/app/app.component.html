@@ -2,4 +2,5 @@
 <div class="main-container"
     [@routeAnimations]="prepareRoute(outlet)">
     <router-outlet #outlet="outlet"></router-outlet>
+    <simple-notifications [options]="options"></simple-notifications>
 </div>

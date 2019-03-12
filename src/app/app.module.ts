@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackBarComponent } from './shared/snackbar/snackbar.component';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 @NgModule({
 	declarations: [ 
@@ -34,20 +35,20 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 		CoreModule,
 		FormsModule,
 		ReactiveFormsModule,
-		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
-		BrowserAnimationsModule,
 		MatButtonModule,
 		MatToolbarModule,
 		MatMenuModule,
 		MatDialogModule,
 		FlexLayoutModule,
-		BrowserAnimationsModule,
 		MatProgressSpinnerModule,
 		MatSnackBarModule,
 		MatMomentDateModule,
-		NgxMaterialTimepickerModule.forRoot()
+		BrowserModule,
+		BrowserAnimationsModule,
+		NgxMaterialTimepickerModule.forRoot(),
+		SimpleNotificationsModule.forRoot()
 	],
 	providers: [
 		// {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, direction: 'ltr'}}

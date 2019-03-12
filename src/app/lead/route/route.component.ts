@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { keys as AUTH_CONFIG } from '../../../../env-config';
 import {
@@ -7,6 +7,7 @@ import {
     UtilsService
 } from '../../core/services/index';
 import { RouteList, RouteItem, Listing } from '../../core/models/index';
+import { ValidationService } from '../lead-validation.service';
 
 @Component({
 	selector: 'route',
@@ -16,6 +17,7 @@ import { RouteList, RouteItem, Listing } from '../../core/models/index';
 
 export class RouteComponent implements OnInit {
     
+    @ViewChild('selectedRouteVar') selectedRouteVar: any;
     @Input() model: RouteItem;
     @Output() modelChange = new EventEmitter<RouteItem>();
 
@@ -26,12 +28,13 @@ export class RouteComponent implements OnInit {
     selectedRoute: RouteItem;
     constructor(
         public router: Router,
-        private user: UserService,
         private routeService: RouteService,
+        private validationService: ValidationService,
         private utils: UtilsService
     ) { }
     
 	ngOnInit() {
+        this.validationService.formInputs.push(this.selectedRouteVar)
         this.routeData.routes.length = 2;
         this.routeService.currentRoutes.subscribe(
             data => {

@@ -4,7 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { User, RouteItem, RouteList, Listing } from '../core/models/index';
 import { slideInAnimation, fadeInOut } from '../animations';
 import { NotificationsService } from 'angular2-notifications';
-
+import { ValidationService } from './lead-validation.service';
 import * as moment from 'moment';
 import {
     UserService,
@@ -41,13 +41,14 @@ export class LeadComponent implements OnInit {
     ]);
     @ViewChild('type') type: any;
     @ViewChild('title') title: any;
-    @ViewChild('route') route: any;
     @ViewChild('pace') pace: any;
+    @ViewChild('time') time: any;
 
     constructor(
         private userService: UserService,
         private routesService: RouteService,
         private notificationsService: NotificationsService,
+        private validationService: ValidationService,
         private utils: UtilsService,
         public router: Router,
     ) { }
@@ -55,16 +56,14 @@ export class LeadComponent implements OnInit {
     ngOnInit() {
         const today = moment();
         const tomorrow = moment(today).add(1, 'days');
-        this.defaultListing = new Listing(0, '', '', '', tomorrow, '', '', new RouteItem());
-
-        this.type.control.markAsTouched();
-        
-        this.type.control.markAsDirty();
-        console.log(this.type)
-        // this.test.control.markAsTouched();
-        // this.test.control.markAsDirty();
-        
-
+        this.defaultListing = new Listing(0, '', '', '', null, '', '', new RouteItem());
+        const formInputs = [
+            this.type,
+            this.title,
+            this.pace,
+            this.time
+        ];
+        formInputs.forEach(item => this.validationService.formInputs.push(item))
         this.userService.currentUser.subscribe(
             (userData: User) => {
                 this.currentUser = userData;
@@ -94,9 +93,13 @@ export class LeadComponent implements OnInit {
     routeListView() {
         this.routesService.selectedRouteSubject.next(new RouteList());
     }
-    
+    s() {
+
+    }
     submitEntry() {
         this.isSubmitting = true;
+        if (!this.validationService.validate()) return this.isSubmitting = false;;
+
         const route = this.currentRouteList.find((route) => route.id === this.listing.route.id);
         const time24hr = moment(this.listing.time, ["h:mm A"]).format("HH:mm");
         const date = this.listing.date
@@ -108,7 +111,7 @@ export class LeadComponent implements OnInit {
              this.listing.type,
              this.listing.title,
              this.listing.pace,
-             this.listing.date,
+             date,
              this.listing.time,
              this.listing.info,
              route,

@@ -9,17 +9,20 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatProgressSpinnerModule,
-    FlexLayoutModule,
-    LeadRoutingModule,
-    MatCardModule
-  ],
-  declarations: [
-    LeadComponent, 
-    RouteComponent, 
-    LeadFormComponent
-  ]
+    imports: [
+        CommonModule,
+        MatProgressSpinnerModule,
+        FlexLayoutModule,
+        LeadRoutingModule,
+        MatCardModule
+    ],
+    declarations: [
+        LeadComponent,
+        RouteComponent,
+        LeadFormComponent
+    ],
+    providers: [
+        
+    ]
 })
 export class LeadModule { }

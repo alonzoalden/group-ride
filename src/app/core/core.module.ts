@@ -9,6 +9,7 @@ import {
   UserService,
   RouteService,
   UtilsService,
+  ListingService,
   AuthGuard
 } from './services';
 
@@ -23,6 +24,7 @@ import {
     UserService,
     RouteService,
     UtilsService,
+    ListingService,
     ValidationService,
     AuthGuard
   ],

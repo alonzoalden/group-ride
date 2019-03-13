@@ -14,7 +14,7 @@
 
       <div fxLayout="row" fxShow="false" fxShow.gt-sm>
           <!-- <button mat-button routerLink="/network">Network</button> -->
-          <button routerLink="/lead" routerLinkActive="active" mat-button (click)="openSnackBar()">Lead</button>
+          <button routerLink="/lead" routerLinkActive="active" mat-button (click)="checkAuth()">Lead</button>
       </div>
       <button mat-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
           <i class="material-icons">menu</i>
@@ -27,7 +27,7 @@
 
       <!-- This fills the remaining space of the current row -->
       <span class="fill-remaining-space"></span>
-      <div [hidden]="!isLoggedIn()">
+      <div [hidden]="!this.user.isAuthenticated()">
           <mat-menu [hidden]="!this.currentUser" #userMenu="matMenu"  style="color: #ffc757 !important">
               <button mat-menu-item routerLink="/settings" routerLinkActive="active">Settings</button>
               <hr>
@@ -38,7 +38,7 @@
             mat-button
             [matMenuTriggerFor]="userMenu">
             <div style="display: flex; justify-content: space-between; align-items: center; ">
-                <div *ngIf="isLoggedIn()">
+                <div *ngIf="this.user.isAuthenticated()">
                     <span style="font-weight: 400; letter-spacing: 1.6px; text-transform: none; color: #ffc757;"> {{ this.currentUser ? this.currentUser.firstname : 'hi' }} </span>
                 </div>
                 <div *ngIf="this.user.isLoading">
@@ -55,7 +55,7 @@
           </button>
           
       </div>
-      <div [hidden]="isLoggedIn()">
+      <div [hidden]="this.user.isAuthenticated()">
           <button 
               mat-button
               routerLink="/"

@@ -14,7 +14,8 @@ import {
 import { slideInAnimation } from './animations'
 import {
 	UserService,
-	JwtService
+	JwtService,
+	ListingService
 } from './core';
 
 @Component({
@@ -38,10 +39,13 @@ export class AppComponent {
 	constructor(
 		private user: UserService,
 		private jwtService: JwtService,
+		private listingService: ListingService,
 		private activatedRoute: ActivatedRoute
 	) {}
 
 	ngOnInit() {
+		
+		// this.listingService.getListings();
 		
 		this.activatedRoute.queryParamMap.subscribe(params => {
 			// let code = params['access_token'];

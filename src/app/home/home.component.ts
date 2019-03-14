@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../core/services/index';
+import { ListingService } from '../core/services/index';
 import { Router, ActivatedRoute, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from '../animations'
+import { Listing } from '../core/models/index';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +15,11 @@ import { slideInAnimation } from '../animations'
 export class HomeComponent implements OnInit {
 
   constructor(
+    private listingService: ListingService,
   ) { }
 
   ngOnInit() {
+    // this.listingService.getListings();
   }
   prepareRoute(outlet: RouterOutlet) {
     

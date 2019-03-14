@@ -34,7 +34,7 @@
         </div>
     </ng-template>
 </ng-select>
-<div style="position: absolute; color: #f44336; font-size: 75%;" *ngIf="selectedRouteVar.invalid && (selectedRouteVar.dirty || selectedRouteVar.touched)">
+<div style="position: absolute; color: #f44336; font-size: 75%; margin-top: -5px;" *ngIf="selectedRouteVar.invalid && (selectedRouteVar.dirty || selectedRouteVar.touched)">
     <div *ngIf="selectedRouteVar.errors.required">
         Route is <strong>required</strong>
     </div>

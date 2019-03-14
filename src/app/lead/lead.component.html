@@ -168,7 +168,11 @@
 							</div>
 							<div style="margin-bottom: 20px;">
 								<mat-form-field style="width: 100%;">
-									<textarea matInput placeholder="Anything else?"></textarea>
+									<textarea
+										matInput
+										[(ngModel)]="listing.info"
+										#info="ngModel"
+										placeholder="Provide any other details.."></textarea>
 								</mat-form-field>
 							</div>
 							<div style="width: 100%; text-align: center">

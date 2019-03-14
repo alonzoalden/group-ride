@@ -35,78 +35,22 @@
 			<ng-template mat-tab-label>
 				ALL
 			</ng-template>
-			<mat-list class="left" role="list">
-				<mat-list-item class="mat-elevation-z8 item" role="list-item">
-
-					<i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
-					<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
-					
-					<span mat-line class="color">8:00am</span>
-					<span mat-line class="color">Thursday, August 5 2018</span>
-					<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
-
-					<img class="font" [src]="this.smallMap">
-					
-					
-				</mat-list-item>
-				<mat-list-item class="item" role="list-item">
-
-					<i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
-					<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
-					
-					<span mat-line class="color">8:00am</span>
-					<span mat-line class="color">Thursday, August 5 2018</span>
-					<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
-		
-					<img class="font" [src]="this.smallMap">
-					
-				</mat-list-item>
-				<mat-list-item class="item" role="list-item">
-
-					<i matListIcon class="material-icons mat-36 head-icon">directions_bike</i>
-					<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
-					
-					<span mat-line class="color">8:00am</span>
-					<span mat-line class="color">Thursday, August 5 2018</span>
-					<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
-		
-					<img class="font" [src]="this.smallMap">
-					
-				</mat-list-item>
-				<mat-list-item class="item" role="list-item">
-						
-					<i matListIcon class="material-icons mat-36 head-icon">directions_run</i>
-					<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
-					
-					<span mat-line class="color">8:00am</span>
-					<span mat-line class="color">Thursday, August 5 2018</span>
-					<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
-		
-					<img class="font" [src]="this.smallMap">
-					
-				</mat-list-item>
-				<mat-list-item class="item" role="list-item">
+			<mat-list *ngFor="let listing of currentListings" class="left" role="list">
+				<mat-list-item class="item" role="list-item" style="padding-right: 10px;">
 	
-					<i matListIcon class="material-icons mat-36 head-icon">directions_run</i>
-					<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
+					<i matListIcon class="material-icons mat-36 head-icon">{{ listing.type === '1' ? 'directions_bike' : 'directions_run'}}</i>
+					<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">{{listing.title}}</h3>
 					
-					<span mat-line class="color">8:00am</span>
-					<span mat-line class="color">Thursday, August 5 2018</span>
+					
+					<span mat-line class="color">
+						<span style="margin-right: 20px;">{{ listing.date | date }}</span>
+						<span class="color">{{ listing.time }}</span>
+					</span>
+					<span mat-line class="color">Pace: {{ listing.pace === '1' ? 'Fun' : 'Fast'}}</span>
+					<span mat-line class="color">{{ listing.info }}</span>
 					<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
 		
-					<img class="font" [src]="this.smallMap">
-					
-				</mat-list-item>
-				<mat-list-item class="item" role="list-item">
-	
-					<i matListIcon class="material-icons mat-36 head-icon">directions_run</i>
-					<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">Chill Ride thru apple valley</h3>
-					
-					<span mat-line class="color">8:00am</span>
-					<span mat-line class="color">Thursday, August 5 2018</span>
-					<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
-		
-					<img class="font" [src]="this.smallMap">
+					<img class="font" style="border: 1px solid #dadada" [src]="this.getSmallMap(listing?.route.map.summary_polyline)">
 					
 				</mat-list-item>
 			</mat-list>
@@ -149,7 +93,7 @@
 						<span mat-line class="color">Thursday, August 5 2018</span>
 						<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
 			
-						<img class="font" [src]="this.smallMap">
+						<!-- <img class="font" [src]="this.getSmallMap(item.map.summary_polyline)"> -->
 						
 					</mat-list-item>
 			</mat-list>

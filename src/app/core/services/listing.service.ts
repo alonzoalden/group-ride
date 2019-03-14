@@ -26,13 +26,12 @@ export class ListingService {
 	) {}
   
 	public getListings() {
-		if (this.user.getCurrentUser()._id) {
-			this.apiService.get(`listings`)
-				.subscribe((listings: Listing[])=> {
-                    console.log(listings);
-					this.currentListingsSubject.next(listings);
-				})
-		}
+        this.apiService.get(`listings`)
+            .subscribe((listings: Listing[])=> {
+                console.log(listings);
+                this.currentListingsSubject.next(listings);
+            })
+		
     }
 
     public submitListing(payload): Observable<Listing> {

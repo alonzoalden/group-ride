@@ -28,7 +28,6 @@ export class LeadComponent implements OnInit {
     levels: any[];
     isSubmitting: Boolean;
     listing: Listing;
-    defaultListing: Listing;
 
     dateFormControl = new FormControl('', [
         Validators.required,
@@ -60,7 +59,7 @@ export class LeadComponent implements OnInit {
         
         const today = moment();
         const tomorrow = moment(today).add(1, 'days');
-        this.defaultListing = new Listing(0, '', '', '', null, '', '', new RouteItem());
+        
 
         this.userService.currentUser.subscribe(
             (userData: User) => {
@@ -85,7 +84,7 @@ export class LeadComponent implements OnInit {
             }
         ];
 
-        this.listing = this.defaultListing;
+        this.listing = this.createNewListing();
     }
 
     routeListView() {
@@ -128,15 +127,18 @@ export class LeadComponent implements OnInit {
             listing => {
                 this.listingService.addToCurrentListings(listing);
                 this.isSubmitting = false;
-                this.listing = this.defaultListing;
+                this.listing = this.createNewListing();
                 this.notificationsService.success('Success', 'Your listing has been saved.')
                 this.router.navigate(['/']);
-                console.log(this.listingService.getCurrentListings())
             },
             errors => {
                 this.isSubmitting = false;
                 this.notificationsService.error('Error', 'There was a problem saving.')
             }
         );
+        
+    }
+    createNewListing(): Listing {
+        return new Listing(0, '', '', '', null, '', '', new RouteItem());
     }
 }

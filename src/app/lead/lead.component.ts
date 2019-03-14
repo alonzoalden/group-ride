@@ -23,7 +23,7 @@ import {
 export class LeadComponent implements OnInit {
     currentUser: User;
     currentRouteList: RouteItem[];
-    date: any;    
+    // date: any;
     levels: any[];
     isSubmitting: Boolean;
     listing: Listing;
@@ -43,6 +43,7 @@ export class LeadComponent implements OnInit {
     @ViewChild('title') title: any;
     @ViewChild('pace') pace: any;
     @ViewChild('time') time: any;
+    @ViewChild('date') date: any;
 
     constructor(
         private userService: UserService,
@@ -54,16 +55,11 @@ export class LeadComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        
         const today = moment();
         const tomorrow = moment(today).add(1, 'days');
         this.defaultListing = new Listing(0, '', '', '', null, '', '', new RouteItem());
-        const formInputs = [
-            this.type,
-            this.title,
-            this.pace,
-            this.time
-        ];
-        formInputs.forEach(item => this.validationService.formInputs.push(item))
+
         this.userService.currentUser.subscribe(
             (userData: User) => {
                 this.currentUser = userData;
@@ -93,12 +89,19 @@ export class LeadComponent implements OnInit {
     routeListView() {
         this.routesService.selectedRouteSubject.next(new RouteList());
     }
-    s() {
 
-    }
     submitEntry() {
+        const formInputs = [
+            this.type,
+            this.title,
+            this.pace,
+            this.time,
+            this.date
+        ];
+        formInputs.forEach(item => this.validationService.formInputs.push(item))
+
         this.isSubmitting = true;
-        if (!this.validationService.validate()) return this.isSubmitting = false;;
+        if (!this.validationService.validate()) return this.isSubmitting = false;
 
         const route = this.currentRouteList.find((route) => route.id === this.listing.route.id);
         const time24hr = moment(this.listing.time, ["h:mm A"]).format("HH:mm");
@@ -124,6 +127,7 @@ export class LeadComponent implements OnInit {
                 console.log(listing);
                 this.isSubmitting = false;
                 this.listing = this.defaultListing;
+                this.notificationsService.success('Success', 'Your listing has been saved.')
                 this.router.navigate(['/']);
             },
             errors => {

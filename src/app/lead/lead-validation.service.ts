@@ -11,7 +11,7 @@ export class ValidationService {
     public validate(): Boolean {
         let valid = true;
         this.formInputs.forEach(element => {
-            if (element.control.pristine) {
+            if (element.control.invalid) {
                 element.control.markAsTouched();
                 element.control.markAsDirty();
                 valid = false;

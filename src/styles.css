@@ -29,6 +29,9 @@ input {
 .mat-tab-label {
     background-color: #ffffff !important;
 }
+.mat-drawer {
+    overflow-y: overlay !important;
+}
 .main-container {
     top: 50px;
     right: 0;
@@ -72,6 +75,10 @@ mgl-map {
 .ng-option {
     height: 174px;
 }
+.ng-value-container {
+    padding-bottom: 17px !important;
+}
+
 .circle {
     border-radius: 100%;
     height: 40px;
@@ -175,7 +182,7 @@ input.error1::placeholder {
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 100%;
+    height: 110%;
 }
 .gray-cover-bg {
     margin-left: -20px;

@@ -12,24 +12,28 @@ import {
 export const slideInAnimation =
 	trigger('routeAnimations', [
 		transition('* <=> *', [
-			style({ background: '#e3e3e4', opacity: '0.7', transition: 'all 120ms ease-in-out' }),
+			style({ background: '#e3e3e4', opacity: '0.5', transition: 'all 120ms ease-in-out' }),
 			query(':enter, :leave', [
 				style({
 					position: 'absolute',
 					top: 0,
 					left: 0,
 					width: '100%',
+					opacity: '0.2',
+					transition: 'all 100ms ease-in-out'
 				})
 			], {optional: true}),
 			query(':enter', [
 				style({
-					left: '100%',
+					left: '-100%',
+					opacity: '0.2',
+					transition: 'all 100ms ease-in-out'
 				})
 			], {optional: true}),
 			query(':leave',  animateChild(), {optional: true}),
 			group([
 				query(':leave', [
-					animate('300ms ease-out', style({ left: '100%' }))
+					animate('300ms ease-out', style({ left: '-100%' }))
 				], {optional: true}),
 				query(':enter', [
 					animate('300ms ease-out', style({ left: '0%' }))

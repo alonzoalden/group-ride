@@ -13,7 +13,7 @@
 			</div>
 		</ng-container>
 		<ng-container>
-			<div fxLayout="row" fxLayout.xs="column">
+			<div fxLayout="row" fxLayout.xs="column" style="margin-bottom: 40px;">
 				<div fxFlex="100">
 					<h1 style="margin-bottom: 20px;">
 						<!-- <a routerLink="/"><i class="material-icons" style="position: absolute; margin-left: -30px; margin-top: 7px;">arrow_back</i></a> -->
@@ -53,7 +53,8 @@
 						<ng-container>
 							<div style="margin-bottom: 25px; padding-top: 20px;">
 								<label class="label-copy" style="margin-bottom: 5px;">Group Type <span style="font-size: 80%">*</span></label>
-								<mat-radio-group 
+								<mat-radio-group
+									required
 									id="type"
 									name="type"
 									[(ngModel)]="listing.type"
@@ -119,11 +120,12 @@
 							<div style="margin-bottom: 30px;">
 								
 								<mat-form-field style="width: 100%;">
-									<input [formControl]="dateFormControl" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a Date"
+									<input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a Date"
 										id="date"
 										[(ngModel)]="listing.date"
 										name="date"
 										required
+										#date="ngModel"
 										/>
 									<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 									<mat-datepicker touchUi #picker></mat-datepicker>

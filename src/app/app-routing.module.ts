@@ -3,7 +3,6 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LeadComponent } from './lead/lead.component';
 import { SettingsComponent } from './settings/settings.component';
-import { LeadFormComponent } from './lead/form/form.component';
 
 
 const routes: Routes = [

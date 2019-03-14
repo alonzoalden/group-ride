@@ -4,7 +4,6 @@ import { LeadComponent } from './lead.component';
 import { LeadRoutingModule } from './lead-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { RouteComponent } from './route/route.component';
-import { LeadFormComponent } from './form/form.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatCardModule } from '@angular/material/card';
 
@@ -19,7 +18,6 @@ import { MatCardModule } from '@angular/material/card';
     declarations: [
         LeadComponent,
         RouteComponent,
-        LeadFormComponent
     ],
     providers: [
         

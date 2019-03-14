@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { UserService, JwtService } from '../core/services';
 import { User } from '../core/models/user.model';
-import { MatSnackBar } from '@angular/material';
 import { SnackBarComponent } from '../shared/snackbar/snackbar.component';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
     selector: 'header',
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
     constructor(
         private user: UserService,
         private jwt: JwtService,
-        private snackBar: MatSnackBar
+        private notificationsService: NotificationsService
     ) {}
     ngOnInit() {
         this.user.currentUser.subscribe(
@@ -30,11 +30,12 @@ export class HeaderComponent implements OnInit {
     isLoggedIn() {
         return !!this.jwt.getToken();
     }
-    openSnackBar() {
+    checkAuth() {
         if (!this.user.isAuthenticated()) {
-            this.snackBar.openFromComponent(SnackBarComponent, {
-                duration: 4000,
-            });
+            this.notificationsService.info('Please Sign In', 'You must sign in to lead a group.')
+            // this.snackBar.openFromComponent(SnackBarComponent, {
+            //     duration: 4000,
+            // });
         }
     }
 }

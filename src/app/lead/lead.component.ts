@@ -9,7 +9,8 @@ import * as moment from 'moment';
 import {
     UserService,
     RouteService,
-    UtilsService
+    UtilsService,
+    ListingService
 } from '../core/services/index';
 
 @Component({
@@ -50,6 +51,7 @@ export class LeadComponent implements OnInit {
         private routesService: RouteService,
         private notificationsService: NotificationsService,
         private validationService: ValidationService,
+        private listingService: ListingService,
         private utils: UtilsService,
         public router: Router,
     ) { }
@@ -120,20 +122,20 @@ export class LeadComponent implements OnInit {
              route,
         )
         
-        this.routesService
+        this.listingService
         .submitListing(listingData)
         .subscribe(
             listing => {
-                console.log(listing);
+                this.listingService.addToCurrentListings(listing);
                 this.isSubmitting = false;
                 this.listing = this.defaultListing;
                 this.notificationsService.success('Success', 'Your listing has been saved.')
                 this.router.navigate(['/']);
+                console.log(this.listingService.getCurrentListings())
             },
             errors => {
                 this.isSubmitting = false;
                 this.notificationsService.error('Error', 'There was a problem saving.')
-                
             }
         );
     }

@@ -4,3 +4,4 @@ export * from './user.service';
 export * from './route.service';
 export * from './auth-guard.service';
 export * from './utils.service';
+export * from './listing.service';

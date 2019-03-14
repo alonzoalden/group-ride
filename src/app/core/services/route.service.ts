@@ -38,7 +38,6 @@ export class RouteService {
     }
 
     public submitListing(payload): Observable<Listing> {
-
         return this.apiService
         .post(
           `lead`,

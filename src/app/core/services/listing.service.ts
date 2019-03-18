@@ -28,13 +28,13 @@ export class ListingService {
 	public getListings() {
         this.apiService.get(`listings`)
             .subscribe((listings: Listing[])=> {
-                console.log(listings);
                 this.currentListingsSubject.next(listings);
             })
 		
     }
 
     public submitListing(payload): Observable<Listing> {
+        console.log(this.user.currentUser)
         return this.apiService
             .post(
                 `lead`,

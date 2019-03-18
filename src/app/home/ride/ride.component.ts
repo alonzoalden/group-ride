@@ -42,7 +42,6 @@ constructor(
 		
 		this.listingService.currentListings.subscribe(
             (listingData: Listing[]) => {
-				console.log(listingData, 'hehe');
                 this.currentListings = listingData;
             }
         )
@@ -52,6 +51,9 @@ constructor(
 		+ encodeURIComponent(encodedPolyline)
 		+ ')/auto/140x90?access_token='
 		+ AUTH_CONFIG.MAPBOX_ACCESS_TOKEN;
+	}
+	private displayTime(time: string): string {
+		return time[0] === '0' ? time.slice(1) : time;
 	}
 
 }

@@ -12,6 +12,7 @@ export class Listing {
       public info: string,
       public route: RouteItem,
       public creator: string,
+      public creator_photo: String,
     ) {  }
   
   }

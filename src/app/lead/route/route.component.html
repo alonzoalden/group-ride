@@ -28,7 +28,7 @@
             <span class="label">Elevation: <span class="bold">{{ convertToFeet(item.elevation_gain) }} feet </span> </span>
             <span class="label">Est. Moving Time: <span class="bold">{{ convertTomins(item.estimated_moving_time) }} mins </span> </span>
             <span *ngIf="item.description !== ''" class="label">Description: <span>{{ item.description }} blah balh balh blah blah blah balh balh blah blah blah balh balh blah blah blah balh balh blah blah  miles </span> </span>
-            <div  class="footer">
+            <div class="footer">
                 <span>Created by {{ item.athlete.firstname + ' ' + item.athlete.lastname }}</span> 
             </div>
         </div>

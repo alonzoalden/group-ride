@@ -37,20 +37,25 @@
 			</ng-template>
 			<mat-list *ngFor="let listing of currentListings" class="left" role="list">
 				<mat-list-item class="item" role="list-item" style="padding-right: 10px;">
-	
-					<i matListIcon class="material-icons mat-36 head-icon">{{ listing.type === '1' ? 'directions_bike' : 'directions_run'}}</i>
+						<img class="font" style="border: 1px solid #dadada" [src]="this.getSmallMap(listing?.route.map.summary_polyline)">
+						<span matListIcon>
+								<i class="material-icons mat-36 head-icon">{{ listing.type === '1' ? 'directions_bike' : 'directions_run'}}</i>
+								<span class="color" style="font-weight: 600; font-size: 14px;"> {{ listing.pace === '1' ? 'Fun' : 'Fast'}}</span>
+							</span>
 					<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">{{listing.title}}</h3>
 					
 					
-					<span mat-line class="color">
-						<span style="margin-right: 20px;">{{ listing.date | date }}</span>
-						<span class="color">{{ listing.time }}</span>
+					<span mat-line class="color" style="display: flex; margin-bottom: 5px;">
+						<span style="flex: 1; display: inline-flex; align-items: center; padding-right: 5px;"><i class="material-icons" style="color: #666; font-size: 22px; margin-right: 3px;">date_range</i>{{ listing.date | date }}</span>
+						
+						<span class="color" style="flex: 1; display: inline-flex; align-items: center;"><i class="material-icons" style="color: #666; font-size: 202x; margin-right: 3px;">access_time</i>{{ listing.time }}</span>
 					</span>
-					<span mat-line class="color">Pace: {{ listing.pace === '1' ? 'Fun' : 'Fast'}}</span>
+					
 					<span mat-line class="color">{{ listing.info }}</span>
 					<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
 		
-					<img class="font" style="border: 1px solid #dadada" [src]="this.getSmallMap(listing?.route.map.summary_polyline)">
+					
+					
 					
 				</mat-list-item>
 			</mat-list>

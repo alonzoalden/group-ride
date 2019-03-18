@@ -92,6 +92,7 @@ export class LeadComponent implements OnInit {
     }
 
     submitEntry() {
+        this.validationService.formInputs = [];
         const formInputs = [
             this.type,
             this.title,

@@ -11,6 +11,7 @@ export class Listing {
       public time: string,
       public info: string,
       public route: RouteItem,
+      public creator: string,
     ) {  }
   
   }

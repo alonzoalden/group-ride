@@ -27,7 +27,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 		AppComponent,
 		HeaderComponent,
 		UserConfirmComponent,
-		SnackBarComponent
+		SnackBarComponent,
 	],
 	imports: [
 		HomeModule,

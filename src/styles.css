@@ -206,7 +206,7 @@ input.error1::placeholder {
     justify-content: center;
 }
 .mat-list {
-    padding-top:4px !important;
+    padding-top: 1px !important;
 }
 .mat-list .mat-list-item .mat-list-icon {
     width: initial !important;
@@ -218,4 +218,10 @@ input.error1::placeholder {
 .mat-list-text {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+/* .mat-tab-labels {
+    background-color: #0038a8;
+} */
+listing {
+    margin: 0;
 }

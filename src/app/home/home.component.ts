@@ -5,24 +5,22 @@ import { slideInAnimation } from '../animations'
 import { Listing } from '../core/models/index';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  animations: [
-		slideInAnimation
-	]
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    animations: [
+        slideInAnimation
+    ]
 })
 export class HomeComponent implements OnInit {
 
-  constructor(
-    private listingService: ListingService,
-  ) { }
+    constructor(
+        private listingService: ListingService,
+    ) { }
 
-  ngOnInit() {
-    // this.listingService.getListings();
-  }
-  prepareRoute(outlet: RouterOutlet) {
-    
-		return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-	}
+    ngOnInit() {
+    }
+    prepareRoute(outlet: RouterOutlet) {
+        return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    }
 }

@@ -37,6 +37,8 @@ constructor(
 	];
 	currentListings: Listing[];
 	searchBy: any;
+	filterRides = {type: '1'};
+	filterRuns = {type: '2'};
 	ngOnInit() {
 		this.searchBy = this.searchOptions[0].value;
 		this.listingService.getListings();
@@ -59,7 +61,7 @@ constructor(
 
 	private viewListing(listing: Listing): void {
 		this.listingService.updateSelectedSubject(listing);
-		this.router.navigateByUrl('//listing');
+		this.router.navigateByUrl('/listing');
 	}
 
 }

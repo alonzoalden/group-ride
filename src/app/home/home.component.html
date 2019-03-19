@@ -2,7 +2,7 @@
 
     <mat-sidenav class="ride-list" opened="true" mode="side">
 
-        <div [@routeAnimations]="prepareRoute(outlet)" [hidden]="false">
+        <div [@routeAnimations]="prepareRoute(outlet)" [hidden]="false" style="margin: 0;">
             <router-outlet #outlet="outlet"></router-outlet>
         </div>
         <div [hidden]="true">

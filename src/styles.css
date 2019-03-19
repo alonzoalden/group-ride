@@ -215,3 +215,7 @@ input.error1::placeholder {
     flex-direction: column;
     text-align: center;
 }
+.mat-list-text {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

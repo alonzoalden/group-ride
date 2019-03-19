@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LeadComponent } from '.././lead/lead.component';
 import { HomeComponent } from './home.component';
-import { RideComponent } from './ride/ride.component';
+import { ListingComponent } from './listing/listing.component';
+import { ListingViewComponent } from './listing-view/listing-view.component';
 import { AuthGuard } from '../core';
 
 const routes: Routes = [
@@ -12,7 +13,12 @@ const routes: Routes = [
         children: [ 
             {
                 path: '',
-                component: RideComponent
+                component: ListingComponent
+            },
+            {
+                path: 'listing',
+                component: ListingViewComponent,
+                data: { animation: 'HomePage' }
             },
             {
                 path: 'lead',
@@ -21,7 +27,6 @@ const routes: Routes = [
                 data: { animation: 'HomePage' }
             }
         ]
-        
     },
 ];
 

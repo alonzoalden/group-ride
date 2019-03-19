@@ -8,7 +8,8 @@ import { UserService } from './user.service';
 import {
 	User,
     RouteList,
-    Listing
+    Listing,
+    RouteItem
 } from '../models/index';
 
 @Injectable()
@@ -16,7 +17,10 @@ import {
 export class ListingService {
 
 	private currentListingsSubject = new BehaviorSubject<Listing[]>(new Array<Listing>());
-	public currentListings = this.currentListingsSubject.asObservable().pipe(distinctUntilChanged());
+    public currentListings = this.currentListingsSubject.asObservable().pipe(distinctUntilChanged());
+    
+    private selectedListingSubject = new BehaviorSubject<Listing>(new Listing(0, '', '', '', null, '', '', new RouteItem(), '', ''));
+	public selectedListing = this.selectedListingSubject.asObservable().pipe(distinctUntilChanged());
 
 	constructor(
 		public router: Router,
@@ -48,8 +52,11 @@ export class ListingService {
 	public getCurrentListings(): Listing[] {
 		return this.currentListingsSubject.value;
 	}
-
 	public getSelectedRoute(): Listing[] {
 		return this.currentListingsSubject.value;
+    }
+    
+    public updateSelectedSubject(listing: Listing): void {
+        this.selectedListingSubject.next(listing);
 	}
 }

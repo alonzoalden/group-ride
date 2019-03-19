@@ -36,28 +36,33 @@
 				ALL
 			</ng-template>
 			<mat-list *ngFor="let listing of currentListings" class="left" role="list">
-				<mat-list-item class="item" role="list-item" style="padding-right: 5px;">
+				<mat-list-item class="item" role="list-item" style="padding-right: 5px;" (click)="viewListing(listing)">
 					<img class="font" style="border: 1px solid #dadada" [src]="this.getSmallMap(listing?.route.map.summary_polyline)">
 					<span matListIcon>
 						<i class="material-icons mat-36 head-icon">{{ listing.type === '1' ? 'directions_bike' : 'directions_run'}}</i>
 						<span class="color" style="font-weight: 600; font-size: 14px;"> {{ listing.pace === '1' ? 'Fun' : 'Fast'}}</span>
 					</span>
 					<h3 mat-line style="font-weight: bold; margin-bottom: 5px;">{{listing.title}}</h3>
-					<span mat-line class="color" style="display: flex; margin-bottom: 5px;">
-						<div style="flex: 1; display: inline-flex; align-items: center;  border-right: 1px solid #bababa;">
+					<div mat-line class="color" style="margin-bottom: 5px; font-weight: 200;" >{{ listing.info }}</div>
+					<!-- <span mat-line class="color" style="display: flex; margin-bottom: 5px; font-weight: 500;">
+						<div style="flex: 1; display: inline-flex; align-items: center;">
+							<img style="width: 15px; margin-right: 5px; width: 20px; border-radius: 100%;" src="{{listing.creator_photo}}">
+							{{ listing.creator }}
+						</div>
+					</span> -->
+					
+					<span mat-line class="color" style="display: flex; flex-wrap: wrap; margin-bottom: 5px; font-weight: 500; line-height: 22px;">
+						<div style="flex: 2.5; display: inline-flex; align-items: center; padding-right: 8px;">
 							<!-- <span style="font-weight: 600; font-size: 12px; margin-right: 3px;">Leader: </span> -->
 							<img style="width: 15px; margin-right: 5px; width: 20px; border-radius: 100%;" src="{{listing.creator_photo}}">
 							{{ listing.creator }}
 						</div>
-					</span>
-					
-					<span mat-line class="color" style="display: flex; margin-bottom: 5px;">
-						<div style="flex: 1; display: inline-flex; align-items: center;  border-right: 1px solid #bababa;"><i class="material-icons" style="color: #666; font-size: 18px; margin-right: 3px;">date_range</i>{{ listing.date | date }}</div>
+						<div style="flex: 2; display: inline-flex; align-items: center; padding-right: 8px;"><i class="material-icons" style="color: #666; font-size: 18px; margin-right: 3px;">date_range</i>{{ listing.date | date }}</div>
 						
-						<div class="color" style="flex: 1; display: inline-flex; align-items: center; padding-left: 10px;"><i class="material-icons" style="color: #666; font-size: 18px; margin-right: 3px;">access_time</i>{{ displayTime(listing.time) }}</div>
+						<div class="color" style="flex: 2; display: inline-flex; align-items: center; padding-left: 0px; padding-right: 8px;"><i class="material-icons" style="color: #666; font-size: 18px; margin-right: 3px;">access_time</i>{{ displayTime(listing.time) }}</div>
 					</span>
 					
-					<span mat-line class="color">{{ listing.info }}</span>
+					
 					<!-- <span mat-line class="color">Hosted by Alonzo Alden</span> -->
 		
 					

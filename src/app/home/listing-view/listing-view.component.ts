@@ -9,12 +9,12 @@ import {
 import { Listing } from '../../core/models/index';
 
 @Component({
-	selector: 'ride',
-	templateUrl: './ride.component.html',
-	styleUrls: ['./ride.component.scss']
+	selector: 'listing',
+	templateUrl: './listing-view.component.html',
+	styleUrls: ['./listing-view.component.scss']
 })
 
-export class RideComponent implements OnInit {
+export class ListingViewComponent implements OnInit {
 key = AUTH_CONFIG.MAPBOX_ACCESS_TOKEN;
 smallMap = 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-a+9ed4bd(-122.46589,37.77343),pin-s-b+000(-122.42816,37.75965),path-5+f44-0.7(%7DrpeFxbnjVsFwdAvr@cHgFor@jEmAlFmEMwM_FuItCkOi@wc@bg@wBSgM)/auto/140x90?access_token=' + this.key;
 
@@ -24,34 +24,20 @@ constructor(
 	private listingService: ListingService,
 ) { }
 	
-	searchOptions = [ 
-		{
-			name: 'Zip Code',
-			value: 'ZipCode'
-		},
-		{
-			name: 'City/State',
-			value: 'CityState'
-		}	
-	];
-	currentListings: Listing[];
-	searchBy: any;
+	selectedListing: Listing;
 	ngOnInit() {
-		this.searchBy = this.searchOptions[0].value;
-		this.listingService.getListings();
-		
-		this.listingService.currentListings.subscribe(
-            (listingData: Listing[]) => {
-                this.currentListings = listingData;
+		this.listingService.selectedListing.subscribe(
+            (listingData: Listing) => {
+                this.selectedListing = listingData;
             }
         )
 	}
-	private getSmallMap(encodedPolyline: string) {
-		return 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/path('
-		+ encodeURIComponent(encodedPolyline)
-		+ ')/auto/140x90?access_token='
-		+ AUTH_CONFIG.MAPBOX_ACCESS_TOKEN;
-	}
+	// private getSmallMap(encodedPolyline: string) {
+	// 	return 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/path('
+	// 	+ encodeURIComponent(encodedPolyline)
+	// 	+ ')/auto/140x90?access_token='
+	// 	+ AUTH_CONFIG.MAPBOX_ACCESS_TOKEN;
+	// }
 	private displayTime(time: string): string {
 		return time[0] === '0' ? time.slice(1) : time;
 	}

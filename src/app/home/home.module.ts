@@ -14,7 +14,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
-import { RideComponent } from './ride/ride.component';
+import { ListingComponent } from './listing/listing.component';
+import { ListingViewComponent } from './listing-view/listing-view.component';
 import { MapboxModule } from '../map-box/map-box.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -63,9 +64,10 @@ import { MatRadioModule } from '@angular/material/radio';
     ],
     declarations: [
         HomeComponent,
-        RideComponent,
+        ListingComponent,
         LeadComponent,
-        RouteComponent
+        RouteComponent,
+        ListingViewComponent
     ]
 })
 export class HomeModule { }

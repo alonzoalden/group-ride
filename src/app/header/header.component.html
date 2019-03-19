@@ -2,8 +2,8 @@
     <mat-toolbar class="nav">
         <i class="material-icons mat-48 head-icon m-r-sm" style="color: #ffc757 !important">directions_bike</i>
         <div ngClass="cool-link">
-            <button mat-button (click)="isActive = 'Discover'" routerLink="/" routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact: true}">
+            <button mat-button routerLink="/" routerLinkActive="active"
+            [ngClass]="{'active': router.url === '/listing' || router.url === '/' }">
                 Discover
             </button>
         </div>

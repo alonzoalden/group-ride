@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { UserService, JwtService } from '../core/services';
 import { User } from '../core/models/user.model';
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
     constructor(
         private user: UserService,
         private jwt: JwtService,
-        private notificationsService: NotificationsService
+        private notificationsService: NotificationsService,
+        private router: Router,
     ) {}
     ngOnInit() {
         this.user.currentUser.subscribe(

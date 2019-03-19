@@ -37,7 +37,7 @@
 .left .item {
     border-bottom: 1px solid #dddddd;
     box-shadow: 1px 2px 2px lightgrey;
-    height: 100px;   
+    height: 100% !important;
 }
 .left .item:first-of-type {
     border-top: 1px solid #dddddd;

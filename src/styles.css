@@ -188,7 +188,9 @@ input.error1::placeholder {
     margin-left: -20px;
     margin-top: -20px;
     width: calc(100% - 84px);
-    height: 638px;
+    /* height: 638px; */
+    height: 100%;
+    box-sizing: border-box;
 }
 .gray-cover-bg-full,
 .gray-cover-bg {

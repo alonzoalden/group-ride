@@ -42,10 +42,10 @@
 						<i class="material-icons mat-36 head-icon" style="color: #9a9a9a">{{ listing.type === '1' ? 'directions_bike' : 'directions_run'}}</i>
 						<span class="color" style="font-weight: 600; font-size: 14px; color: #9a9a9a"> {{ listing.pace === '1' ? 'Fun' : 'Fast'}}</span>
 					</span>
-					<h6 mat-line style="font-weight: bold; margin-bottom: 5px;">{{listing.title}}</h6>
+					<div mat-line style="font-weight: 500; margin-bottom: 5px;">{{listing.title}}</div>
 					<div mat-line class="color" style="margin-bottom: 5px; font-weight: 200;" >{{ listing.info }}</div>
 
-					<span mat-line class="color" style="display: flex; flex-wrap: wrap; margin-bottom: 5px; font-weight: 400; line-height: 22px;">
+					<span mat-line class="color" style="display: flex; flex-wrap: wrap; margin-bottom: 5px; font-weight: 300; line-height: 22px;">
 						<div style="flex: 2.5; display: inline-flex; align-items: center; padding-right: 8px;">
 							<img style="width: 15px; margin-right: 5px; width: 20px; border-radius: 100%;" src="{{listing.creator_photo}}">
 							{{ listing.creator }}

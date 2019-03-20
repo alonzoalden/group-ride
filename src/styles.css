@@ -230,5 +230,5 @@ input.error1::placeholder {
     border-bottom: 1px solid #cacaca;
 }
 .mat-list .mat-list-item .mat-list-item-content {
-    padding: 0 10px !important;
+    padding: 0 0px 0 0 !important;
 }

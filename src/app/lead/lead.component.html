@@ -1,6 +1,5 @@
 <div class="wrap">
 	<div class="leader-container">
-
 		<ng-container *ngIf="userService.isLoading" >
 			<div class="gray-cover-bg-full">
 				<div>
@@ -13,32 +12,22 @@
 			</div>
 		</ng-container>
 		<ng-container>
-			<div fxLayout="row" fxLayout.xs="column" style="margin-bottom: 40px;">
+			<div fxLayout="row" fxLayout.xs="column" class="main-layout">
 				<div fxFlex="100">
-					<h1 style="margin-bottom: 20px;">
-						<!-- <a routerLink="/"><i class="material-icons" style="position: absolute; margin-left: -30px; margin-top: 7px;">arrow_back</i></a> -->
-						<a routerLink="/"><i class="material-icons" style="margin-right: 5px;">arrow_back</i></a>
+					<h1 class="title">
+						<a routerLink="/"><i class="material-icons arrow-back">arrow_back</i></a>
 						Lead Group
 					</h1>
-					<div style="margin-bottom: 30px; display: flex; padding: 10px 0;
-							background-color: #ebf6e5;
-							background-color: rgba(235, 246, 229, 0.5);
-							border: 1px solid rgba(235, 246, 229, 0.99);
-							border-top: 4px solid rgba(235, 246, 229, 0.99);
-							border-radius: 2px;
-							letter-spacing: 0.5px;
-							line-height: 16px;
-							padding: 10px;
-							box-shadow: 1px 1px 20px #ebebeb;">
-						<i class="material-icons mat-16" style="color: #ffc757 !important;">info</i>
-						<div style="margin-left: 3px; margin-right: 3px; padding-left: 7px; padding-right: 7px; font-weight: 100; font-family: sans-serif; font-size: 12px; color: #404040;">
+					<div class="info-box">
+						<i class="material-icons mat-16 info-box-logo">info</i>
+						<div class="info-message">
 							Need routes to choose from? Go to <a href="https://www.strava.com/athlete/routes" target="_blank">Strava</a> and add routes to your collection by using Strava Route builder or by saving pre-existing routes and we'll automatically import them here.
 						</div>
 					</div>
-					<div style="font-family: 'Arvo'; margin-bottom: 10px; font-weight: 700; font-size: 18px;">Enter Details</div>
+					<div class="sub-header">Enter Details</div>
 					
 
-					<div style="box-shadow: 1px 1px 20px #ebebeb; font-family: sans-serif; padding: 20px 20px; background-color: rgba(229, 235, 246, 0.5); border: 1px solid rgba(229, 235, 246, 0.99); border-top: 4px solid rgba(229, 235, 246, 0.99);" >
+					<div class="content">
 						<ng-container *ngIf="isSubmitting" >
 							<div class="gray-cover-bg">
 								<div>
@@ -52,7 +41,7 @@
 						</ng-container>
 						<ng-container>
 							<div style="margin-bottom: 25px; padding-top: 20px;">
-								<label class="label-copy" style="margin-bottom: 5px;">Group Type <span style="font-size: 80%">*</span></label>
+								<label class="label-copy">Group Type <span>*</span></label>
 								<mat-radio-group
 									required
 									id="type"
@@ -60,12 +49,12 @@
 									[(ngModel)]="listing.type"
 									#type="ngModel"
 									(change)="this.type.control.markAsPristine();"
-									style="display: flex; border-bottom: 1px solid #999; padding-bottom: 7px;">
+									class="radio-group">
 									<mat-radio-button value="1" style="flex: 1;"><i matListIcon class="material-icons mat-36 head-icon">directions_bike</i></mat-radio-button>
 									<mat-radio-button value="2" style="flex: 1;"><i matListIcon class="material-icons mat-36 head-icon">directions_run</i></mat-radio-button>
 								</mat-radio-group>
 								
-								<mat-error style="position: absolute; font-size: 75%; padding-top: 7px;" *ngIf="type.touched && type.dirty">
+								<mat-error class="mat-error-copy" *ngIf="type.touched && type.dirty">
 									Type is <strong>required</strong>
 								</mat-error>
 									
@@ -90,17 +79,9 @@
 										</mat-error>
 								</mat-form-field>
 							</div>
-							
-							<!-- <div>
-								<mat-radio-group>
-									<mat-radio-button value="1" style="margin-right: 20px;">Race</mat-radio-button>
-									<mat-radio-button value="2">Fun</mat-radio-button>
-								</mat-radio-group>
-							</div> -->
+
 							<div style="margin-bottom: 10px;">
-								<div style="font-weight: 600"> </div>
-								<mat-form-field 
-									style="width: 100%;">
+								<mat-form-field style="width: 100%;">
 									<mat-select
 										required
 										[(ngModel)]="listing.pace"
@@ -118,8 +99,7 @@
 								
 							</div>
 							<div style="margin-bottom: 30px;">
-								
-								<mat-form-field style="width: 100%;">
+								<mat-form-field>
 									<input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a Date"
 										id="date"
 										[(ngModel)]="listing.date"
@@ -135,7 +115,7 @@
 								</mat-form-field>
 							</div>
 							<div style="margin-bottom: 20px;">
-								<label class="label-copy" *ngIf="listing.time">Choose a Time <span style="font-size: 80%">*</span></label>
+								<label class="label-copy" *ngIf="listing.time">Choose a Time <span>*</span></label>
 								<div class="timesection">
 									<input
 										[(ngModel)]="listing.time" 
@@ -159,7 +139,7 @@
 									</ngx-material-timepicker>
 								</div>
 
-								<mat-error style="position: absolute; font-size: 75%; padding-top: 7px;" *ngIf="time.invalid && (time.dirty || time.touched)">
+								<mat-error class="mat-error-copy" style="position: absolute; font-size: 75%; padding-top: 7px;" *ngIf="time.invalid && (time.dirty || time.touched)">
 									<div *ngIf="time.errors.required">
 										Time is <strong>required</strong>
 									</div>
@@ -167,7 +147,7 @@
 							
 							</div>
 							<div style="margin-bottom: 20px;">
-								<mat-form-field style="width: 100%;">
+								<mat-form-field>
 									<textarea
 										matInput
 										[(ngModel)]="listing.info"
@@ -175,7 +155,7 @@
 										placeholder="Provide any other details.."></textarea>
 								</mat-form-field>
 							</div>
-							<div style="width: 100%; text-align: center">
+							<div class="button-section">
 								<button mat-raised-button color="primary" (click)="submitEntry()">SUBMIT</button>
 							</div>
 						</ng-container>

@@ -1,8 +1,99 @@
 <div class="wrap">
-	<div class="leader-container">
+	<div class="listing-container">
 
+		<ng-container *ngIf="userService.isLoading" >
+			<div class="gray-cover-bg-full">
+				<div>
+					<mat-progress-spinner
+						class="spinner-loader"
+						color="primary"
+						mode="indeterminate">
+					</mat-progress-spinner>
+				</div>
+			</div>
+		</ng-container>
 		<ng-container>
-			HEYHEYHEY
+			<div fxLayout="row" fxLayout.xs="column" class="main-layout">
+				<div fxFlex="100" *ngIf="selectedListing?._id">
+					<h1 class="title">
+						<a routerLink="/"><i class="material-icons" style="margin-right: 5px;">arrow_back</i></a>
+						{{ selectedListing?.title }}
+					</h1>
+					<div class="content" style="padding: 20px 40px; font-family: sans-serif;">
+						<div style="display: flex; align-items: center; width: 100%; padding: 10px 0px; box-sizing: border-box;">
+							<strong style="flex: 1;">Host</strong>
+							<span style="flex: 4; display: flex; align-items: center; font-family: 'Arvo' !important;"><img src="{{ selectedListing?.creator_photo }}" style="width: 30px; border-radius: 100%; margin-right: 5px;"> {{ selectedListing?.creator }}</span>
+						</div>
+						<div style="display: flex; align-items: center; width: 100%; padding: 10px 0px; box-sizing: border-box;">
+							<strong style="flex: 1">Date</strong>
+							<span style="flex: 4; display: flex; align-items: center; font-family: 'Arvo' !important;"> {{ selectedListing?.date | date}}</span>
+						</div>
+						<div style="display: flex; align-items: center; width: 100%; padding: 10px 0px; box-sizing: border-box;">
+							<strong style="flex: 1">Time</strong>
+							<span style="flex: 4; display: flex; align-items: center; font-family: 'Arvo' !important;"> {{ displayTime(selectedListing?.time) }}</span>
+						</div>
+						<div style="display: flex; align-items: center; width: 100%; padding: 10px 0px; box-sizing: border-box;">
+							<strong style="flex: 1">Type</strong>
+							<span style="flex: 4; display: flex; align-items: center; font-family: 'Arvo' !important;"> {{ selectedListing?.type === '1' ? 'Bike' : 'Run'}}</span>
+						</div>
+						<div style="display: flex; align-items: center; width: 100%; padding: 10px 0px; box-sizing: border-box;">
+							<strong style="flex: 1">Pace</strong>
+							<span style="flex: 4; display: flex; align-items: center; font-family: 'Arvo' !important;"> {{ selectedListing?.pace === '1' ? 'Fast' : 'Fun'}}</span>
+						</div>
+						<div style="display: flex; align-items: center; width: 100%; padding: 10px 0px; box-sizing: border-box;">
+							<strong style="flex: 1">Info</strong>
+							<span style="flex: 4; display: flex; align-items: center; font-family: 'Arvo' !important;"> {{ selectedListing?.info }}</span>
+						</div>
+						<div style="display: flex; align-items: center; width: 100%; padding: 10px 0px; box-sizing: border-box;">
+							<span style="flex: 1; font-weight: 600;">Attendees</span>
+							<span style="flex: 4; display: flex; align-items: center; font-family: 'Arvo' !important;"><img src="{{ selectedListing?.creator_photo }}" style="width: 30px; border-radius: 100%; margin-right: 5px;"> {{ selectedListing?.creator }}</span>
+						</div>
+						<!-- <div style="margin-top: 20px; display: flex;"> -->
+							<div style="flex: 1; margin-top: 20px; text-align: center;">
+								<button mat-raised-button color="primary" style="width: 50%;">
+									<i class="material-icons">directions_bike</i> JOIN
+								</button>
+							</div>
+							
+						<!-- </div> -->
+					</div>
+					<div style="flex: 1; margin-top: 50px">
+						<div class="sub-title" style="display: inline; margin-right: 10px;">Have a question? Ask the Host.</div>
+						<button mat-raised-button color="accent" style="display: inline;">
+							<i class="material-icons">question_answer</i> ASK
+						</button>
+					</div>
+					<!-- <div class="sub-header">Actions</div>
+					
+
+					<div class="content" style="line-height: 32px;">
+						<ng-container *ngIf="isLoading">
+							<div class="gray-cover-bg">
+								<div>
+									<mat-progress-spinner
+										class="spinner-loader"
+										color="primary"
+										mode="indeterminate">
+									</mat-progress-spinner>
+								</div>
+							</div>
+						</ng-container>
+						<div style="display: flex; align-items: center; width: 100%; padding: 10px 0px; box-sizing: border-box;">
+							<strong style="flex: 2">READY TO JOIN?</strong>
+							
+							<span style="flex: 4">
+								<button mat-raised-button color="primary">
+									<i class="material-icons">directions_bike</i> JOIN
+								</button>
+							</span>
+						</div>
+						<div>
+							
+						</div>
+						
+					</div> -->
+				</div>
+			</div>
 		</ng-container>
 	</div>
 </div>

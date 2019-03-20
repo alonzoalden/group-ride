@@ -16,7 +16,7 @@ import {
 @Component({
     selector: 'lead',
     templateUrl: './lead.component.html',
-    styleUrls: ['./lead.component.scss'],
+    styleUrls: ['./lead.component.scss', '../home/home.component.scss'],
     animations: [
 		slideInAnimation
 	]

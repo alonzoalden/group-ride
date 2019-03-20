@@ -1,8 +1,5 @@
 @import '../../style-variables.scss';
-.font {
-    margin-right: -5px;
-    margin-top: 2px;
-}
+
 .color {
     color: #444;
 }
@@ -15,33 +12,26 @@
 .left {
     
     :hover {
-        background-color: #ffffff;
-        transition: 100ms;
+        background-color: #f3f3f4;
+        transition: 70ms;
         cursor: pointer;
         
     }
-}
-.left .item:hover {
-    box-shadow: 1px 1px 18px #dddddd;
-    transition: 100ms;
 }
 
 .ride-toolbar {
     padding: 10px;
     background-color: #f6feff;
-    border-bottom: 1px solid darkgray;
-    border-bottom: 1px solid #dddddd;
+    
     
 }
 
 .left .item {
-    border-bottom: 1px solid #dddddd;
+    
     box-shadow: 1px 2px 2px lightgrey;
-    height: 100% !important;
+    padding: 6px;
 }
-.left .item:first-of-type {
-    border-top: 1px solid #dddddd;
-}
+
 .side-header {
     font-family: Roboto,"Helvetica Neue",sans-serif;
     font-size: 14px;
@@ -63,5 +53,5 @@
     width: 33.30%;
 }
 .mat-list-item {
-    background-color: #f3f3f4;
+    background-color: #fff;
 }

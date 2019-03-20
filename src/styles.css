@@ -222,6 +222,13 @@ input.error1::placeholder {
 /* .mat-tab-labels {
     background-color: #0038a8;
 } */
-listing {
-    margin: 0;
+.mat-list-text {
+    margin-left: 10px;
+    border-left: 1px solid #cacaca;
+}
+.mat-tab-body-content {
+    border-bottom: 1px solid #cacaca;
+}
+.mat-list .mat-list-item .mat-list-item-content {
+    padding: 0 10px !important;
 }

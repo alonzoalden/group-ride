@@ -3,7 +3,7 @@ import { Moment } from 'moment';
 export class Listing {
 
     constructor(
-      public id: number,
+      public _id: any,
       public type: string,
       public title: string,
       public pace: string,

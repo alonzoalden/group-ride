@@ -24,10 +24,10 @@ export class HeaderComponent implements OnInit {
     ) {}
     ngOnInit() {
         this.user.currentUser.subscribe(
-                (userData: User) => {
-                    this.currentUser = userData;
-                }
-            );
+            (userData: User) => {
+                this.currentUser = userData;
+            }
+        );
     }
     isLoggedIn() {
         return !!this.jwt.getToken();

@@ -96,7 +96,7 @@ export class UserService {
             );
 	}
 
-public openDialog(): void {
+	public openDialog(): void {
 		let dialogRef = this.dialog.open(UserConfirmComponent, {
 			width: '100%',
 			height: '400px'

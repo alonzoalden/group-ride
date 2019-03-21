@@ -38,13 +38,21 @@ export class ListingService {
     }
 
     public submitListing(payload): Observable<Listing> {
-        console.log(this.user.currentUser)
         return this.apiService
-            .post(
-                `lead`,
-                payload
-            ).pipe(map(data => data));
-      }
+            .post(`lead`, payload)
+            .pipe(map(data => data));
+    }
+
+    public addListingMember(payload) {
+        console.log(payload);
+        return this.apiService
+            .post( `lead/addMember`, payload)
+            .pipe(map(data => {
+                console.log(data);
+                this.selectedListingSubject.next(data);
+                return data;
+            }));
+    }
 
     public addToCurrentListings(listing: Listing): void {
         this.currentListingsSubject.next([...this.currentListingsSubject.value, listing]);

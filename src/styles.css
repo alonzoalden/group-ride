@@ -226,11 +226,15 @@ input.error1::placeholder {
 } */
 .mat-list-text {
     margin-left: 10px;
-    border-left: 1px solid #cacaca;
+    border-right: 1px solid #cacaca;
 }
 .mat-tab-body-content {
     border-bottom: 1px solid #cacaca;
 }
 .mat-list .mat-list-item .mat-list-item-content {
     padding: 0 0px 0 0 !important;
+    flex-direction: row-reverse !important;
+}
+.mat-list .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text {
+    padding-left: 5px !important;
 }

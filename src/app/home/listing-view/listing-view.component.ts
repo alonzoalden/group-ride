@@ -7,7 +7,7 @@ import {
     // UtilsService,
     ListingService
 } from '../../core/services/index';
-import { Listing } from '../../core/models/index';
+import { Listing, ListingMember, User } from '../../core/models/index';
 
 @Component({
 	selector: 'listing-view',
@@ -16,18 +16,20 @@ import { Listing } from '../../core/models/index';
 })
 
 export class ListingViewComponent implements OnInit {
-key = AUTH_CONFIG.MAPBOX_ACCESS_TOKEN;
-smallMap = 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-a+9ed4bd(-122.46589,37.77343),pin-s-b+000(-122.42816,37.75965),path-5+f44-0.7(%7DrpeFxbnjVsFwdAvr@cHgFor@jEmAlFmEMwM_FuItCkOi@wc@bg@wBSgM)/auto/140x90?access_token=' + this.key;
-
-constructor(
-	private userService: UserService,
-	// private routesService: RouteService,
-	private listingService: ListingService,
-	private router: Router,
-) { }
-	
+	key = AUTH_CONFIG.MAPBOX_ACCESS_TOKEN;
+	smallMap = 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-a+9ed4bd(-122.46589,37.77343),pin-s-b+000(-122.42816,37.75965),path-5+f44-0.7(%7DrpeFxbnjVsFwdAvr@cHgFor@jEmAlFmEMwM_FuItCkOi@wc@bg@wBSgM)/auto/140x90?access_token=' + this.key;
 	selectedListing: Listing;
 	isLoading: boolean;
+	currentUser: User;
+
+	constructor(
+		private userService: UserService,
+		// private routesService: RouteService,
+		private listingService: ListingService,
+		private router: Router,
+	) { }
+	
+	
 	ngOnInit() {
 		this.isLoading = true;
 		this.listingService.selectedListing.subscribe(
@@ -36,9 +38,30 @@ constructor(
 				this.selectedListing = listingData;
 				this.isLoading = false;
             }
-        )
+		)
+		this.userService.currentUser.subscribe((userData: User) => this.currentUser = userData);
 	}
 
+	private submitJoinGroup(): void {
+		const joinGroupData = new ListingMember(
+			0, 
+			this.currentUser.firstname,
+			this.currentUser.lastname,
+			this.currentUser.profile_medium,
+			this.currentUser.city + ', ' + this.currentUser.state,
+			this.selectedListing._id,
+		)
+		this.listingService
+			.addListingMember(joinGroupData)
+			.subscribe((listing) => {
+				console.log(listing);
+			})
+		//take Model of GroupMember { profile_medium, firstname, lastname, location, _id: {{from listing._id}} }
+		//send it to api addGroupMember
+		
+		//in back end take object and attach it in the array for the listing.
+		//return object to client and update listing service selectedListing
+	}
 	private displayTime(time: string): string {
 		return time[0] === '0' ? time.slice(1) : time;
 	}

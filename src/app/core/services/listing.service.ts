@@ -19,14 +19,14 @@ export class ListingService {
 	private currentListingsSubject = new BehaviorSubject<Listing[]>(new Array<Listing>());
     public currentListings = this.currentListingsSubject.asObservable().pipe(distinctUntilChanged());
     
-    private selectedListingSubject = new BehaviorSubject<Listing>(new Listing(0, '', '', '', null, '', '', new RouteItem(), '', ''));
+    private selectedListingSubject = new BehaviorSubject<Listing>(new Listing(0, '', '', '', null, '', '', new RouteItem(), '', '', []));
 	public selectedListing = this.selectedListingSubject.asObservable().pipe(distinctUntilChanged());
 
 	constructor(
 		public router: Router,
 		private activatedRoute: ActivatedRoute,
 		private apiService: ApiService,
-		private user: UserService
+        private user: UserService,
 	) {}
   
 	public getListings() {
@@ -44,14 +44,14 @@ export class ListingService {
     }
 
     public addListingMember(payload) {
-        console.log(payload);
         return this.apiService
             .post( `lead/addMember`, payload)
-            .pipe(map(data => {
-                console.log(data);
-                this.selectedListingSubject.next(data);
-                return data;
-            }));
+            .pipe(map(newMemberData => {
+                let selectedListingData = this.selectedListingSubject.value;
+                selectedListingData.members.push(newMemberData);
+                this.selectedListingSubject.next(selectedListingData);
+                // return this.selectedListingSubject.value;
+            }))
     }
 
     public addToCurrentListings(listing: Listing): void {

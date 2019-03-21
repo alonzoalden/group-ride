@@ -8,7 +8,7 @@ import {
     ListingService
 } from '../../core/services/index';
 import { Listing, ListingMember, User } from '../../core/models/index';
-
+import { NotificationsService } from 'angular2-notifications';
 @Component({
 	selector: 'listing-view',
 	templateUrl: './listing-view.component.html',
@@ -27,6 +27,7 @@ export class ListingViewComponent implements OnInit {
 		// private routesService: RouteService,
 		private listingService: ListingService,
 		private router: Router,
+		private notificationsService: NotificationsService,
 	) { }
 	
 	
@@ -43,6 +44,10 @@ export class ListingViewComponent implements OnInit {
 	}
 
 	private submitJoinGroup(): void {
+		// if (!this.userService.isAuthenticated()) {
+		// 	this.notificationsService.error('Error', 'You must be signed in to join a ride.');
+		// 	return;
+		// }
 		const joinGroupData = new ListingMember(
 			0, 
 			this.currentUser.firstname,
@@ -53,9 +58,7 @@ export class ListingViewComponent implements OnInit {
 		)
 		this.listingService
 			.addListingMember(joinGroupData)
-			.subscribe((listing) => {
-				console.log(listing);
-			})
+			.subscribe()
 		//take Model of GroupMember { profile_medium, firstname, lastname, location, _id: {{from listing._id}} }
 		//send it to api addGroupMember
 		

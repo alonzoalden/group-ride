@@ -156,7 +156,8 @@ export class UserService {
 		// Check whether the current time is past the
 		// access token's expiry time
 		const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-		return new Date().getTime() < expiresAt;
+		const isNotExpired = new Date().getTime() < expiresAt;
+		return isNotExpired ? true : false && this.logout();
 	}
 
 	public getCurrentUser(): User {

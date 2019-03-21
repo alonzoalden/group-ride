@@ -16,13 +16,13 @@
 			<div fxLayout="row" fxLayout.xs="column" class="main-layout">
 				<div fxFlex="100" *ngIf="selectedListing?._id">
 					<h1 class="title">
-						<a routerLink="/"><i class="material-icons" style="margin-right: 5px;">arrow_back</i></a>
+						<a routerLink="/"><i class="material-icons" style="margin-right: 8px;">arrow_back</i></a>
 						{{ selectedListing?.title }}
 					</h1>
-					<div class="content view-listing-content">
+					<div class="view-listing-content">
 						<div>
 							<span>Host</span>
-							<span><img src="{{ selectedListing?.creator_photo }}" style=""> {{ selectedListing?.creator }}</span>
+							<span><img src="{{ selectedListing?.creator_photo }}" style="width: 30px; height: 30px"> {{ selectedListing?.creator }}</span>
 						</div>
 						<div>
 							<span>Date</span>
@@ -45,13 +45,19 @@
 							<span> {{ selectedListing?.info }}</span>
 						</div>
 						<div>
-							<span>Joining</span>
-							<span><img src="{{ selectedListing?.creator_photo }}"> {{ selectedListing?.creator }}</span>
+							<span class="join-list-title">Joining</span>
+							<span class="join-list">
+								<span *ngIf="selectedListing?.members.length === 0" style="color: #6a6a6a;  font-size: 14px; font-style: italic; font-weight: 300;"> Be the first to join..</span>
+								<span *ngFor="let member of selectedListing?.members">
+									<img src="{{ member.profile_photo }}"> <span> {{ member.firstname }}</span>
+								</span>
+							</span>
 						</div>
 						
 						<div class="button-section">
 							<button mat-raised-button color="primary">
-								<i class="material-icons">directions_bike</i> JOIN
+								<!-- <i class="material-icons">directions_bike</i> -->
+								JOIN
 							</button>
 						</div>
 							
@@ -59,8 +65,8 @@
 					</div>
 					<div style="flex: 1; margin-top: 50px">
 						<div class="sub-title" style="display: inline; margin-right: 10px;">Have a question? Ask the Host.</div>
-						<button mat-raised-button color="accent" style="display: inline;" (click)=submitJoinGroup()>
-							<i class="material-icons">question_answer</i> ASK
+						<button mat-mini-fab color="accent" style="display: inline;" (click)=submitJoinGroup()>
+							<i class="material-icons">question_answer</i>
 						</button>
 					</div>
 					<!-- <div class="sub-header">Actions</div>

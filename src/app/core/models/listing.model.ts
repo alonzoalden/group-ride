@@ -1,4 +1,5 @@
 import { RouteItem } from "./route-item.model";
+import { ListingMember } from './listing-member.model'
 import { Moment } from 'moment';
 export class Listing {
 
@@ -13,6 +14,7 @@ export class Listing {
       public route: RouteItem,
       public creator: string,
       public creator_photo: String,
+      public members: Array<ListingMember>,
     ) {  }
   
   }

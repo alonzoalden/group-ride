@@ -16,8 +16,8 @@
 			<div fxLayout="row" fxLayout.xs="column" class="main-layout">
 				<div fxFlex="100" *ngIf="selectedListing?._id">
 					<h1 class="title">
-						<a routerLink="/"><i class="material-icons" style="margin-right: 8px;">arrow_back</i></a>
-						{{ selectedListing?.title }}
+						<span><a routerLink="/"><i class="material-icons" style="margin-right: 8px;">arrow_back</i></a></span>
+						<span>{{ selectedListing?.title }}</span>
 					</h1>
 					<div class="view-listing-content">
 						<div>
@@ -49,13 +49,15 @@
 							<span class="join-list">
 								<span *ngIf="selectedListing?.members.length === 0" style="color: #6a6a6a;  font-size: 14px; font-style: italic; font-weight: 300;"> Be the first to join..</span>
 								<span *ngFor="let member of selectedListing?.members">
-									<img src="{{ member.profile_photo }}"> <span> {{ member.firstname }}</span>
+									<img *ngIf="member.profile_photo" src="{{ member.profile_photo }}"> 
+									<i *ngIf="!member.profile_photo" class="material-icons mat-36">face</i>
+									<span> {{ member.firstname || 'Mystery Guest' }}</span>
 								</span>
 							</span>
 						</div>
 						
 						<div class="button-section">
-							<button mat-raised-button color="primary">
+							<button mat-raised-button color="primary"  (click)=submitJoinGroup()>
 								<!-- <i class="material-icons">directions_bike</i> -->
 								JOIN
 							</button>
@@ -65,7 +67,7 @@
 					</div>
 					<div style="flex: 1; margin-top: 50px">
 						<div class="sub-title" style="display: inline; margin-right: 10px;">Have a question? Ask the Host.</div>
-						<button mat-mini-fab color="accent" style="display: inline;" (click)=submitJoinGroup()>
+						<button mat-mini-fab color="accent" style="display: inline;">
 							<i class="material-icons">question_answer</i>
 						</button>
 					</div>

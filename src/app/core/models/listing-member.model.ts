@@ -6,6 +6,7 @@ export class ListingMember {
       public profile_photo: String,
       public location: String,
       public listing_id: Number,
+      public user_id: String,
     ) {  }
   
   }

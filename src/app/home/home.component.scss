@@ -38,8 +38,11 @@
             margin-bottom: 40px;
 
             .title {
-                margin-bottom: 20px;
-
+                display: flex;
+                margin-bottom: 10px;
+                span:first-of-type {
+                    min-width: 40px;
+                }
                 .arrow-back {
                     margin-right: 5px;
                 }
@@ -133,7 +136,7 @@
                 .join-list {
                     align-items: flex-start !important;
                     flex-wrap: wrap;
-                    line-height: 30px;
+                    line-height: 36px;
                     > span {
                         display: flex;
                         align-items: center;

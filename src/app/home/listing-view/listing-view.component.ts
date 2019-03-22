@@ -42,13 +42,15 @@ export class ListingViewComponent implements OnInit {
 	}
 
 	private submitJoinGroup(): void {
-		const userExistsInGroup = this.selectedListing.members.filter(item => item.user_id === this.currentUser._id);
-		if (userExistsInGroup[0]) {
-			this.notificationsService.info('Already Joining', 'You\'re already joining this group.');
+		if (!this.userService.isAuthenticated()) {
+			this.notificationsService.error('Please Sign In', 'You must be signed in to join a ride.');
 			return;
 		}
-		if (!this.userService.isAuthenticated()) {
-			this.notificationsService.error('Error', 'You must be signed in to join a ride.');
+		const userExistsInGroup = this.selectedListing.members
+									.filter(item => item.user_id === this.currentUser._id);
+		if (userExistsInGroup[0]) {
+			console.log(userExistsInGroup)
+			this.notificationsService.info('Already Joining', 'You\'re already joining this group.');
 			return;
 		}
 		const joinGroupData = new ListingMember(

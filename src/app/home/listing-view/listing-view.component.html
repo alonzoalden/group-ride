@@ -1,4 +1,16 @@
 <div class="wrap">
+	<div class="title" style="display: flex;font-size: 20px; top: 0px; background-color: #fafafa; margin: 0; padding: 0px; border-bottom: 1px solid #dadada">
+		<a routerLink="/" style="text-decoration: none;">
+			<span class="back-button" style="border-right: 1px solid #dadada;">
+				<i class="material-icons" style="margin-right: 5px;">arrow_back</i>
+			</span>
+		</a>
+		<div style="    display: flex;
+		justify-content: flex-start;
+		width: 100%;
+		align-items: center;
+		padding: 24px;">{{ selectedListing?.title }}</div>
+	</div>
 	<div class="listing-container">
 
 		<ng-container *ngIf="userService.isLoading" >
@@ -13,10 +25,6 @@
 			</div>
 		</ng-container>
 		<ng-container>
-				<h1 class="title">
-					<span><a routerLink="/"><i class="material-icons" style="margin-right: 8px;">arrow_back</i></a></span>
-					<span>{{ selectedListing?.title }}</span>
-				</h1>
 			<div fxLayout="row" fxLayout.xs="column" class="main-layout">
 				
 				<div fxFlex="100" *ngIf="selectedListing?._id">

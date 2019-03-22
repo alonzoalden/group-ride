@@ -34,6 +34,7 @@ export class RouteComponent implements OnInit {
     ) { }
     
 	ngOnInit() {
+        console.log(this.selectedRouteVar);
         this.validationService.formInputs.push(this.selectedRouteVar)
         this.routeData.routes.length = 2;
         this.routeService.currentRoutes.subscribe(
@@ -64,13 +65,4 @@ export class RouteComponent implements OnInit {
     private convertTomins(seconds: number) {
         return (seconds / 60).toFixed(0);
     }
-    
-    // private overflow() {
-    //     let sideView = document.getElementsByTagName('ride-list')[0];
-    //     console.log(sideView);
-    //     // body.classList.remove("className");
-    //     // body.classList.add("className");
-    //     console.log(this.utils.check())
-    // }
-
 }

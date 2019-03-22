@@ -9,7 +9,7 @@
         .center {
             margin: 200px auto;
         }
-        background-color: #f6feff;
+        background-color: #fafafa;
     }
 }
 .wrap {
@@ -20,16 +20,16 @@
     right: 0;
     left: 0;
     padding: 0px;
-    padding-bottom: 20px;
-    height: 100%;
+    // padding-bottom: 20px;
+    // height: 100%;
     
     .listing-container,
     .leader-container {
-        height: 100%;
+        // height: 100%;
         max-width: 1024px;
         margin: 0 auto;
         background-color: #fafafa;
-        padding: 20px 40px 0px 40px;
+        padding: 20px 60px 0px 60px;
         border: 1px solid #eeeeee;
         border-bottom: none;
         border-radius: 2px;
@@ -46,6 +46,7 @@
                 .arrow-back {
                     margin-right: 5px;
                 }
+
             }
             .info-box {
                 margin-bottom: 30px;
@@ -117,8 +118,10 @@
                     display: flex;
                     align-items: center;
                     width: 100%;
-                    padding: 10px 0px;
+                    padding: 10px 10px;
                     box-sizing: border-box;
+                    border-bottom: 1px solid #dadada;
+                    
                     > span:first-of-type {
                         flex: 1;
                         font-weight: 600;
@@ -132,7 +135,10 @@
                         
                     }
                 }
-                
+                > div:nth-child(even) {
+                    background-color: #f3f3f4;
+                }
+                    
                 .join-list {
                     align-items: flex-start !important;
                     flex-wrap: wrap;
@@ -149,7 +155,8 @@
                 
                 .button-section {
                     flex: 1;
-                    // background-color: #e5ebe7;
+                    background-color: initial !important;
+                    border: initial;
                     border-radius: 2px;
                     margin-top: 10px;
                     justify-content: center;
@@ -195,4 +202,15 @@
     font-size: 14px;
     font-style: italic;
     font-weight: 300;
+}
+.back-button {
+    min-width: 73px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back-button:hover {
+    background-color: #e3ecff;
+    
 }

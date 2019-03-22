@@ -17,6 +17,7 @@ export class ValidationService {
                 valid = false;
             }
         });
+        this.formInputs = [];
         return valid;
     }
 }

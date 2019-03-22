@@ -92,7 +92,7 @@ export class LeadComponent implements OnInit {
     }
 
     submitEntry() {
-        this.validationService.formInputs = [];
+        this.isSubmitting = true;
         const formInputs = [
             this.type,
             this.title,
@@ -101,8 +101,6 @@ export class LeadComponent implements OnInit {
             this.date
         ];
         formInputs.forEach(item => this.validationService.formInputs.push(item))
-
-        this.isSubmitting = true;
         if (!this.validationService.validate()) return this.isSubmitting = false;
 
         const route = this.currentRouteList.find((route) => route.id === this.listing.route.id);

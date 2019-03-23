@@ -1,5 +1,5 @@
 <div class="wrap">
-	<div class="title" style="display: flex;font-size: 20px; top: 0px; background-color: #fafafa; margin: 0; padding: 0px; border-bottom: 1px solid #dadada">
+	<div class="title" style="display: flex;font-size: 16px; top: 0px; background-color: #fafafa; margin: 0; padding: 0px; border-bottom: 1px solid #dadada">
 		<a routerLink="/" style="text-decoration: none;">
 			<span class="back-button" style="border-right: 1px solid #dadada;">
 				<i class="material-icons" style="margin-right: 5px;">arrow_back</i>
@@ -9,7 +9,7 @@
 		justify-content: flex-start;
 		width: 100%;
 		align-items: center;
-		padding: 24px;">{{ selectedListing?.title }}</div>
+		padding: 20px 30px;">Group Ride</div>
 	</div>
 	<div class="listing-container">
 
@@ -29,6 +29,9 @@
 				
 				<div fxFlex="100" *ngIf="selectedListing?._id" class="main-layout">
 					<div class="view-listing-content" style="margin-top: 20px;" >
+						<div>
+							<span style="font-size: 18px;"><strong>{{ selectedListing?.title }}</strong></span>
+						</div>
 						<div>
 							<span>Host</span>
 							<span><img src="{{ selectedListing?.creator_photo }}" style="width: 32px; height: 32px"> {{ selectedListing?.creator }}</span>
@@ -72,7 +75,7 @@
 							</button>
 							<button *ngIf="this.userInGroup[0]" mat-raised-button color="default" (click)=submitRemoveFromGroup()>
 								<!-- <i class="material-icons">directions_bike</i> -->
-								LEAVE
+								LEAVE GROUP
 							</button>
 						</div>
 						

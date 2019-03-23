@@ -1,4 +1,16 @@
 <div class="wrap">
+	<div class="title" style="display: flex;font-size: 20px; top: 0px; background-color: #fafafa; margin: 0; padding: 0px; border-bottom: 1px solid #dadada">
+		<a routerLink="/" style="text-decoration: none;">
+			<span class="back-button" style="border-right: 1px solid #dadada;">
+				<i class="material-icons" style="margin-right: 5px;">arrow_back</i>
+			</span>
+		</a>
+		<div style="display: flex;
+		justify-content: flex-start;
+		width: 100%;
+		align-items: center;
+		padding: 24px;">Lead Group</div>
+	</div>
 	<div class="leader-container">
 		<ng-container *ngIf="userService.isLoading" >
 			<div class="gray-cover-bg-full">
@@ -12,12 +24,12 @@
 			</div>
 		</ng-container>
 		<ng-container>
-			<div fxLayout="row" fxLayout.xs="column" class="main-layout">
+			<div fxLayout="row" fxLayout.xs="column" class="main-layout" style="margin-top: 20px;">
 				<div fxFlex="100">
-					<h1 class="title">
+					<!-- <h1 class="title">
 						<a routerLink="/"><i class="material-icons arrow-back">arrow_back</i></a>
 						Lead Group
-					</h1>
+					</h1> -->
 					<div class="info-box">
 						<i class="material-icons mat-16 info-box-logo">info</i>
 						<div class="info-message">
@@ -155,7 +167,7 @@
 										placeholder="Provide any other details.."></textarea>
 								</mat-form-field>
 							</div>
-							<div class="button-section">
+							<div class="button-section" style="box-sizing: border-box;">
 								<button mat-raised-button color="primary" (click)="submitEntry()">SUBMIT</button>
 							</div>
 						</ng-container>

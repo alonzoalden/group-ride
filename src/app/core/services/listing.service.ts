@@ -47,12 +47,22 @@ export class ListingService {
         return this.apiService
             .post( `lead/addMember`, payload)
             .pipe(map(newMemberData => {
-                console.log(newMemberData)
                 let selectedListingData = this.selectedListingSubject.value;
                 selectedListingData.members.push(newMemberData);
                 this.selectedListingSubject.next(selectedListingData);
                 // return this.selectedListingSubject.value;
             })).subscribe()
+    }
+
+    public removeListingMember(memberid) {
+        return this.apiService
+            .delete( `lead/removeMember/${memberid}`)
+            .pipe(map(newMemberData => {
+                // let selectedListingData = this.selectedListingSubject.value;
+                // selectedListingData.members.push(newMemberData);
+                // this.selectedListingSubject.next(selectedListingData);
+                // return this.selectedListingSubject.value;
+            }))
     }
 
     public addToCurrentListings(listing: Listing): void {

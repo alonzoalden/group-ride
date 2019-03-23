@@ -18,8 +18,9 @@ export class ListingViewComponent implements OnInit {
 	key = AUTH_CONFIG.MAPBOX_ACCESS_TOKEN;
 	selectedListing: Listing;
 	isLoading: boolean;
+	userInGroup: Array<ListingMember>;
 	currentUser: User;
-
+	
 	constructor(
 		private userService: UserService,
 		// private routesService: RouteService,
@@ -31,14 +32,19 @@ export class ListingViewComponent implements OnInit {
 	
 	ngOnInit() {
 		this.isLoading = true;
-		this.listingService.selectedListing.subscribe(
-            (listingData: Listing) => {
-				if (!listingData.date) return this.router.navigateByUrl('/');
-				this.selectedListing = listingData;
-				this.isLoading = false;
-            }
-		)
-		this.userService.currentUser.subscribe((userData: User) => this.currentUser = userData);
+		this.userService.currentUser.subscribe((userData: User) => {
+			this.currentUser = userData;
+			
+			this.listingService.selectedListing
+				.subscribe((listingData: Listing) => {
+					if (!listingData.date) return this.router.navigateByUrl('/');
+					this.selectedListing = listingData;
+					this.checkIfUserInGroup();
+					this.isLoading = false;
+				}
+			)
+		});
+		
 	}
 
 	private submitJoinGroup(): void {
@@ -46,10 +52,8 @@ export class ListingViewComponent implements OnInit {
 			this.notificationsService.error('Please Sign In', 'You must be signed in to join a ride.');
 			return;
 		}
-		const userExistsInGroup = this.selectedListing.members
-									.filter(item => item.user_id === this.currentUser._id);
-		if (userExistsInGroup[0]) {
-			console.log(userExistsInGroup)
+		
+		if (this.userInGroup[0]) {
 			this.notificationsService.info('Already Joining', 'You\'re already joining this group.');
 			return;
 		}
@@ -65,8 +69,19 @@ export class ListingViewComponent implements OnInit {
 		this.listingService
 			.addListingMember(joinGroupData);
 	}
+
+	private submitRemoveFromGroup(): void {
+		this.listingService
+			.removeListingMember(this.currentUser._id)
+			.subscribe(() => {
+				this.checkIfUserInGroup();
+			});
+	}
 	private displayTime(time: string): string {
 		return time[0] === '0' ? time.slice(1) : time;
 	}
-
+	private checkIfUserInGroup() {
+		this.userInGroup = this.selectedListing.members
+							.filter(item => item.user_id === this.currentUser._id);
+	}
 }

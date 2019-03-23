@@ -5,7 +5,7 @@
 				<i class="material-icons" style="margin-right: 5px;">arrow_back</i>
 			</span>
 		</a>
-		<div style="    display: flex;
+		<div style="display: flex;
 		justify-content: flex-start;
 		width: 100%;
 		align-items: center;
@@ -25,10 +25,10 @@
 			</div>
 		</ng-container>
 		<ng-container>
-			<div fxLayout="row" fxLayout.xs="column" class="main-layout">
+			
 				
-				<div fxFlex="100" *ngIf="selectedListing?._id">
-					<div class="view-listing-content"> 
+				<div fxFlex="100" *ngIf="selectedListing?._id" class="main-layout">
+					<div class="view-listing-content" style="margin-top: 20px;" >
 						<div>
 							<span>Host</span>
 							<span><img src="{{ selectedListing?.creator_photo }}" style="width: 32px; height: 32px"> {{ selectedListing?.creator }}</span>
@@ -66,9 +66,13 @@
 						</div>
 						
 						<div class="button-section">
-							<button mat-raised-button color="primary"  (click)=submitJoinGroup()>
+							<button *ngIf="!this.userInGroup[0]" mat-raised-button color="primary" (click)=submitJoinGroup()>
 								<!-- <i class="material-icons">directions_bike</i> -->
 								JOIN
+							</button>
+							<button *ngIf="this.userInGroup[0]" mat-raised-button color="default" (click)=submitRemoveFromGroup()>
+								<!-- <i class="material-icons">directions_bike</i> -->
+								LEAVE
 							</button>
 						</div>
 						
@@ -112,7 +116,7 @@
 						
 					</div> -->
 				</div>
-			</div>
+			
 		</ng-container>
 	</div>
 </div>

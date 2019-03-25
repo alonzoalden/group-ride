@@ -23,6 +23,9 @@
     // padding-bottom: 20px;
     // height: 100%;
     
+    .listing-container {
+        padding: 0px 12px 0px 12px !important;
+    }
     .listing-container,
     .leader-container {
         // height: 100%;
@@ -110,7 +113,8 @@
                     }
                 }
                 > div:nth-child(even) {
-                    background-color: #f3f3f4;
+                    // background-color: #f3f3f4;
+                    background-color: rgba(229, 235, 246, 0.5);
                 }
                     
                 .join-list {

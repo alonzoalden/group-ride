@@ -4,12 +4,13 @@
     top: 0;
     right: 0;
     left: 0;
-    box-shadow: 0px 2px 10px black;
+    box-shadow: 0px 1px 5px #666;
     z-index: 20;
     .nav {
         color: #eaeaea;
         height: 48px;
-        background-color: $royalblue;
+        // background-color: $royalblue;
+        background-color: #fafafa;
         text-transform: uppercase;
         z-index: 2;
     }

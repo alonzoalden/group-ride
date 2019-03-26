@@ -1,6 +1,6 @@
 <div class="header">
     <mat-toolbar class="nav">
-        <i class="material-icons mat-48 head-icon m-r-sm" style="color: #ffc757 !important">directions_bike</i>
+        <i class="material-icons mat-48 head-icon m-r-sm" style="color: #0038a8 !important">directions_bike</i>
         <div ngClass="cool-link">
             <button mat-button routerLink="/" routerLinkActive="active"
             [ngClass]="{'active': router.url === '/listing' || router.url === '/' }">
@@ -24,7 +24,7 @@
       <!-- This fills the remaining space of the current row -->
       <span class="fill-remaining-space"></span>
       <div [hidden]="!this.user.isAuthenticated()">
-          <mat-menu [hidden]="!this.currentUser" #userMenu="matMenu"  style="color: #ffc757 !important">
+          <mat-menu [hidden]="!this.currentUser" #userMenu="matMenu"  style="color: #0038a8 !important">
               <button mat-menu-item routerLink="/settings" routerLinkActive="active">Settings</button>
               <hr>
               <button mat-menu-item (click)="user.logout()">Log Out</button>
@@ -35,7 +35,7 @@
             [matMenuTriggerFor]="userMenu">
             <div style="display: flex; justify-content: space-between; align-items: center; ">
                 <div *ngIf="this.user.isAuthenticated()">
-                    <span style="font-weight: 400; letter-spacing: 1.6px; text-transform: none; color: #ffc757;"> {{ this.currentUser ? this.currentUser.firstname : 'hi' }} </span>
+                    <span style="font-weight: 400; letter-spacing: 1.6px; text-transform: none; color: #0038a8;"> {{ this.currentUser ? this.currentUser.firstname : 'hi' }} </span>
                 </div>
                 <div *ngIf="this.user.isLoading">
                     <span>Retreiving user...</span>
@@ -43,7 +43,7 @@
                 <ng-container *ngIf="!this.user.isLoading">
                     <img *ngIf="this.currentUser.profile_medium" [src]="this.currentUser.profile_medium" class="circle">
                     <div style="display: flex; align-content: center;">
-                        <i class="material-icons"  style="color: #ffc757 !important">menu</i>
+                        <i class="material-icons"  style="color: #0038a8 !important">menu</i>
                     </div>
                 </ng-container>
                 </div>

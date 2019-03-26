@@ -50,14 +50,21 @@ input {
     padding: 15px;
 }
 .mat-button {
-    color: #ffc757;
+    /* color: #ffc757; */
+    /* color: #0038a8; */
+    color: #0038a8;
     height: 48px;
+    /* font-weight: 600 !important; */
+    letter-spacing: 1.2px !important;
 }
 .active {
-    color: #57ffc7 !important;
+    color: #00246d !important;
     background-color: black;
-    transition: all 200ms ease-in-out;
-    text-shadow: 1px 1px 10px #57ffc7;
+    transition: all 200ms linear;
+    /* text-shadow: 1px 1px 10px #aaa; */
+    padding-top: 5px !important;
+    border-bottom: 5px solid #0052f6 !important;
+    border-radius: 0px !important;
 }
 mgl-map {
     min-height: calc(100vh - 50px);

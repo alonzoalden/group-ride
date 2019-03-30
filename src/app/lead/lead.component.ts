@@ -118,6 +118,7 @@ export class LeadComponent implements OnInit {
              this.listing.time,
              this.listing.info,
              route,
+             this.currentUser._id,
              this.currentUser.firstname + ' ' + this.currentUser.lastname,
              this.currentUser.profile_medium,
              []
@@ -141,6 +142,6 @@ export class LeadComponent implements OnInit {
         
     }
     createNewListing(): Listing {
-        return new Listing(0, '', '', '', null, '', '', new RouteItem(), '', '', []);
+        return new Listing(0, '', '', '', null, '', '', new RouteItem(), '', '', '', []);
     }
 }

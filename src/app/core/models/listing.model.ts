@@ -12,6 +12,7 @@ export class Listing {
       public time: string,
       public info: string,
       public route: RouteItem,
+      public creator_id: String,
       public creator: string,
       public creator_photo: String,
       public members: Array<ListingMember>,

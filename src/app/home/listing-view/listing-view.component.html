@@ -77,6 +77,10 @@
 								<!-- <i class="material-icons">directions_bike</i> -->
 								LEAVE GROUP
 							</button>
+							<button *ngIf="currentUser._id === selectedListing?.creator_id" mat-raised-button color="default" (click)=deleteListing()>
+								<!-- <i class="material-icons">directions_bike</i> -->
+								DELETE LISTING
+							</button>
 						</div>
 						
 							

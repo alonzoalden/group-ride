@@ -19,7 +19,7 @@ export class ListingService {
 	private currentListingsSubject = new BehaviorSubject<Listing[]>(new Array<Listing>());
     public currentListings = this.currentListingsSubject.asObservable().pipe(distinctUntilChanged());
     
-    private selectedListingSubject = new BehaviorSubject<Listing>(new Listing(0, '', '', '', null, '', '', new RouteItem(), '', '', []));
+    private selectedListingSubject = new BehaviorSubject<Listing>(new Listing(0, '', '', '', null, '', '', new RouteItem(), '', '', '', []));
 	public selectedListing = this.selectedListingSubject.asObservable().pipe(distinctUntilChanged());
 
 	constructor(
@@ -52,6 +52,17 @@ export class ListingService {
                 this.selectedListingSubject.next(selectedListingData);
                 // return this.selectedListingSubject.value;
             })).subscribe()
+    }
+
+    public deleteListing(listingid) {
+        return this.apiService
+            .delete( `listing/remove/${listingid}`)
+            .pipe(map(newMemberData => {
+                // let selectedListingData = this.selectedListingSubject.value;
+                // selectedListingData.members.push(newMemberData);
+                // this.selectedListingSubject.next(selectedListingData);
+                // return this.selectedListingSubject.value;
+            }))
     }
 
     public removeListingMember(memberid) {

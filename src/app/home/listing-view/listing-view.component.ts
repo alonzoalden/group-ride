@@ -70,6 +70,15 @@ export class ListingViewComponent implements OnInit {
 			.addListingMember(joinGroupData);
 	}
 
+	private deleteListing(): void {
+		this.listingService
+			.deleteListing(this.selectedListing._id)
+			.subscribe((data) => {
+				console.log(data);
+			});
+	}
+	
+
 	private submitRemoveFromGroup(): void {
 		this.listingService
 			.removeListingMember(this.currentUser._id)

@@ -9,12 +9,14 @@ import {
 	User,
     RouteList,
     Listing,
-    RouteItem
+    RouteItem,
+    ListingMember
 } from '../models/index';
 
 @Injectable()
 
 export class ListingService {
+    private newListingMember: ListingMember;
 
 	private currentListingsSubject = new BehaviorSubject<Listing[]>(new Array<Listing>());
     public currentListings = this.currentListingsSubject.asObservable().pipe(distinctUntilChanged());
@@ -26,7 +28,7 @@ export class ListingService {
 		public router: Router,
 		private activatedRoute: ActivatedRoute,
 		private apiService: ApiService,
-        private user: UserService,
+        private userService: UserService,
 	) {}
   
 	public getListings() {
@@ -43,15 +45,25 @@ export class ListingService {
             .pipe(map(data => data));
     }
 
-    public addListingMember(payload) {
+    public addListingMember(userid) {
         return this.apiService
-            .post( `lead/addMember`, payload)
-            .pipe(map(newMemberData => {
+            .post(`listing/${this.selectedListingSubject.value._id}/addMember/${userid}`)
+            .pipe(map(data => {
+                const listingMember = this.userService.getCurrentUser();
+                const newListingMember = new ListingMember(
+                    listingMember.firstname,
+                    listingMember.lastname,
+                    listingMember.profile_medium,
+                    listingMember.city + ', ' + listingMember.state,
+                    this.selectedListingSubject.value._id,
+                    '',
+                    userid,
+                )                
                 let selectedListingData = this.selectedListingSubject.value;
-                selectedListingData.members.push(newMemberData);
+                selectedListingData.members.push(newListingMember);
                 this.selectedListingSubject.next(selectedListingData);
                 // return this.selectedListingSubject.value;
-            })).subscribe()
+            }))
     }
 
     public deleteListing(listingid) {
@@ -65,9 +77,9 @@ export class ListingService {
             }))
     }
 
-    public removeListingMember(memberid) {
+    public removeListingMember(listingid, memberid) {
         return this.apiService
-            .delete( `lead/removeMember/${memberid}`)
+            .delete( `listing/${listingid}/removeMember/${memberid}`)
             .pipe(map(newMemberData => {
                 // let selectedListingData = this.selectedListingSubject.value;
                 // selectedListingData.members.push(newMemberData);

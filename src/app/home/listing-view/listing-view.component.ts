@@ -18,7 +18,7 @@ export class ListingViewComponent implements OnInit {
 	key = AUTH_CONFIG.MAPBOX_ACCESS_TOKEN;
 	selectedListing: Listing;
 	isLoading: boolean;
-	userInGroup: Array<ListingMember>;
+	userExistsInGroup: Boolean;
 	currentUser: User;
 	
 	constructor(
@@ -53,21 +53,16 @@ export class ListingViewComponent implements OnInit {
 			return;
 		}
 		
-		if (this.userInGroup[0]) {
+		if (this.userExistsInGroup) {
 			this.notificationsService.info('Already Joining', 'You\'re already joining this group.');
 			return;
 		}
-		const joinGroupData = new ListingMember(
-			0,
-			this.currentUser.firstname,
-			this.currentUser.lastname,
-			this.currentUser.profile_medium,
-			this.currentUser.city + ', ' + this.currentUser.state,
-			this.selectedListing._id,
-			this.currentUser._id,
-		)
 		this.listingService
-			.addListingMember(joinGroupData);
+			.addListingMember(this.currentUser._id)
+			.subscribe(data => {
+				this.checkIfUserInGroup();
+			});
+			
 	}
 
 	private deleteListing(): void {
@@ -81,8 +76,8 @@ export class ListingViewComponent implements OnInit {
 
 	private submitRemoveFromGroup(): void {
 		this.listingService
-			.removeListingMember(this.currentUser._id)
-			.subscribe(() => {
+			.removeListingMember(this.selectedListing._id, this.currentUser._id)
+			.subscribe((data) => {
 				this.checkIfUserInGroup();
 			});
 	}
@@ -90,7 +85,7 @@ export class ListingViewComponent implements OnInit {
 		return time[0] === '0' ? time.slice(1) : time;
 	}
 	private checkIfUserInGroup() {
-		this.userInGroup = this.selectedListing.members
-							.filter(item => item.user_id === this.currentUser._id);
+		this.userExistsInGroup = !!this.selectedListing.members
+							.filter(user => user._id === this.currentUser._id)[0];
 	}
 }

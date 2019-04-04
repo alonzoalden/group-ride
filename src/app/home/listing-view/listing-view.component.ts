@@ -68,8 +68,9 @@ export class ListingViewComponent implements OnInit {
 	private deleteListing(): void {
 		this.listingService
 			.deleteListing(this.selectedListing._id)
-			.subscribe((data) => {
-				console.log(data);
+			.subscribe((deletedListingData) => {
+				this.notificationsService.info('Listing Deleted', `${deletedListingData.title} has been removed.`);
+				this.router.navigateByUrl('/');
 			});
 	}
 	

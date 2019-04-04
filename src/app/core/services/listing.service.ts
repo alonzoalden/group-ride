@@ -20,10 +20,12 @@ export class ListingService {
 
 	private currentListingsSubject = new BehaviorSubject<Listing[]>(new Array<Listing>());
     public currentListings = this.currentListingsSubject.asObservable().pipe(distinctUntilChanged());
-    
+    public currentListingsLoaded: boolean = false;
+    public currentListingsLoading: boolean = false;
+
     private selectedListingSubject = new BehaviorSubject<Listing>(new Listing(0, '', '', '', null, '', '', new RouteItem(), '', '', '', []));
 	public selectedListing = this.selectedListingSubject.asObservable().pipe(distinctUntilChanged());
-
+    
 	constructor(
 		public router: Router,
 		private activatedRoute: ActivatedRoute,
@@ -32,9 +34,12 @@ export class ListingService {
 	) {}
   
 	public getListings() {
+        this.currentListingsLoading = true;
         this.apiService.get(`listings`)
             .subscribe((listings: Listing[])=> {
                 this.currentListingsSubject.next(listings);
+                this.currentListingsLoaded = true;
+                this.currentListingsLoading = false;
             })
 		
     }
@@ -58,7 +63,7 @@ export class ListingService {
                     this.selectedListingSubject.value._id,
                     '',
                     userid,
-                )                
+                )
                 let selectedListingData = this.selectedListingSubject.value;
                 selectedListingData.members.push(newListingMember);
                 this.selectedListingSubject.next(selectedListingData);
@@ -70,10 +75,7 @@ export class ListingService {
         return this.apiService
             .delete( `listing/remove/${listingid}`)
             .pipe(map(newMemberData => {
-                // let selectedListingData = this.selectedListingSubject.value;
-                // selectedListingData.members.push(newMemberData);
-                // this.selectedListingSubject.next(selectedListingData);
-                // return this.selectedListingSubject.value;
+                return this.selectedListingSubject.value;
             }))
     }
 
@@ -81,10 +83,9 @@ export class ListingService {
         return this.apiService
             .delete( `listing/${listingid}/removeMember/${memberid}`)
             .pipe(map(newMemberData => {
-                // let selectedListingData = this.selectedListingSubject.value;
-                // selectedListingData.members.push(newMemberData);
-                // this.selectedListingSubject.next(selectedListingData);
-                // return this.selectedListingSubject.value;
+                let selectedListingData = this.selectedListingSubject.value;
+                selectedListingData.members = newMemberData;
+                this.selectedListingSubject.next(selectedListingData);
             }))
     }
 

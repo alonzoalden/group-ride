@@ -39,6 +39,7 @@ constructor(
 	searchBy: any;
 	filterRides = {type: '1'};
 	filterRuns = {type: '2'};
+	
 	ngOnInit() {
 		this.searchBy = this.searchOptions[0].value;
 		this.listingService.getListings();

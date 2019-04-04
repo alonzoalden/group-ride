@@ -59,7 +59,8 @@
 						<div>
 							<span class="join-list-title">Joining</span>
 							<span class="join-list">
-								<span *ngIf="selectedListing?.members.length === 0" class="light-italic"> Be the first to join..</span>
+								<span *ngIf="selectedListing?.members.length === 0 && currentUser._id !== selectedListing?.creator_id || !userService.isAuthenticated()" class="light-italic">Be the first to join..</span>
+								<span *ngIf="selectedListing?.members.length === 0 && currentUser._id === selectedListing?.creator_id && userService.isAuthenticated()" class="light-italic">No one has joined your ride. Invite your friends..</span>
 								<span *ngFor="let member of selectedListing?.members">
 									<img *ngIf="member.profile_medium" src="{{ member.profile_medium }}"> 
 									<i *ngIf="!member.profile_medium" class="material-icons mat-36">face</i>
@@ -69,17 +70,23 @@
 						</div>
 						
 						<div class="button-section">
-							<button *ngIf="!userExistsInGroup || !userService.isAuthenticated()" mat-raised-button color="primary" (click)=submitJoinGroup()>
-								<!-- <i class="material-icons">directions_bike</i> -->
+							<button *ngIf="currentUser._id !== selectedListing?.creator_id && !userExistsInGroup" mat-raised-button color="primary" (click)=submitJoinGroup()>
+								<i class="material-icons">person_add</i> 
 								JOIN
 							</button>
+
 							<ng-container *ngIf="userService.isAuthenticated()">
+
+								<button *ngIf="currentUser._id === selectedListing?.creator_id && !userExistsInGroup" mat-raised-button color="default" (click)=submitRemoveFromGroup()>
+									<i class="material-icons">edit</i> 
+									EDIT LISTING
+								</button>
 								<button *ngIf="userExistsInGroup" mat-raised-button color="default" (click)=submitRemoveFromGroup()>
-									<!-- <i class="material-icons">directions_bike</i> -->
+									<i class="material-icons">remove_circle_outline</i> 
 									LEAVE GROUP
 								</button>
-								<button *ngIf="this.currentUser._id === selectedListing?.creator_id" mat-raised-button color="default" (click)=deleteListing()>
-									<!-- <i class="material-icons">directions_bike</i> -->
+								<button *ngIf="currentUser._id === selectedListing?.creator_id" mat-raised-button color="default" (click)=deleteListing()>
+									<i class="material-icons">delete_forever</i> 
 									DELETE LISTING
 								</button>
 							</ng-container>

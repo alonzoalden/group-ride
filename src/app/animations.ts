@@ -12,21 +12,21 @@ import {
 export const slideInAnimation =
 	trigger('routeAnimations', [
 		transition('* <=> *', [
-			style({ background: '#e3e3e4', opacity: '0.5', transition: 'all 120ms ease-in-out' }),
+			style({ background: '#e3e3e4', opacity: '1', transition: 'all 120ms ease-in-out' }),
 			query(':enter, :leave', [
 				style({
 					position: 'absolute',
 					top: 0,
 					left: 0,
 					width: '100%',
-					opacity: '0.2',
+					opacity: '1',
 					transition: 'all 100ms ease-in-out'
 				})
 			], {optional: true}),
 			query(':enter', [
 				style({
 					left: '-100%',
-					opacity: '0.2',
+					opacity: '1',
 					transition: 'all 100ms ease-in-out'
 				})
 			], {optional: true}),
@@ -40,31 +40,7 @@ export const slideInAnimation =
 				], {optional: true})
 			]),
 			query(':enter', animateChild(), {optional: true}),
-		]),
-		// transition('* <=> FilterPage', [
-		// 	style({ position: 'relative' }),
-		// 	query(':enter, :leave', [
-		// 		style({
-		// 			position: 'absolute',
-		// 			top: 0,
-		// 			left: 0,
-		// 			width: '100%'
-		// 		})
-		// 	]),
-		// 	query(':enter', [
-		// 		style({ left: '-100%' })
-		// 	]),
-		// 	query(':leave', animateChild()),
-		// 	group([
-		// 		query(':leave', [
-		// 			animate('200ms ease-out', style({ left: '100%' }))
-		// 		]),
-		// 		query(':enter', [
-		// 			animate('300ms ease-out', style({ left: '0%' }))
-		// 		])
-		// 	]),
-		// 	query(':enter', animateChild()),
-		// ])
+		])
 	]);
 
 export const fadeInOut =

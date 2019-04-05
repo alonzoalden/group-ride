@@ -44,9 +44,14 @@ export class ListingService {
 		
     }
 
+    public editListing(payload): Observable<Listing> {
+        return this.apiService
+            .put(`listing/${payload._id}`, payload)
+            .pipe(map(data => data));
+    }
     public submitListing(payload): Observable<Listing> {
         return this.apiService
-            .post(`lead`, payload)
+            .post(`listing`, payload)
             .pipe(map(data => data));
     }
 

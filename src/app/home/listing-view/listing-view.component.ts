@@ -71,10 +71,13 @@ export class ListingViewComponent implements OnInit {
 			.subscribe((deletedListingData) => {
 				this.notificationsService.info('Listing Deleted', `${deletedListingData.title} has been removed.`);
 				this.router.navigateByUrl('/');
+				this.listingService.getListings();
 			});
 	}
 	
-
+	private editListing(): void {
+		this.router.navigateByUrl('/listing/edit/' + this.selectedListing._id);
+	}
 	private submitRemoveFromGroup(): void {
 		this.listingService
 			.removeListingMember(this.selectedListing._id, this.currentUser._id)

@@ -40,7 +40,7 @@ export class RouteService {
     public submitListing(payload): Observable<Listing> {
         return this.apiService
         .post(
-          `lead`,
+          `listing`,
           payload
         ).pipe(map(data => data.listing));
       }

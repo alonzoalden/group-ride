@@ -13,8 +13,6 @@
             class="input-routes"
             [ngClass]="selectedRouteVar.invalid && (selectedRouteVar.dirty || selectedRouteVar.touched) && selectedRouteVar.errors.required ? 'error2' : ''"
             (change)="modelChange.emit(selectedRoute);"
-            (open)="utils.overflow(true)"
-            (close)="utils.overflow(false)"
             dropdownPosition="auto"
             required
         >

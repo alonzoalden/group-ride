@@ -25,6 +25,12 @@ const routes: Routes = [
                 component: LeadComponent,
                 canActivate: [AuthGuard],
                 data: { animation: 'HomePage' }
+            },
+            {
+                path: 'listing/edit/:listingid',
+                component: LeadComponent,
+                canActivate: [AuthGuard],
+                data: { animation: 'HomePage' }
             }
         ]
     },

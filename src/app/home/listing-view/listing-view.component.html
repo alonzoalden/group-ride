@@ -77,7 +77,7 @@
 
 							<ng-container *ngIf="userService.isAuthenticated()">
 
-								<button *ngIf="currentUser._id === selectedListing?.creator_id && !userExistsInGroup" mat-raised-button color="default" (click)=submitRemoveFromGroup()>
+								<button *ngIf="currentUser._id === selectedListing?.creator_id && !userExistsInGroup" mat-raised-button color="default" (click)=editListing()>
 									<i class="material-icons">edit</i> 
 									EDIT LISTING
 								</button>

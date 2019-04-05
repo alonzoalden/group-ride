@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.listingService.getListings();
     }
     prepareRoute(outlet: RouterOutlet) {
         return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];

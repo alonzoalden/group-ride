@@ -1,5 +1,5 @@
 <div class="wrap">
-	<div class="title" style="display: flex;font-size: 20px; top: 0px; background-color: #fafafa; margin: 0; padding: 0px; border-bottom: 1px solid #dadada">
+	<div class="title" style="display: flex; top: 0px; background-color: #fafafa; margin: 0; padding: 0px; border-bottom: 1px solid #dadada">
 		<a routerLink="/" style="text-decoration: none;">
 			<span class="back-button" style="border-right: 1px solid #dadada;">
 				<i class="material-icons" style="margin-right: 5px;">arrow_back</i>
@@ -9,7 +9,7 @@
 		justify-content: flex-start;
 		width: 100%;
 		align-items: center;
-		padding: 24px;">Lead Group</div>
+		padding: 24px;"> {{ editListing ? 'Edit' : '' }} Lead Group</div>
 	</div>
 	<div class="leader-container">
 		<ng-container *ngIf="userService.isLoading" >
@@ -36,7 +36,7 @@
 							Need routes to choose from? Go to <a href="https://www.strava.com/athlete/routes" target="_blank">Strava</a> and add routes to your collection by using Strava Route builder or by saving pre-existing routes and we'll automatically import them here.
 						</div>
 					</div>
-					<div class="sub-header">Enter Details</div>
+					<div class="sub-header" style="margin-bottom: 5px;">{{ editListing ? 'Edit' : 'Enter' }} Details: <span style="font-weight: 100; font-family: sans-serif; font-style: italic;" *ngIf="editListing"> {{listing.title}}</span></div>
 					
 
 					<div class="content">
@@ -144,8 +144,6 @@
 										>
 									<ngx-material-timepicker-toggle class="timepicker" [for]="timepicker"></ngx-material-timepicker-toggle>
 									<ngx-material-timepicker
-										(opened)="utils.overflow(true)"
-										(closed)="utils.overflow(false)"
 										#timepicker
 										[enableKeyboardInput]="true">
 									</ngx-material-timepicker>
@@ -168,7 +166,7 @@
 								</mat-form-field>
 							</div>
 							<div class="button-section" style="box-sizing: border-box;">
-								<button mat-raised-button color="primary" (click)="submitEntry()">SUBMIT</button>
+								<button mat-raised-button color="primary" (click)="submitEntry()">{{ editListing ? 'UPDATE' : 'SUBMIT' }}</button>
 							</div>
 						</ng-container>
 					</div>

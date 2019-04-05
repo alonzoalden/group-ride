@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { User, RouteItem, RouteList, Listing } from '../core/models/index';
 import { slideInAnimation, fadeInOut } from '../animations';
@@ -24,7 +24,7 @@ import {
 export class LeadComponent implements OnInit {
     currentUser: User;
     currentRouteList: RouteItem[];
-    // date: any;
+    editListing: boolean;
     levels: any[];
     isSubmitting: Boolean;
     listing: Listing;
@@ -52,15 +52,29 @@ export class LeadComponent implements OnInit {
         private validationService: ValidationService,
         private listingService: ListingService,
         private utils: UtilsService,
-        public router: Router,
+        private router: Router,
+        private route: ActivatedRoute,
+
     ) { }
 
     ngOnInit() {
         
         const today = moment();
         const tomorrow = moment(today).add(1, 'days');
-        
 
+        var listingid = this.route.snapshot.params['listingid'];
+        this.editListing = this.router.url.includes('listing/edit') && listingid;
+        if (this.editListing) {
+            this.listingService.currentListings.subscribe(
+                (listingData: Listing[]) => {
+                    const listing = listingData.find((item) => item._id === listingid);
+                    this.listing = listing;
+                }
+            )
+        }
+        else {
+            this.listing = this.createNewListing();
+        }
         this.userService.currentUser.subscribe(
             (userData: User) => {
                 this.currentUser = userData;
@@ -72,7 +86,6 @@ export class LeadComponent implements OnInit {
                 this.currentRouteList = routeData.routes;
             }
         )
-
         this.levels = [
             {
                 value: '1',
@@ -83,8 +96,6 @@ export class LeadComponent implements OnInit {
                 name: 'Race'
             }
         ];
-
-        this.listing = this.createNewListing();
     }
 
     routeListView() {
@@ -105,16 +116,19 @@ export class LeadComponent implements OnInit {
 
         const route = this.currentRouteList.find((route) => route.id === this.listing.route.id);
         const time24hr = moment(this.listing.time, ["h:mm A"]).format("HH:mm");
-        const date = this.listing.date
-                        .hour(Number(time24hr.split(':')[0]))
-                        .minutes(Number(time24hr.split(':')[1]))
+        
+        if (typeof this.listing.date !== 'string') {
+            this.listing.date = this.listing.date
+                            .hour(Number(time24hr.split(':')[0]))
+                            .minutes(Number(time24hr.split(':')[1]))
+        }
 
         let listingData = new Listing(
-             0,
+            this.listing._id || 0,
              this.listing.type,
              this.listing.title,
              this.listing.pace,
-             date,
+             this.listing.date,
              this.listing.time,
              this.listing.info,
              route,
@@ -124,22 +138,31 @@ export class LeadComponent implements OnInit {
              []
         )
         
+        const submitMethod = this.editListing
+            ? 'editListing'
+            : 'submitListing';
+
         this.listingService
-        .submitListing(listingData)
-        .subscribe(
-            listing => {
-                this.listingService.addToCurrentListings(listing);
-                this.isSubmitting = false;
-                this.listing = this.createNewListing();
-                this.notificationsService.success('Success', 'Your listing has been saved.')
-                this.router.navigate(['/']);
-            },
-            errors => {
-                this.isSubmitting = false;
-                this.notificationsService.error('Error', 'There was a problem saving.')
-            }
-        );
-        
+            [submitMethod](listingData)
+            .subscribe(
+                listing => {
+                    this.listingService.addToCurrentListings(listing);
+                    this.isSubmitting = false;
+                    this.listing = this.createNewListing();
+
+                    this.editListing
+                    ? this.notificationsService.success('Edit Success', 'Your listing has been updated.')
+                    : this.notificationsService.success('Save Success', 'Your listing has been saved.')
+                    
+                    this.router.navigate(['/']);
+                    this.listingService.getListings();
+                },
+                errors => {
+                    this.isSubmitting = false;
+                    this.notificationsService.error('Error', 'There was a problem saving.')
+                }
+            );
+            
     }
     createNewListing(): Listing {
         return new Listing(0, '', '', '', null, '', '', new RouteItem(), '', '', '', []);

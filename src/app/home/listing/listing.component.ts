@@ -42,8 +42,6 @@ constructor(
 	
 	ngOnInit() {
 		this.searchBy = this.searchOptions[0].value;
-		this.listingService.getListings();
-		
 		this.listingService.currentListings.subscribe(
             (listingData: Listing[]) => {
                 this.currentListings = listingData;

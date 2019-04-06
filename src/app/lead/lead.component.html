@@ -1,15 +1,11 @@
 <div class="wrap">
-	<div class="title" style="display: flex; top: 0px; background-color: #fafafa; margin: 0; padding: 0px; border-bottom: 1px solid #dadada">
-		<a routerLink="/" style="text-decoration: none;">
-			<span class="back-button" style="border-right: 1px solid #dadada;">
+	<div class="title" style="display: flex; top: 0px; background-color: #008ca8; margin: 0; padding: 60px 0px 20px 0px; color: #fff;">
+		<a [routerLink]="editListing ? '/listing' : '/'" style="text-decoration: none;">
+			<span class="back-button">
 				<i class="material-icons" style="margin-right: 5px;">arrow_back</i>
 			</span>
 		</a>
-		<div style="display: flex;
-		justify-content: flex-start;
-		width: 100%;
-		align-items: center;
-		padding: 24px;"> {{ editListing ? 'Edit' : '' }} Lead Group</div>
+		<div style="display: flex; justify-content: flex-start; width: 100%; align-items: center; font-size: 19px;"> {{ editListing ? listing.title : 'Lead Group' }}<span style="margin-left: 8px; font-family: sans-serif; font-weight: 200; font-size: 17px; font-style: italic;">{{ editListing ? '(Edit)' : '' }}</span> </div>
 	</div>
 	<div class="leader-container">
 		<ng-container *ngIf="userService.isLoading" >
@@ -24,7 +20,7 @@
 			</div>
 		</ng-container>
 		<ng-container>
-			<div fxLayout="row" fxLayout.xs="column" class="main-layout" style="margin-top: 20px;">
+			<div fxLayout="row" fxLayout.xs="column" class="main-layout">
 				<div fxFlex="100">
 					<!-- <h1 class="title">
 						<a routerLink="/"><i class="material-icons arrow-back">arrow_back</i></a>
@@ -36,7 +32,7 @@
 							Need routes to choose from? Go to <a href="https://www.strava.com/athlete/routes" target="_blank">Strava</a> and add routes to your collection by using Strava Route builder or by saving pre-existing routes and we'll automatically import them here.
 						</div>
 					</div>
-					<div class="sub-header" style="margin-bottom: 5px;">{{ editListing ? 'Edit' : 'Enter' }} Details: <span style="font-weight: 100; font-family: sans-serif; font-style: italic;" *ngIf="editListing"> {{listing.title}}</span></div>
+					<div class="sub-header" style="margin-bottom: 5px;">{{ editListing ? 'Edit' : 'Enter' }} Details</div>
 					
 
 					<div class="content">

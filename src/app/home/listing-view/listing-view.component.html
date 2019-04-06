@@ -1,15 +1,51 @@
 <div class="wrap">
-	<div class="title" style="display: flex;font-size: 16px; top: 0px; background-color: #fafafa; margin: 0; padding: 0px; border-bottom: 1px solid #dadada">
-		<a routerLink="/" style="text-decoration: none;">
-			<span class="back-button" style="border-right: 1px solid #dadada;">
+	<div class="title" style="display: flex; top: 0px; background-color: #008ca8; margin: 0; padding: 60px 0px 20px 0px; color: #fff;">
+		<a routerLink="/" style="text-decoration: none; z-index: 2;">
+			<span class="back-button">
 				<i class="material-icons" style="margin-right: 5px;">arrow_back</i>
 			</span>
 		</a>
-		<div style="display: flex;
-		justify-content: flex-start;
-		width: 100%;
-		align-items: center;
-		padding: 20px 30px;">Group Ride</div>
+		<div style="display: flex; justify-content: flex-start; width: 100%; align-items: center; font-size: 19px;">{{ selectedListing?.title }}</div>
+		<div style="width: 91%; position: absolute; margin-top: -7px; display: flex; flex-direction: column; align-items: flex-end;">
+			<div style="display: flex; flex-direction: column; align-items: center;">
+				<span style="font-family: sans-serif; font-weight: 100">Lead by</span>
+				<img src="{{ selectedListing?.creator_photo }}" style="width: 74px; height: 74px; border-radius: 100%;">
+				<span style="color: #444; font-family: sans-serif; font-weight: 600; font-size: 18px;">{{ selectedListing?.creator }}</span>
+			</div>
+		</div>
+
+		<mat-menu [hidden]="!this.currentUser" #optionsMenu="matMenu"  style="color: #0038a8 !important">
+			<button *ngIf="currentUser._id === selectedListing?.creator_id && !userExistsInGroup" mat-menu-item>
+				<div style="display: flex; align-items: center; ">
+					<i class="material-icons" style="margin-right: 8px;">edit</i>
+					EDIT LISTING
+				</div>
+			</button>
+			<button *ngIf="currentUser._id === selectedListing?.creator_id" mat-menu-item>
+				<div style="display: flex; align-items: center;">
+					<i class="material-icons" style="margin-right: 8px;">delete_forever</i>
+					DELETE LISTING
+				</div>
+			</button>
+			<button *ngIf="userExistsInGroup" mat-menu-item>
+				<div style="display: flex; align-items: center;">
+					<i class="material-icons" style="margin-right: 8px;">remove_circle_outline</i>
+					LEAVE GROUP
+				</div>
+			</button>
+		</mat-menu>
+		
+		
+		<a style="display: flex; justify-content: space-between; align-items: center;">
+			<div style="display: flex; justify-content: flex-start; width: 54px; align-items: center; font-size: 19px;">
+				<i mat-button [matMenuTriggerFor]="optionsMenu" class="material-icons btn" style="font-size: 32px;  position: absolute;">more_vert</i>
+			</div>
+		</a>
+
+		
+
+
+
 	</div>
 	<div class="listing-container">
 
@@ -28,37 +64,75 @@
 			
 				
 				<div fxFlex="100" *ngIf="selectedListing?._id" class="main-layout">
-					<div class="view-listing-content" style="margin-top: 20px;" >
-						<div>
+					<div class="view-listing-content">
+						<!-- <div>
 							<span style="font-size: 18px;"><strong>{{ selectedListing?.title }}</strong></span>
-						</div>
-						<div>
+						</div> -->
+						<!-- <div>
 							<span>Host</span>
 							<span><img src="{{ selectedListing?.creator_photo }}" style="width: 32px; height: 32px"> {{ selectedListing?.creator }}</span>
+						</div> -->
+						<div stlye="display: flex;">
+							<div style="width: 199px; display: flex; flex-direction: column;">
+								<span style="color: #666; padding-bottom: 8px; font-weight: 100; font-size: 16px; letter-spacing: 1.4px;">Date</span>
+								<div style="display: flex; align-items: center;">
+									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;"><i class="material-icons mat-36" style="margin-right: 5px;">date_range</i> {{ selectedListing?.date | date}}</span>
+								</div>
+							</div>
+							<div style="display: flex; flex-direction: column;">
+								<span style="color: #666; display: flex; align-items: center;  padding-bottom: 8px; font-weight: 100; font-size: 16px; letter-spacing: 1.4px;">Time</span>
+								<div style="display: flex; align-items: center;">
+									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;"> <i style="margin-right: 8px;" class="material-icons mat-36">access_time</i> {{ displayTime(selectedListing?.time) }}</span>
+								</div>
+							</div>
 						</div>
-						<div>
-							<span>Date</span>
-							<span> {{ selectedListing?.date | date}}</span>
-						</div>
-						<div>
+						<!-- <div>
 							<span>Time</span>
 							<span> {{ displayTime(selectedListing?.time) }}</span>
+						</div> -->
+						<div stlye="display: flex;">
+							<div style="width: 199px; display: flex; flex-direction: column;">
+								<span style="color: #666; letter-spacing: 0.3px; font-size: 18px; display: flex; align-items: center;  padding-bottom: 8px; font-weight: 100; font-size: 16px; letter-spacing: 1.4px;">Type</span>
+								<div style="display: flex; align-items: center;"> 
+									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;" *ngIf="selectedListing?.type === '1'" >
+										<i style="margin-right: 8px;" class="material-icons mat-36">directions_bike</i>
+										Bike
+									</span>
+									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;" *ngIf="selectedListing?.type !== '1'" >
+										<i style="margin-right: 8px;" class="material-icons mat-36">directions_run</i>
+										Run
+									</span>
+								</div>
+							</div>
+							<div style="display: flex; flex-direction: column;">
+								<span style="color: #666; display: flex; align-items: center;  padding-bottom: 8px; font-weight: 100; font-size: 16px; letter-spacing: 1.4px;">Pace</span>
+								<div style="display: flex; align-items: center;">
+									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;" *ngIf="selectedListing?.pace === '1'">
+										<i style="margin-right: 8px;" class="material-icons mat-36">looks_3</i>
+										Fast
+									</span>
+									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;" *ngIf="selectedListing?.pace !== '1'">
+										<i style="margin-right: 8px;" class="material-icons mat-36">looks_one</i>
+										Fun
+									</span>
+								</div>
+							</div>
 						</div>
-						<div>
-							<span>Type</span>
-							<span> {{ selectedListing?.type === '1' ? 'Bike' : 'Run'}}</span>
+						<div style="display: flex; flex-direction: column;">
+							<span style="color: #666; display: flex; align-items: center;  padding-bottom: 8px; font-weight: 100; font-size: 16px; letter-spacing: 1.4px;">Info</span>
+							<div style="display: flex; align-items: center;"> 
+								<span style="font-weight: 500; display: flex; align-items: center; letter-spacing: .8px;">
+									<i style="margin-right: 8px;" class="material-icons mat-36">info</i>
+									{{ selectedListing?.info }}
+								</span>
+								
+							</div>
 						</div>
-						<div>
-							<span>Pace</span>
-							<span> {{ selectedListing?.pace === '1' ? 'Fast' : 'Fun'}}</span>
-						</div>
-						<div>
-							<span>Info</span>
-							<span> {{ selectedListing?.info }}</span>
-						</div>
-						<div>
-							<span class="join-list-title">Joining</span>
-							<span class="join-list">
+
+						<div style="display: flex; flex-direction: column;">
+							<span style="color: #666; display: flex; align-items: center;  padding-bottom: 8px; font-weight: 100; font-size: 16px; letter-spacing: 1.4px;">Joining</span>
+							<div style="display: flex; align-items: center;" class="join-list">
+								<i style="margin-right: 8px;" class="material-icons mat-36">people</i>
 								<span *ngIf="selectedListing?.members.length === 0 && currentUser._id !== selectedListing?.creator_id || !userService.isAuthenticated()" class="light-italic">Be the first to join..</span>
 								<span *ngIf="selectedListing?.members.length === 0 && currentUser._id === selectedListing?.creator_id && userService.isAuthenticated()" class="light-italic">No one has joined your ride. Invite your friends..</span>
 								<span *ngFor="let member of selectedListing?.members">
@@ -66,8 +140,9 @@
 									<i *ngIf="!member.profile_medium" class="material-icons mat-36">face</i>
 									<span> {{ member.firstname || 'Mystery Guest' }}</span>
 								</span>
-							</span>
+							</div>
 						</div>
+						
 						
 						<div class="button-section">
 							<button *ngIf="currentUser._id !== selectedListing?.creator_id && !userExistsInGroup" mat-raised-button color="primary" (click)=submitJoinGroup()>
@@ -86,7 +161,7 @@
 									LEAVE GROUP
 								</button>
 								<button *ngIf="currentUser._id === selectedListing?.creator_id" mat-raised-button color="default" (click)=deleteListing()>
-									<i class="material-icons">delete_forever</i> 
+									<i class="material-icons">delete_forever</i>
 									DELETE LISTING
 								</button>
 							</ng-container>

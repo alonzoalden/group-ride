@@ -4,7 +4,6 @@
     font-family: 'Arvo' !important;
     .ride-list {
         width: 45%;
-        border-radius: 3px;
         box-shadow: 3px 3px 3px darkgray;
         .center {
             margin: 200px auto;
@@ -32,7 +31,7 @@
         max-width: 1024px;
         margin: 0 auto;
         background-color: #fafafa;
-        padding: 0px 72px 0px 72px;
+        padding: 20px 72px 0px 72px;
 
         .main-layout {
             margin-bottom: 40px;
@@ -86,13 +85,13 @@
                 }
             }
             .view-listing-content {
-                padding: 0 20px;
+                padding: 30px 20px;
                 font-family: sans-serif;
                 > div {
                     display: flex;
-                    align-items: center;
+                    // align-items: center;
                     width: 100%;
-                    padding: 10px 10px;
+                    padding: 12px 10px;
                     box-sizing: border-box;
                     border-bottom: 1px solid #dadada;
                     
@@ -111,13 +110,11 @@
                 }
                 > div:nth-child(even) {
                     // background-color: #f3f3f4;
-                    background-color: rgba(229, 235, 246, 0.5);
+                    // background-color: rgba(229, 235, 246, 0.5);
                 }
                     
                 .join-list {
-                    align-items: flex-start !important;
                     flex-wrap: wrap;
-                    line-height: 36px;
                     > span {
                         display: flex;
                         align-items: center;
@@ -216,6 +213,6 @@
     align-items: center;
 }
 .back-button:hover {
-    background-color: #e3ecff;
+    // background-color: #e3ecff;
     
 }

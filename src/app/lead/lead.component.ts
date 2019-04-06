@@ -68,7 +68,20 @@ export class LeadComponent implements OnInit {
             this.listingService.currentListings.subscribe(
                 (listingData: Listing[]) => {
                     const listing = listingData.find((item) => item._id === listingid);
-                    this.listing = listing;
+                    this.listing = new Listing(
+                        listing._id,
+                        listing.type,
+                        listing.title,
+                        listing.pace,
+                        listing.date,
+                        listing.time,
+                        listing.info,
+                        listing.route,
+                        listing.creator_id,
+                        listing.creator,
+                        listing.creator_photo,
+                        listing.members,
+                    );
                 }
             )
         }
@@ -125,25 +138,24 @@ export class LeadComponent implements OnInit {
 
         let listingData = new Listing(
             this.listing._id || 0,
-             this.listing.type,
-             this.listing.title,
-             this.listing.pace,
-             this.listing.date,
-             this.listing.time,
-             this.listing.info,
-             route,
-             this.currentUser._id,
-             this.currentUser.firstname + ' ' + this.currentUser.lastname,
-             this.currentUser.profile_medium,
-             []
+            this.listing.type,
+            this.listing.title,
+            this.listing.pace,
+            this.listing.date,
+            this.listing.time,
+            this.listing.info,
+            route,
+            this.currentUser._id,
+            this.currentUser.firstname + ' ' + this.currentUser.lastname,
+            this.currentUser.profile_medium,
+            []
         )
         
         const submitMethod = this.editListing
             ? 'editListing'
             : 'submitListing';
 
-        this.listingService
-            [submitMethod](listingData)
+        this.listingService[submitMethod](listingData)
             .subscribe(
                 listing => {
                     this.listingService.addToCurrentListings(listing);

@@ -33,6 +33,7 @@ listing {
 }
 .mat-drawer {
     overflow-y: overlay !important;
+    color: #424242;
 }
 .main-container {
     top: 50px;
@@ -252,4 +253,7 @@ input.error1::placeholder {
 }
 .mat-tab-body.mat-tab-body-active {
     overflow-y: hidden !important;
+}
+.btn:hover {
+    cursor: pointer;
 }

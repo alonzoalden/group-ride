@@ -15,6 +15,8 @@
             (change)="modelChange.emit(selectedRoute);"
             dropdownPosition="auto"
             required
+            (open)="utils.overflow(1)"
+            (close)="utils.overflow(0)"
         >
     <ng-template ng-option-tmp let-item="item">
         <div class="image-section">

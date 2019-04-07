@@ -9,6 +9,9 @@ import {
 } from '../../core/services/index';
 import { Listing } from '../../core/models/index';
 
+import * as polyline from '@mapbox/polyline';
+
+
 @Component({
 	selector: 'listing',
 	templateUrl: './listing.component.html',

@@ -3,7 +3,12 @@
         [style]="'mapbox://styles/mapbox/streets-v10'"
         [zoom]="[7]"
         [center]="[-74.50, 40]"
-        [fitBounds]="bounds"
-        >
+        [fitBounds]="bounds">
+
+        <mgl-marker [lngLat]="[-74.50, 40]">
+            <div (click)="alert('Foo')" class="marker">
+                <i class="material-icons" style="color: #0038a8 !important; font-size: 16px;">directions_bike</i>
+            </div>
+        </mgl-marker>
     </mgl-map>
 </div>

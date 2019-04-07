@@ -6,7 +6,7 @@
 			</span>
 		</a>
 		<div style="display: flex; justify-content: flex-start; width: 100%; align-items: center; font-size: 19px;">{{ selectedListing?.title }}</div>
-		<div style="width: 91%; position: absolute; margin-top: -7px; display: flex; flex-direction: column; align-items: flex-end;">
+		<div style="width: 91%; position: absolute; margin-top: -10px; display: flex; flex-direction: column; align-items: flex-end;">
 			<div style="display: flex; flex-direction: column; align-items: center;">
 				<span style="font-family: sans-serif; font-weight: 100">Lead by</span>
 				<img src="{{ selectedListing?.creator_photo }}" style="width: 74px; height: 74px; border-radius: 100%;">
@@ -76,13 +76,13 @@
 							<div style="width: 199px; display: flex; flex-direction: column;">
 								<span style="color: #666; padding-bottom: 8px; font-weight: 100; font-size: 16px; letter-spacing: 1.4px;">Date</span>
 								<div style="display: flex; align-items: center;">
-									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;"><i class="material-icons mat-36" style="margin-right: 5px;">date_range</i> {{ selectedListing?.date | date}}</span>
+									<span style="letter-spacing: 0.3px; font-size: 17px; font-weight: 500; display: flex; align-items: center;"><i class="material-icons mat-36" style="margin-right: 5px;">date_range</i> {{ selectedListing?.date | date}}</span>
 								</div>
 							</div>
 							<div style="display: flex; flex-direction: column;">
 								<span style="color: #666; display: flex; align-items: center;  padding-bottom: 8px; font-weight: 100; font-size: 16px; letter-spacing: 1.4px;">Time</span>
 								<div style="display: flex; align-items: center;">
-									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;"> <i style="margin-right: 8px;" class="material-icons mat-36">access_time</i> {{ displayTime(selectedListing?.time) }}</span>
+									<span style="letter-spacing: 0.3px; font-size: 17px; font-weight: 500; display: flex; align-items: center;"> <i style="margin-right: 8px;" class="material-icons mat-36">access_time</i> {{ displayTime(selectedListing?.time) }}</span>
 								</div>
 							</div>
 						</div>
@@ -94,11 +94,11 @@
 							<div style="width: 199px; display: flex; flex-direction: column;">
 								<span style="color: #666; letter-spacing: 0.3px; font-size: 18px; display: flex; align-items: center;  padding-bottom: 8px; font-weight: 100; font-size: 16px; letter-spacing: 1.4px;">Type</span>
 								<div style="display: flex; align-items: center;"> 
-									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;" *ngIf="selectedListing?.type === '1'" >
+									<span style="letter-spacing: 0.3px; font-size: 17px; font-weight: 500; display: flex; align-items: center;" *ngIf="selectedListing?.type === '1'" >
 										<i style="margin-right: 8px;" class="material-icons mat-36">directions_bike</i>
 										Bike
 									</span>
-									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;" *ngIf="selectedListing?.type !== '1'" >
+									<span style="letter-spacing: 0.3px; font-size: 17px; font-weight: 500; display: flex; align-items: center;" *ngIf="selectedListing?.type !== '1'" >
 										<i style="margin-right: 8px;" class="material-icons mat-36">directions_run</i>
 										Run
 									</span>
@@ -107,11 +107,11 @@
 							<div style="display: flex; flex-direction: column;">
 								<span style="color: #666; display: flex; align-items: center;  padding-bottom: 8px; font-weight: 100; font-size: 16px; letter-spacing: 1.4px;">Pace</span>
 								<div style="display: flex; align-items: center;">
-									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;" *ngIf="selectedListing?.pace === '1'">
+									<span style="letter-spacing: 0.3px; font-size: 17x; font-weight: 500; display: flex; align-items: center;" *ngIf="selectedListing?.pace === '1'">
 										<i style="margin-right: 8px;" class="material-icons mat-36">looks_3</i>
 										Fast
 									</span>
-									<span style="letter-spacing: 0.3px; font-size: 18px; font-weight: 600; display: flex; align-items: center;" *ngIf="selectedListing?.pace !== '1'">
+									<span style="letter-spacing: 0.3px; font-size: 17px; font-weight: 500; display: flex; align-items: center;" *ngIf="selectedListing?.pace !== '1'">
 										<i style="margin-right: 8px;" class="material-icons mat-36">looks_one</i>
 										Fun
 									</span>

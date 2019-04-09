@@ -4,7 +4,7 @@ import { keys as AUTH_CONFIG } from '../../../../env-config';
 import {
     // UserService,
     // RouteService,
-    // UtilsService,
+    MapService,
     ListingService
 } from '../../core/services/index';
 import { Listing } from '../../core/models/index';
@@ -24,7 +24,7 @@ smallMap = 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-a+9
 
 constructor(
 	// private userService: UserService,
-	// private routesService: RouteService,
+	private mapService: MapService,
 	private listingService: ListingService,
 	private router: Router,
 ) { }

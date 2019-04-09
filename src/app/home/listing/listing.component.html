@@ -31,7 +31,10 @@
 			
 			<div *ngIf="listingService.currentListingsLoaded && currentListings?.length === 0" style="text-align: center; padding: 50px;">There are no listings to display.</div>
 			<mat-list *ngFor="let listing of currentListings" class="left" role="list">
-				<mat-list-item class="item" role="list-item" style="padding-right: 5px;" (click)="viewListing(listing)">
+				<mat-list-item class="item" role="list-item" style="padding-right: 5px;" 
+					(click)="viewListing(listing)"
+					(mouseenter)="mapService.setSelectedMap(listing._id)"
+					(mouseleave)="mapService.clearSelectedMap(listing._id)">
 					<img class="font" style="border: 1px solid #dadada" [src]="this.getSmallMap(listing?.route.map.summary_polyline)">
 					<span matListIcon style="width: 40px !important">
 						<i class="material-icons mat-36 head-icon" style="color: #9a9a9a">{{ listing?.type === '1' ? 'directions_bike' : 'directions_run'}}</i>

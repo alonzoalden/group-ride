@@ -1,13 +1,24 @@
 <div style="width: 100%;">
     <mgl-map
-        [style]="'mapbox://styles/mapbox/streets-v10'"
+        [style]="'mapbox://styles/mapbox/light-v9'"
         [zoom]="[7]"
         [center]="[-74.50, 40]"
         [fitBounds]="bounds">
 
+        <!-- <mgl-control position="top-left">
+            Hello
+        </mgl-control> -->
+        <mgl-control mglNavigation ></mgl-control>
+      
+        <mgl-control
+            mglScale
+            unit="imperial"
+            position="top-right"
+        ></mgl-control>
+
         <mgl-marker [lngLat]="[-74.50, 40]">
-            <div (click)="alert('Foo')" class="marker">
-                <i class="material-icons" style="color: #0038a8 !important; font-size: 16px;">directions_bike</i>
+            <div class="marker" (click)="alert('Foo')" [ngClass]="mapService.selectedMap ==='5caa95e9cedfc540a4b88d26' ? 'marker-hover' : ''">
+                <i class="material-icons">directions_bike</i>
             </div>
         </mgl-marker>
     </mgl-map>

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {
+    MapService
+} from '../core/services/index';
+
 declare var require: any;
 @Component({
   selector: 'map-box',
@@ -7,7 +11,9 @@ declare var require: any;
 })
 export class MapBoxComponent {
 	bounds: any
-	constructor() { }
+	constructor(
+		private mapService: MapService,
+	) { }
 	ngOnInit() {
 	}
 	ngAfterViewInit() {

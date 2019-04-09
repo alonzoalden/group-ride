@@ -257,3 +257,32 @@ input.error1::placeholder {
 .btn:hover {
     cursor: pointer;
 }
+.marker {
+    color: #0038a8;
+    box-shadow: 4px 4px 12px #888;
+    border-radius: 100%;
+    padding: 3px;
+    background-color: rgba(255, 255, 255, 0.01);
+    border: 1px solid #eee; 
+    cursor: pointer;
+    transition: 80ms all ease-in-out;
+}
+.marker i {
+    font-size: 20px;
+    transition: 80ms all ease-in-out;
+}
+.marker-hover,
+.marker:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: #00246d;
+    border: 1px solid #fff;
+    padding: 5px;
+    box-shadow: 6px 6px 12px #888;
+    transition: 80ms all ease-in-out;
+    
+}
+.marker-hover i,
+.marker:hover i {
+    font-size: 26px;
+    transition: 80ms all ease-in-out;
+}

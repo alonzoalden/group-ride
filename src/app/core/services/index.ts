@@ -5,3 +5,4 @@ export * from './route.service';
 export * from './auth-guard.service';
 export * from './utils.service';
 export * from './listing.service';
+export * from './map.service';

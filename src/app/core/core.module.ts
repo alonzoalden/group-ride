@@ -10,6 +10,7 @@ import {
   RouteService,
   UtilsService,
   ListingService,
+  MapService,
   AuthGuard
 } from './services';
 
@@ -25,6 +26,7 @@ import {
     RouteService,
     UtilsService,
     ListingService,
+    MapService,
     ValidationService,
     AuthGuard
   ],

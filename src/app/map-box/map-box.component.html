@@ -1,9 +1,9 @@
 <div style="width: 100%;">
     <mgl-map
         [style]="'mapbox://styles/mapbox/light-v9'"
-        [zoom]="[4]"
-        
-        [fitBounds]="mapService.bounds">
+        [zoom]="[9]"
+        [center]="[-118, 34]"
+        [fitBounds]="mapService.startViewBounds">
 
         create a block to display 
         <!-- <mgl-control position="top-left">
@@ -18,16 +18,24 @@
         >
         </mgl-control>
 
-        <mgl-marker [lngLat]="listing?.route.map.polyline.coordinates[0]" *ngFor="let listing of currentListings">
-            <div class="marker" (click)="alert('Foo')" [ngClass]="mapService.selectedMap === listing._id ? 'marker-hover' : ''">
+        <mgl-marker 
+            *ngFor="let listing of currentListings"
+            [lngLat]="listing?.route.map.polyline.data.coordinates[0]"
+            >
+            <div class="marker" 
+                (click)="viewListing(listing)"
+                (mouseenter)="mapService.setSelectedMap(listing._id)"
+                (mouseleave)="mapService.clearSelectedMap(listing._id)"
+                (click)="alert('Foo')" [ngClass]="mapService.selectedMap === listing._id ? 'marker-hover' : ''">
                 <i class="material-icons">directions_bike</i>
             </div>
         </mgl-marker>
-        <mgl-layer *ngFor="let listing of currentListings" type="line"
+        <mgl-layer id="listing.id" *ngFor="let listing of currentListings" type="line"
             [source]="listing?.route.map.polyline"
             [paint]="{
-            'line-color': '#627BC1',
-            'line-width': 2
+            'line-color': mapService.selectedMap === listing._id ? '#0038a8' : '#627BC1',
+            'line-width': mapService.selectedMap === listing._id ? 1 : 2,
+            'line-opacity': mapService.selectedMap === listing._id ? 1 : 0.1
             }"
         >
         </mgl-layer>

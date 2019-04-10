@@ -59,6 +59,7 @@ constructor(
 	}
 
 	private viewListing(listing: Listing): void {
+		this.mapService.clearSelectedMap();
 		this.listingService.updateSelectedSubject(listing);
 		this.router.navigateByUrl('/listing');
 	}

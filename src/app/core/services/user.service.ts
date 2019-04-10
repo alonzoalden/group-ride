@@ -120,7 +120,7 @@ export class UserService {
 				else {
 					// Set current user data into observable
 					this.currentUserSubject.next(user);
-					this.mapService.bounds = [
+					this.mapService.startViewBounds = [
 						[+user.location_coords[0] - 1, +user.location_coords[1] - 1],
 						[+user.location_coords[0] + 1, +user.location_coords[1] + 1]
 					];

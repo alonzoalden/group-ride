@@ -38,9 +38,12 @@ export class ListingService {
         this.apiService.get(`listings`)
             .subscribe((listings: Listing[])=> {
                 listings.map( item => {
-                    item.route.map.polyline = polyline.toGeoJSON(item.route.map.summary_polyline);
+                    item.route.map.polyline = {
+                        type: 'geojson',
+                        data: polyline.toGeoJSON(item.route.map.summary_polyline)
+                    }
                 })
-                
+                console.log(listings);
                 this.currentListingsSubject.next(listings);
                 this.currentListingsLoaded = true;
                 this.currentListingsLoading = false;

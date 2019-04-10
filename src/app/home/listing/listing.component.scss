@@ -10,12 +10,12 @@
 }
 
 .left {
-    
-    :hover {
+    .active-listing-tab {
         background-color: #f3f3f4;
-        transition: 70ms;
+        transition: all 100ms ease-in-out;
+    }
+    :hover {
         cursor: pointer;
-        
     }
 }
 

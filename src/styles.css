@@ -265,24 +265,24 @@ input.error1::placeholder {
     background-color: rgba(255, 255, 255, 0.01);
     border: 1px solid #eee; 
     cursor: pointer;
-    transition: 80ms all ease-in-out;
+    transition: 100ms all ease-in-out;
 }
 .marker i {
     font-size: 20px;
-    transition: 80ms all ease-in-out;
+    transition: 100ms all ease-in-out;
 }
 .marker-hover,
 .marker:hover {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.01);
     color: #00246d;
     border: 1px solid #fff;
     padding: 5px;
     box-shadow: 6px 6px 12px #888;
-    transition: 80ms all ease-in-out;
+    transition: 100ms all ease-in-out;
     
 }
 .marker-hover i,
 .marker:hover i {
     font-size: 26px;
-    transition: 80ms all ease-in-out;
+    transition: 100ms all ease-in-out;
 }

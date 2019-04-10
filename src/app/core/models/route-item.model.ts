@@ -17,7 +17,7 @@ export class RouteItem {
         id: String;
         summary_polyline: String;
         resource_state: Number;
-        polyline: [Number, Number][];
+        polyline: any;
     }
     name: String;
     'private': Boolean;

@@ -15,7 +15,8 @@ import {
 
 export class MapService {
     public selectedMap: string;
-    public bounds: any;
+    public startViewBounds: any;
+    public listingViewBounds: any;
     
 	constructor(
     ) {}
@@ -25,5 +26,23 @@ export class MapService {
     }
     clearSelectedMap() {
         this.selectedMap = '';
+    }
+
+    setStartViewBounds(bounds) {
+        const newBounds = [
+            [+bounds[0] - 1, +bounds[1] - 1],
+            [+bounds[0] + 1, +bounds[1] + 1]
+        ]
+        this.startViewBounds = newBounds;
+    }
+    clearStartViewBounds() {
+        this.startViewBounds = '';
+    }
+
+    setListingViewBounds(bounds) {
+        this.listingViewBounds = bounds;
+    }
+    clearListingViewBounds() {
+        this.listingViewBounds = '';
     }
 }

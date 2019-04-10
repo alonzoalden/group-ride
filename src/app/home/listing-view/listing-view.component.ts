@@ -3,7 +3,8 @@ import { keys as AUTH_CONFIG } from '../../../../env-config';
 import { Router } from '@angular/router';
 import {
     UserService,
-    ListingService
+	ListingService,
+	MapService
 } from '../../core/services/index';
 import { Listing, ListingMember, User } from '../../core/models/index';
 import { NotificationsService } from 'angular2-notifications';
@@ -23,7 +24,7 @@ export class ListingViewComponent implements OnInit {
 	
 	constructor(
 		private userService: UserService,
-		// private routesService: RouteService,
+		private mapService: MapService,
 		private listingService: ListingService,
 		private router: Router,
 		private notificationsService: NotificationsService,
@@ -40,9 +41,27 @@ export class ListingViewComponent implements OnInit {
 					if (!listingData.date) return this.router.navigateByUrl('/');
 					this.selectedListing = listingData;
 					this.checkIfUserInGroup();
+					const listingViewCoordinates = listingData.route.map.polyline.data.coordinates;
+					// this.mapService.startViewBounds = [
+					// 	listingViewCoordinates[0],
+					// 	listingViewCoordinates[listingViewCoordinates.length/2]
+					// ];
+
+					///
+					console.log(listingViewCoordinates);
+					///^^^
+					const length = listingViewCoordinates.length / 2;
+					this.mapService.startViewBounds = [
+						[+listingViewCoordinates[length][0] - .25, +listingViewCoordinates[length][1] - .25],
+						[+listingViewCoordinates[length][0] + .25, +listingViewCoordinates[length][1] + .25]
+					];
+					
 					this.isLoading = false;
 				}
 			)
+
+			
+
 		});
 		
 	}

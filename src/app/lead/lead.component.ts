@@ -128,7 +128,6 @@ export class LeadComponent implements OnInit {
         if (!this.validationService.validate()) return this.isSubmitting = false;
 
         const route = this.currentRouteList.find((route) => route.id === this.listing.route.id);
-        console.log(route, this.listing.route)
         const time24hr = moment(this.listing.time, ["h:mm A"]).format("HH:mm");
         
         if (typeof this.listing.date !== 'string') {

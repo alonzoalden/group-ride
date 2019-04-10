@@ -31,7 +31,7 @@
 			
 			<div *ngIf="listingService.currentListingsLoaded && currentListings?.length === 0" style="text-align: center; padding: 50px;">There are no listings to display.</div>
 			<mat-list *ngFor="let listing of currentListings" class="left" role="list">
-				<mat-list-item class="item" role="list-item" style="padding-right: 5px;" 
+				<mat-list-item class="item" [ngClass]="mapService.selectedMap === listing._id ? 'active-listing-tab' : ''" role="list-item" style="padding-right: 5px;" 
 					(click)="viewListing(listing)"
 					(mouseenter)="mapService.setSelectedMap(listing._id)"
 					(mouseleave)="mapService.clearSelectedMap(listing._id)">

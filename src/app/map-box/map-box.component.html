@@ -1,10 +1,11 @@
 <div style="width: 100%;">
     <mgl-map
         [style]="'mapbox://styles/mapbox/light-v9'"
-        [zoom]="[7]"
-        [center]="[-74.50, 40]"
-        [fitBounds]="bounds">
+        [zoom]="[4]"
+        
+        [fitBounds]="mapService.bounds">
 
+        create a block to display 
         <!-- <mgl-control position="top-left">
             Hello
         </mgl-control> -->
@@ -13,13 +14,22 @@
         <mgl-control
             mglScale
             unit="imperial"
-            position="top-right"
-        ></mgl-control>
+            position="bottom-right"
+        >
+        </mgl-control>
 
-        <mgl-marker [lngLat]="[-74.50, 40]">
-            <div class="marker" (click)="alert('Foo')" [ngClass]="mapService.selectedMap ==='5caa95e9cedfc540a4b88d26' ? 'marker-hover' : ''">
+        <mgl-marker [lngLat]="listing?.route.map.polyline.coordinates[0]" *ngFor="let listing of currentListings">
+            <div class="marker" (click)="alert('Foo')" [ngClass]="mapService.selectedMap === listing._id ? 'marker-hover' : ''">
                 <i class="material-icons">directions_bike</i>
             </div>
         </mgl-marker>
+        <mgl-layer *ngFor="let listing of currentListings" type="line"
+            [source]="listing?.route.map.polyline"
+            [paint]="{
+            'line-color': '#627BC1',
+            'line-width': 2
+            }"
+        >
+        </mgl-layer>
     </mgl-map>
 </div>

@@ -3,6 +3,7 @@ import { keys as AUTH_CONFIG } from '../../../../env-config';
 import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 import { ApiService } from './api.service';
 import { JwtService } from './jwt.service';
+import { MapService } from './map.service';
 import Auth0Lock from 'auth0-lock';
 import { User } from '../models';
 import { BehaviorSubject } from 'rxjs';
@@ -37,6 +38,7 @@ export class UserService {
 		public router: Router,
 		private apiService: ApiService,
 		private jwtService: JwtService,
+		private mapService: MapService,
 		private activatedRoute: ActivatedRoute,
 		private dialog: MatDialog
 	) {}
@@ -118,6 +120,11 @@ export class UserService {
 				else {
 					// Set current user data into observable
 					this.currentUserSubject.next(user);
+					this.mapService.bounds = [
+						[+user.location_coords[0] - 1, +user.location_coords[1] - 1],
+						[+user.location_coords[0] + 1, +user.location_coords[1] + 1]
+					];
+					
 					// Set isAuthenticated to true
 					this.isAuthenticatedSubject.next(true);
 					this.isLoading = false;

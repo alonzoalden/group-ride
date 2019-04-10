@@ -15,6 +15,8 @@ import {
 
 export class MapService {
     public selectedMap: string;
+    public bounds: any;
+    
 	constructor(
     ) {}
     

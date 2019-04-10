@@ -12,7 +12,7 @@ import {
     RouteItem,
     ListingMember
 } from '../models/index';
-
+import * as polyline from '@mapbox/polyline';
 @Injectable()
 
 export class ListingService {
@@ -37,6 +37,10 @@ export class ListingService {
         this.currentListingsLoading = true;
         this.apiService.get(`listings`)
             .subscribe((listings: Listing[])=> {
+                listings.map( item => {
+                    item.route.map.polyline = polyline.toGeoJSON(item.route.map.summary_polyline);
+                })
+                
                 this.currentListingsSubject.next(listings);
                 this.currentListingsLoaded = true;
                 this.currentListingsLoading = false;

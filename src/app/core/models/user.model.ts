@@ -9,6 +9,7 @@ export class User {
     city: String;
     state: String;
     country: String;
+    location_coords: Number[];
     sex: String;
     premium: Boolean;
     email: String;

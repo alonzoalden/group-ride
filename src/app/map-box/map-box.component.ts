@@ -38,5 +38,8 @@ export class MapBoxComponent {
     private viewListing(listing: Listing): void {
 		this.listingService.updateSelectedSubject(listing);
 		this.router.navigateByUrl('/listing');
-	}
+    }
+    private trackFn(idx: number, data: any) {
+        return data._id;
+    }
 }

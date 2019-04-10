@@ -30,7 +30,7 @@
                 <i class="material-icons">directions_bike</i>
             </div>
         </mgl-marker>
-        <mgl-layer id="listing.id" *ngFor="let listing of currentListings" type="line"
+        <mgl-layer [id]="listing?._id" *ngFor="let listing of currentListings; trackBy: trackFn" type="line"
             [source]="listing?.route.map.polyline"
             [paint]="{
             'line-color': mapService.selectedMap === listing._id ? '#0038a8' : '#627BC1',

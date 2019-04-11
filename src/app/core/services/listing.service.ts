@@ -101,6 +101,8 @@ export class ListingService {
             }))
     }
 
+
+    //fix this to not add the same object.  if the listing is an edit, replace it
     public addToCurrentListings(listing: Listing): void {
         this.currentListingsSubject.next([...this.currentListingsSubject.value, listing]);
 	}

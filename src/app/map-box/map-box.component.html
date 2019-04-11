@@ -5,7 +5,6 @@
         [center]="[-118, 34]"
         [fitBounds]="mapService.startViewBounds">
 
-        create a block to display 
         <!-- <mgl-control position="top-left">
             Hello
         </mgl-control> -->
@@ -25,17 +24,19 @@
             <div class="marker" 
                 (click)="viewListing(listing)"
                 (mouseenter)="mapService.setSelectedMap(listing._id)"
-                (mouseleave)="mapService.clearSelectedMap(listing._id)"
+                (mouseleave)="router.url.includes('listing') ? '' : mapService.clearSelectedMap()"
                 (click)="alert('Foo')" [ngClass]="mapService.selectedMap === listing._id ? 'marker-hover' : ''">
                 <i class="material-icons">directions_bike</i>
             </div>
         </mgl-marker>
-        <mgl-layer [id]="listing?._id" *ngFor="let listing of currentListings; trackBy: trackFn" type="line"
+        <mgl-layer [id]="listing?._id" *ngFor="let listing of currentListings;" type="line"
             [source]="listing?.route.map.polyline"
             [paint]="{
             'line-color': mapService.selectedMap === listing._id ? '#0038a8' : '#627BC1',
-            'line-width': mapService.selectedMap === listing._id ? 1 : 2,
-            'line-opacity': mapService.selectedMap === listing._id ? 1 : 0.1
+            'line-width': mapService.selectedMap === listing._id
+                ? (router.url.includes('listing') ? 3 : 2)
+                : 1,
+            'line-opacity': mapService.selectedMap === listing._id ? 1 : 0.35
             }"
         >
         </mgl-layer>

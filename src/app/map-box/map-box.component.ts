@@ -8,6 +8,7 @@ import {
 } from '../core/services/index';
 import { Listing, User } from '../core/models/index';
 import * as polyline from '@mapbox/polyline';
+import * as geolib from 'geolib';
 declare var require: any;
 
 @Component({
@@ -19,6 +20,7 @@ export class MapBoxComponent {
     currentUser: User;
     
     currentListings: Listing[];
+    selectedListing: Listing;
 
 	constructor(
         private userService: UserService,
@@ -34,6 +36,12 @@ export class MapBoxComponent {
                 this.currentListings = listingData;
             }
         )
+        this.listingService.selectedListing.subscribe(
+            (listingData: Listing) => {
+                this.selectedListing = listingData;
+                if (listingData.route.map && listingData.route.map.polyline) this.getBounds();
+            }
+        )
     }
     private viewListing(listing: Listing): void {
         this.mapService.clearSelectedMap();
@@ -41,7 +49,9 @@ export class MapBoxComponent {
 		this.listingService.updateSelectedSubject(listing);
 		this.router.navigateByUrl('/listing');
     }
-    private trackFn(idx: number, data: any) {
-        return data._id;
+    private getBounds() {
+        const bounds = geolib.getBounds(this.selectedListing.route.map.polyline.data.coordinates);
+        this.mapService.setListingViewBounds(bounds);
     }
+    
 }

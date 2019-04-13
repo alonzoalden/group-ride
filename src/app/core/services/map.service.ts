@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-// import { keys as AUTH_CONFIG } from '../../../../env-config';
-// import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
-// import { BehaviorSubject, Observable } from 'rxjs';
-// import { map, distinctUntilChanged } from 'rxjs/operators';
-// import { ApiService } from './api.service';
-// import { UserService } from './user.service';
+
 import {
 	User,
     RouteList,
@@ -34,13 +29,19 @@ export class MapService {
             [+bounds[0] + 1, +bounds[1] + 1]
         ]
         this.startViewBounds = newBounds;
+        console.log('start view bunds');
     }
     clearStartViewBounds() {
         this.startViewBounds = '';
     }
 
     setListingViewBounds(bounds) {
-        this.listingViewBounds = bounds;
+        console.log('listing view bunds');
+        const newBounds = [
+            [+bounds.minLng - 0.05, +bounds.minLat - 0.05],
+            [+bounds.maxLng + 0.05, +bounds.maxLat + 0.05]
+        ]
+        this.listingViewBounds = newBounds;
     }
     clearListingViewBounds() {
         this.listingViewBounds = '';

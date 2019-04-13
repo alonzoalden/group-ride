@@ -3,7 +3,7 @@
         [style]="'mapbox://styles/mapbox/light-v9'"
         [zoom]="[9]"
         [center]="[-118, 34]"
-        [fitBounds]="mapService.startViewBounds">
+        [fitBounds]="router.url.includes('listing') ? mapService.listingViewBounds : mapService.startViewBounds">
 
         <!-- <mgl-control position="top-left">
             Hello

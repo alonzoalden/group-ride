@@ -32,6 +32,7 @@
     "auth0-js": "^9.7.3",
     "auth0-lock": "^11.8.1",
     "core-js": "^2.5.4",
+    "geolib": "^2.0.24",
     "mapbox-gl": "^0.47.0",
     "moment": "^2.24.0",
     "ngx-mapbox-gl": "^2.0.0",

@@ -46,7 +46,8 @@ constructor(
             (listingData: Listing[]) => {
                 this.currentListings = listingData;
             }
-        )
+		)
+		
 	}
 	private getSmallMap(encodedPolyline: string) {
 		return 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/path('

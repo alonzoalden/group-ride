@@ -43,7 +43,6 @@ export class ListingService {
                         data: polyline.toGeoJSON(item.route.map.summary_polyline)
                     }
                 })
-                console.log(listings);
                 this.currentListingsSubject.next(listings);
                 this.currentListingsLoaded = true;
                 this.currentListingsLoading = false;

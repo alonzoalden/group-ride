@@ -48,6 +48,7 @@ export class ListingViewComponent implements OnInit {
 					// ];
 
 					const length = Math.floor(listingViewCoordinates.length / 2);
+					
 					this.mapService.startViewBounds = [
 						[+listingViewCoordinates[length][0] - .25, +listingViewCoordinates[length][1] - .25],
 						[+listingViewCoordinates[length][0] + .25, +listingViewCoordinates[length][1] + .25]

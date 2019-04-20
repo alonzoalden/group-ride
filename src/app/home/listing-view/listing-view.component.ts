@@ -63,7 +63,13 @@ export class ListingViewComponent implements OnInit {
 		});
 		
 	}
-
+	ngOnDestroy(): void {
+		console.log(this.mapService.listingViewBounds)
+		this.mapService.startViewBounds = [
+			[+this.mapService.listingViewBounds[0][0] - 0.5, +this.mapService.listingViewBounds[0][1] - 0.5],
+			[+this.mapService.listingViewBounds[1][0] + 0.5, +this.mapService.listingViewBounds[1][1] + 0.5]
+		];
+	}
 	private submitJoinGroup(): void {
 		if (!this.userService.isAuthenticated()) {
 			this.notificationsService.error('Please Sign In', 'You must be signed in to join a ride.');

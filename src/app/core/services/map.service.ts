@@ -28,15 +28,13 @@ export class MapService {
             [+bounds[0] - 1, +bounds[1] - 1],
             [+bounds[0] + 1, +bounds[1] + 1]
         ]
-        this.startViewBounds = newBounds;
-        console.log('start view bunds');
+        this.startViewBounds = newBounds;        
     }
     clearStartViewBounds() {
         this.startViewBounds = '';
     }
 
-    setListingViewBounds(bounds) {
-        console.log('listing view bunds');
+    setListingViewBounds(bounds) {        
         const newBounds = [
             [+bounds.minLng - 0.05, +bounds.minLat - 0.05],
             [+bounds.maxLng + 0.05, +bounds.maxLat + 0.05]

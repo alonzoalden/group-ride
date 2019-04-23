@@ -58,7 +58,7 @@ constructor(
 	private displayTime(time: string): string {
 		return time[0] === '0' ? time.slice(1) : time;
 	}
-
+	//s
 	private viewListing(listing: Listing): void {
 		this.mapService.clearSelectedMap();
 		this.mapService.setSelectedMap(listing._id);

@@ -52,7 +52,10 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 	],
 	providers: [
 		// {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, direction: 'ltr'}}
-		{ provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } }
+		{ 
+			provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+			useValue: { useUtc: true }
+		},
 	],
 	bootstrap: [AppComponent],
 	entryComponents: [UserConfirmComponent, SnackBarComponent]

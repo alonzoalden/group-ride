@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 export class UtilsService {
 
     // This method is used to for the overflow correction from the Mat Side Nav Panel. -alonzo
-    public overflow(val: boolean) {
+    public overflow(val: any) {
         let sideView = document.getElementsByClassName('ride-list')[0];
         let leaderContainer = document.getElementsByClassName('leader-container')[0];
         let title = document.getElementsByClassName('title')[0];

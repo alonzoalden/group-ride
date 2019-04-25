@@ -28,14 +28,14 @@ export class RouteComponent implements OnInit {
     routes: Array<any>;
     selectedRoute: RouteItem;
 
-    editListing: boolean;
+    editListing: any;
 
     constructor(
         public router: Router,
         private routeService: RouteService,
         private validationService: ValidationService,
         private listingService: ListingService,
-        private utils: UtilsService,
+        public utils: UtilsService,
         private route: ActivatedRoute,
     ) { }
     

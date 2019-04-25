@@ -21,9 +21,9 @@ smallMap = 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-a+9
 
 constructor(
 	// private userService: UserService,
-	private mapService: MapService,
-	private listingService: ListingService,
-	private router: Router,
+	public mapService: MapService,
+	public listingService: ListingService,
+	public router: Router,
 ) { }
 	searchOptions = [ 
 		{

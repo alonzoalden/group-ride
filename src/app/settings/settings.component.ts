@@ -16,7 +16,7 @@ import {
 export class SettingsComponent implements OnInit {
     
     constructor(
-        private user: UserService,
+        public user: UserService,
         private routes: RouteService
     ) { }
 

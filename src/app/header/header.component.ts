@@ -17,10 +17,10 @@ import { NotificationsService } from 'angular2-notifications';
 export class HeaderComponent implements OnInit {
     currentUser: User;
     constructor(
-        private user: UserService,
+        public user: UserService,
         private jwt: JwtService,
         private notificationsService: NotificationsService,
-        private router: Router,
+        public router: Router,
     ) {}
     ngOnInit() {
         this.user.currentUser.subscribe(

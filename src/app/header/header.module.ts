@@ -14,6 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     
   ],
-  declarations: [HeaderComponent]
+  declarations: []
 })
 export class HeaderModule { }

@@ -16,8 +16,6 @@ import { MatCardModule } from '@angular/material/card';
         MatCardModule
     ],
     declarations: [
-        LeadComponent,
-        RouteComponent,
     ],
     providers: [
         

@@ -23,7 +23,7 @@ export class ListingViewComponent implements OnInit {
 	currentUser: User;
 	
 	constructor(
-		private userService: UserService,
+		public userService: UserService,
 		private mapService: MapService,
 		private listingService: ListingService,
 		private router: Router,

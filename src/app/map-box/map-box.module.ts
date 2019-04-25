@@ -15,7 +15,7 @@ import { keys as AUTH_CONFIG } from '../../../env-config';
 		MapBoxComponent
 	],
 	exports: [
-		MapBoxComponent
+    MapBoxComponent,
 	]
 })
 export class MapboxModule {}

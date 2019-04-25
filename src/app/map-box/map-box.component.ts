@@ -9,25 +9,26 @@ import {
 import { Listing, User } from '../core/models/index';
 import * as polyline from '@mapbox/polyline';
 import * as geolib from 'geolib';
-declare var require: any;
+// declare var require: any;
 
 @Component({
     selector: 'map-box',
     styles: [ require('./map-box.component.scss') ],
-    template: require('./map-box.component.html'),
+    templateUrl: './map-box.component.html',
 })
 export class MapBoxComponent {
     currentUser: User;
-    
     currentListings: Listing[];
     selectedListing: Listing;
 
 	constructor(
-        private userService: UserService,
-        private mapService: MapService,
-        private listingService: ListingService,
-        private router: Router,
-	) { }
+        public userService: UserService,
+        public mapService: MapService,
+        public listingService: ListingService,
+        public router: Router,
+	) { 
+        
+    }
 	ngOnInit() {
 	}
 	ngAfterViewInit() {

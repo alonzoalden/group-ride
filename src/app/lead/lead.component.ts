@@ -46,12 +46,12 @@ export class LeadComponent implements OnInit {
     @ViewChild('date') date: any;
 
     constructor(
-        private userService: UserService,
+        public userService: UserService,
         private routesService: RouteService,
         private notificationsService: NotificationsService,
         private validationService: ValidationService,
         private listingService: ListingService,
-        private utils: UtilsService,
+        public utils: UtilsService,
         private router: Router,
         private route: ActivatedRoute,
 

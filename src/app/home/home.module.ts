@@ -24,7 +24,6 @@ import {
     MatCardModule,
 } from '@angular/material';
 import {
-
 } from '@angular/material';
 import { LeadComponent } from '../lead/lead.component';
 import { RouteComponent } from '../lead/route/route.component';

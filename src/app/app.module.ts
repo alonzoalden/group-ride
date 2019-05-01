@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-// import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
@@ -51,7 +51,6 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 		SimpleNotificationsModule.forRoot()
 	],
 	providers: [
-		// {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, direction: 'ltr'}}
 		{ 
 			provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 			useValue: { useUtc: true }

@@ -39,11 +39,11 @@ export class LeadComponent implements OnInit {
     paceFormControl = new FormControl('', [
         Validators.required,
     ]);
-    @ViewChild('type') type: any;
-    @ViewChild('title') title: any;
-    @ViewChild('pace') pace: any;
-    @ViewChild('time') time: any;
-    @ViewChild('date') date: any;
+    @ViewChild('type', { static: true }) type: any;
+    @ViewChild('title', { static: true }) title: any;
+    @ViewChild('pace', { static: true }) pace: any;
+    @ViewChild('time', { static: true }) time: any;
+    @ViewChild('date', { static: true }) date: any;
 
     constructor(
         public userService: UserService,

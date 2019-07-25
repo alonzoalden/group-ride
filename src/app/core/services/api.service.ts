@@ -14,7 +14,7 @@ export class ApiService {
 	) {}
 
 	private formatErrors(error: any) {
-		return observableThrowError(error.json());
+		return error.json();
 	}
 
 	get(path: string, params: HttpParams = new HttpParams()): Observable<any> {

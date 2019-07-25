@@ -18,7 +18,7 @@ import { ValidationService } from '../lead-validation.service';
 
 export class RouteComponent implements OnInit {
     
-    @ViewChild('selectedRouteVar') selectedRouteVar: any;
+    @ViewChild('selectedRouteVar', { static: true }) selectedRouteVar: any;
     @Input() model: RouteItem;
     @Output() modelChange = new EventEmitter<RouteItem>();
 

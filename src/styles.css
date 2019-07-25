@@ -3,7 +3,9 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 /* @import "~@ng-select/ng-select/themes/default.theme.css"; */
 @import "~@ng-select/ng-select/themes/material.theme.css";
-@import 'mapbox-gl/dist/mapbox-gl.css';
+
+@import "~mapbox-gl/dist/mapbox-gl.css";
+@import "~@mapbox/mapbox-gl-geocoder/lib/mapbox-gl-geocoder.css";
 
 body {
     font-family: Roboto,"Helvetica Neue",sans-serif;

@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable ,  throwError } from 'rxjs';
 
 import { JwtService } from './jwt.service';
-import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
@@ -15,7 +14,7 @@ export class ApiService {
 	) {}
 
 	private formatErrors(error: any) {
-		return Observable.throw(error.json());
+		return observableThrowError(error.json());
 	}
 
 	get(path: string, params: HttpParams = new HttpParams()): Observable<any> {

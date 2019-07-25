@@ -16,7 +16,7 @@
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
     "@angular/core": "^6.1.0",
-    "@angular/flex-layout": "^6.0.0-beta.17",
+    "@angular/flex-layout": "^8.0.0-beta.26",
     "@angular/forms": "^6.1.0",
     "@angular/material": "^6.4.3",
     "@angular/material-moment-adapter": "^7.3.3",
@@ -62,6 +62,7 @@
     "typescript": "~2.7.2"
   },
   "dependencies": {
+    "@angular/flex-layout": "^8.0.0-beta.26",
     "ngx-mapbox-gl": "^3.3.1",
     "tslib": "^1.9.0"
   }
